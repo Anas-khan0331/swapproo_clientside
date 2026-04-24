@@ -1,26 +1,147 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─────────────────────────────────────────────
+   Brand font — place file at /public/fonts/
+   ───────────────────────────────────────────── */
+@font-face {
+  font-family: "GC EPICPRO";
+  src:
+    url("/fonts/GCEpicPro-SemiBold.woff2") format("woff2"),
+    url("/fonts/GCEpicPro-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
+/* ─────────────────────────────────────────────
+   Tailwind theme — exposes CSS vars as utilities
+   ───────────────────────────────────────────── */
 @theme inline {
+  /* Semantic colors (wired to :root vars) */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Primary green scale — confirmed from Figma design system */
+  --color-primary-50: #efffb2;
+  --color-primary-100: #c9fe85;
+  --color-primary-200: #90fc59;
+  --color-primary-300: #43f92e;
+  --color-primary-400: #09f025;
+  --color-primary-500: #09c24a;
+  --color-primary-600: #0c9733;
+  --color-primary-700: #0d6f22;
+  --color-primary-800: #0c4914;
+  --color-primary-900: #08250a;
+  --color-primary-950: #041205;
+
+  /* Neutral scale — Neutral/000 & Neutral/050 confirmed from Figma */
+  --color-neutral-000: #ffffff;
+  --color-neutral-050: #f7f8fa;
+  --color-neutral-100: #f0f1f3;
+  --color-neutral-200: #e4e6ea;
+  --color-neutral-300: #c8cdd5;
+  --color-neutral-400: #9aa0ab;
+  --color-neutral-500: #6b7280;
+  --color-neutral-600: #4b5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1f2937;
+  --color-neutral-900: #111827;
+  --color-neutral-950: #0a0a0a;
+
+  /* Utility */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Radius scale */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Fonts */
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --font-brand: "GC EPICPRO", sans-serif;
+
+  /* Shadows */
+  --shadow-sm: 0px 1px 3px 0px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0px 4px 6px 0px rgba(0, 0, 0, 0.1), 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─────────────────────────────────────────────
+   Design tokens — shadcn semantic vars + Figma
+   ───────────────────────────────────────────── */
+:root {
+  /* ── shadcn semantic colors ── */
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+
+  /* Primary = brand green 500 (Figma) */
+  --primary: #09c24a;
+  --primary-foreground: #ffffff;
+
+  /* Secondary & muted = Neutral/050 (confirmed Figma) */
+  --secondary: #f7f8fa;
+  --secondary-foreground: #0a0a0a;
+  --muted: #f7f8fa;
+  --muted-foreground: #6b7280;
+
+  /* Accent = brand green 300 */
+  --accent: #43f92e;
+  --accent-foreground: #08250a;
+
+  --destructive: #dc2626;
+
+  /* Border & input = Neutral/200 (Figma) */
+  --border: #e4e6ea;
+  --input: #e4e6ea;
+  --ring: #09c24a;
+
+  --radius: 0.625rem;
+
+  /* ── Figma border-radius design tokens ── */
+  --borderradius-rounded-box: 0.875rem; /* 14px — card containers  */
+  --borderradius-rounded-field: 0.5rem; /* 8px  — buttons, selects */
+  --borderradius-rounded-input: 0.625rem; /* 10px — inputs, OTP slots */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
 }
