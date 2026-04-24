@@ -45,3 +45,10 @@ dev-commands.md
 COMMANDS.md
 *.local.md
 scratch/
+<<<<<<< HEAD
+=======
+
+# IDE / AI tools - local only
+.vscode/
+.windsurf/
+>>>>>>> a877bab (Restructue Swapproo)
