@@ -14,7 +14,11 @@ import { MENU_CATEGORIES } from "@/constants/menu";
 
 export function MegaMenu() {
   return (
+<<<<<<< HEAD
     <div className="wrapper bg-neutral-025 border-neutral-150 border-b py-[14px]">
+=======
+    <div className="bg-neutral-025 border-neutral-150 border-b px-24 py-[14px]">
+>>>>>>> afa9168 (Homepage sections implementation)
       <NavigationMenu viewport={false}>
         <NavigationMenuList className="gap-11">
           {MENU_CATEGORIES?.map((category) => (
@@ -46,7 +50,11 @@ function ListItem({ title, href, ...props }) {
     <li {...props}>
       <NavigationMenuLink asChild>
         <Link href={href}>
+<<<<<<< HEAD
           <div className="hover:text-primary focus-visible:text-primary text-sm leading-5 font-normal tracking-normal text-neutral-500 transition-colors focus-visible:outline-none">
+=======
+          <div className="text-sm leading-5 font-normal tracking-normal text-neutral-500">
+>>>>>>> afa9168 (Homepage sections implementation)
             {title}
           </div>
         </Link>

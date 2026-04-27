@@ -43,3 +43,22 @@ const Footer = () => {
 };
 
 export default Footer;
+<<<<<<< HEAD
+=======
+
+// ── Banner ────────────────────────────────────────────────────────────────────
+
+export const Footerimage = () => {
+  return (
+    <div className="w-full px-24">
+      <Image
+        src={swapprooBanner}
+        height={120.38}
+        width={1204.33}
+        alt="Swapproo Banner"
+        className="w-full"
+      />
+    </div>
+  );
+};
+>>>>>>> afa9168 (Homepage sections implementation)

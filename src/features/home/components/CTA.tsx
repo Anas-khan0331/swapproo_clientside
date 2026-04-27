@@ -1,0 +1,44 @@
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
+
+const CTASection = () => {
+  return (
+    <section className="bg-primary-50 px-20 py-24">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Card className="bg-background rounded-3xl p-24 shadow-none">
+          <CardContent className="flex items-center justify-between gap-8 max-lg:flex-col">
+            <div className="flex flex-col gap-4">
+              <Badge
+                variant="outline"
+                className="border-primary text-foreground w-fit text-sm font-normal"
+              >
+                SWAPPROO for Business
+              </Badge>
+              <h2 className="text-4xl leading-10 font-semibold tracking-normal md:text-4xl">
+                Trade-in at scale.
+              </h2>
+              <p className="text-muted-foreground font-regular max-w-2xl text-lg leading-7 tracking-normal">
+                Use the power of SWAPPROO to buy more, and reach your next milestone.
+              </p>
+            </div>
+            <div className="border-neutral-975 flex w-full max-w-sm shrink-0 items-center gap-2 rounded-xl border p-2">
+              <Input
+                type="email"
+                placeholder="Your email address"
+                required
+                className="h-10 border-0 shadow-none focus-visible:ring-0"
+              />
+              <Button className="shrink-0 rounded-lg bg-neutral-950 text-white hover:bg-neutral-800">
+                Get started
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+  );
+};
+
+export default CTASection;
