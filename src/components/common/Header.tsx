@@ -19,8 +19,8 @@ const Property1Default = () => {
 
   return (
     <>
-      <header className="bg-primary-600 flex w-full justify-center border-b border-white/10">
-        <div className="grid w-full grid-cols-12 items-center gap-12 px-6 py-4 lg:px-24">
+      <header className="wrapper bg-primary-600 border-b border-white/10 py-4">
+        <div className="grid grid-cols-12 items-center gap-12">
           <div className="col-span-7 flex items-center gap-8">
             <Link href="/" className="shrink-0">
               <Image src={logo} alt="Swapproo Logo" width={201} height={36} priority />

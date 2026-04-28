@@ -1,7 +1,22 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Remove remotePatterns for now — local images in public/ don't need it
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.shadcnstudio.com",
+      },
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+      },
+      {
+        protocol: "https",
+        hostname: "i.pravatar.cc",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

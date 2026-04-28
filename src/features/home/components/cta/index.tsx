@@ -5,8 +5,8 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const CTASection = () => {
   return (
-    <section className="bg-primary-50 px-20 py-24">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-primary-50 py-24">
+      <div className="wrapper">
         <Card className="bg-background rounded-3xl p-24 shadow-none">
           <CardContent className="flex items-center justify-between gap-8 max-lg:flex-col">
             <div className="flex flex-col gap-4">
@@ -41,4 +41,4 @@ const CTASection = () => {
   );
 };
 
-export default CTASection;
+export { CTASection as BusinessCTA };

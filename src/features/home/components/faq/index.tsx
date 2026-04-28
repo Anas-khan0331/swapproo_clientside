@@ -4,8 +4,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FAQ_DATA } from "../constants";
-export const FAQSection = () => {
+import { FAQ_DATA } from "@/features/home/constants";
+
+const FAQSection = () => {
   return (
     <div className="bg-neutral-025 px-8">
       <section className="px-20 py-24">
@@ -35,3 +36,5 @@ export const FAQSection = () => {
     </div>
   );
 };
+
+export { FAQSection };

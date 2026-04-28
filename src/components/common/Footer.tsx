@@ -77,7 +77,7 @@ const Footer = () => {
       </div>
 
       {/* Main footer grid */}
-      <footer className="w-full bg-white px-24 py-12">
+      <footer className="wrapper bg-white py-12">
         <div className="grid grid-cols-[2fr_1fr_1fr_1fr_1.5fr] gap-8">
           {/* Contact */}
           <div className="flex flex-col gap-4">
@@ -155,7 +155,7 @@ export default Footer;
 
 export const Footerimage = () => {
   return (
-    <div className="w-full px-24">
+    <div className="wrapper">
       <Image
         src={swapprooBanner}
         height={120.38}

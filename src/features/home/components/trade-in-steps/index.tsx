@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { TRADE_IN_STEPS } from "../constants";
+import { TRADE_IN_STEPS } from "@/features/home/constants";
 
-export function TradeInSteps() {
+const TradeInSteps = () => {
   return (
-    <section className="section-wrapper py-20">
+    <section className="wrapper py-20">
       <h2 className="mb-12 text-center text-4xl leading-10 font-semibold tracking-normal">
         Trade-in 3 Easy Steps
       </h2>
@@ -24,4 +24,6 @@ export function TradeInSteps() {
       </div>
     </section>
   );
-}
+};
+
+export { TradeInSteps };
