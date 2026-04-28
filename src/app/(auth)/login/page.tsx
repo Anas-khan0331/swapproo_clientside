@@ -6,34 +6,11 @@ import { Label } from "@/components/ui/label";
 
 import { AuthCard, AuthLayout, AuthLogo } from "@/features/auth";
 import { useRouter } from "next/navigation";
-import { useAppDispatch } from "@/store/hooks";
-import { setCredentials } from "@/features/auth/store/authSlice";
 
 export default function LoginPage() {
   const router = useRouter();
-  const dispatch = useAppDispatch();
-
   const handleClick = () => {
     router.push("/otp");
-  };
-
-  const handleTestLogin = () => {
-    const testUser = {
-      id: "test-user-1",
-      name: "Test User",
-      email: "test@example.com",
-      role: "customer" as const,
-      region: "US",
-    };
-
-    dispatch(
-      setCredentials({
-        user: testUser,
-        accessToken: "test-access-token",
-      }),
-    );
-
-    router.push("/");
   };
 
   return (
@@ -60,10 +37,6 @@ export default function LoginPage() {
             type="submit"
           >
             Continue
-          </Button>
-
-          <Button className="w-full p-5" variant="outline" onClick={handleTestLogin} type="button">
-            Test Login (Demo)
           </Button>
         </form>
       </AuthCard>
