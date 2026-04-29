@@ -1,7 +1,8 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 // import { withAuth } from "@/middleware/auth.middleware"; // re-enable with auth
 
-export function middleware(_request: NextRequest) {
+// export function middleware(_request: NextRequest) {
+export function middleware() {
   // TODO: re-enable once auth token / role is available
   // const authResponse = withAuth(_request);
   // if (authResponse) return authResponse;

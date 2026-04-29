@@ -9,10 +9,7 @@ const TradeInSteps = () => {
       </h2>
       <div className="grid grid-cols-3 gap-8">
         {TRADE_IN_STEPS.map((step) => (
-          <div
-            key={step.title}
-            className="flex flex-col items-center gap-5 rounded-xl text-center transition-colors duration-300 hover:bg-red-400"
-          >
+          <div key={step.id} className="flex flex-col items-center gap-5 rounded-xl text-center">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl">
               <Image src={step.icon} alt={step.title} width={48} height={48} />
             </div>

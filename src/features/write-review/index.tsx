@@ -21,21 +21,12 @@ function StarIcon({ filled }: { filled: boolean }) {
   );
 }
 
-function VideoIcon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="text-muted-foreground">
-      <rect x="3" y="5" width="26" height="22" rx="4" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="16" cy="16" r="5" stroke="currentColor" strokeWidth="1.5" />
-      <polygon points="14,13.5 14,18.5 19,16" fill="currentColor" />
-    </svg>
-  );
-}
-
 export default function WriteAReview() {
   const [rating, setRating] = useState(0);
   const [hovered, setHovered] = useState(0);
   const [videoFile, setVideoFile] = useState<File | null>(null);
   const [agreed, setAgreed] = useState(false);
+  const [reviewText, setReviewText] = useState("");
 
   const activeRating = hovered || rating;
 
@@ -65,7 +56,12 @@ export default function WriteAReview() {
           </div>
           <div className="flex flex-col gap-3.5">
             <p className="text-sm font-medium">Write your review</p>
-            <Textarea placeholder="Type here" className="h-[72px]" />
+            <Textarea
+              placeholder="Type here"
+              className="h-[72px]"
+              value={reviewText}
+              onChange={(e) => setReviewText(e.target.value)}
+            />
           </div>
           <div className="flex flex-col gap-3.5">
             <p className="text-sm font-medium">Add Video</p>
@@ -112,11 +108,23 @@ export default function WriteAReview() {
                 className="text-muted-foreground cursor-pointer text-sm leading-relaxed"
               >
                 By publishing this review you agree with the{" "}
-                <span className="text-foreground underline">terms and conditions</span>.
+                <a href="/terms" className="text-foreground underline hover:no-underline">
+                  terms and conditions
+                </a>
+                .
               </Label>
             </div>
           </div>
-          <Button className="bg-foreground text-background h-10 w-full">Submit review</Button>
+          <Button
+            className="bg-foreground text-background h-10 w-full"
+            disabled={!rating || !agreed}
+            onClick={() => {
+              // TODO: Implement submission logic
+              console.log({ rating, reviewText, videoFile, agreed });
+            }}
+          >
+            Submit review
+          </Button>
         </div>
       </div>
     </div>

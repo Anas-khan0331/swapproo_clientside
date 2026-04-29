@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -10,6 +9,7 @@ import {
 import { Progress } from "@/components/ui/progress";
 import { Rating } from "@/components/ui/rating";
 import { REVIEWS_DATA } from "@/features/home/constants";
+import Link from "next/link";
 
 const totalReviews = REVIEWS_DATA.length;
 
@@ -57,13 +57,13 @@ const AverageRating = () => {
           <p className="text-muted-foreground tracking-6 text-base tracking-normal">
             Share your feedback and help create a better Trade-in experience for everyone.
           </p>
-          <Button
-            variant={"default"}
-            type="submit"
-            className="bg-foreground text-background w-full rounded-lg py-5"
+
+          <Link
+            href="/write-review"
+            className="bg-foreground hover:bg-foreground/90 text-background w-full rounded-lg py-3 text-center hover:cursor-pointer"
           >
             Write a Review
-          </Button>
+          </Link>
         </CardFooter>
       </Card>
     </div>

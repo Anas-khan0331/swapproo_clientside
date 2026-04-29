@@ -33,7 +33,7 @@ export function AuthCard({ children, className }: AuthCardProps) {
   return (
     <div
       className={cn(
-        "flex min-h-[343px] w-full max-w-[300px] min-w-[550px] flex-col gap-6 rounded-[14px] bg-white py-6",
+        "flex min-h-[343px] w-full max-w-[550px] min-w-[300px] flex-col gap-6 rounded-[14px] bg-white py-6",
         className,
       )}
       style={{ boxShadow: "0px 4px 6px 0px rgba(0,0,0,0.10), 0px 2px 4px 0px rgba(0,0,0,0.10)" }}

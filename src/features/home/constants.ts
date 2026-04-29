@@ -45,16 +45,19 @@ export const PRODUCT_CARDS = [
 
 export const TRADE_IN_STEPS = [
   {
+    id: "trade-step-1",
     title: "Get an instant offer",
     description: "We price your device in real time, no waiting, no haggling.",
     icon: tagIcon,
   },
   {
+    id: "trade-step-2",
     title: "Pack your device",
     description: "Tell us about your device and get an instant quote.",
     icon: deviceIcon,
   },
   {
+    id: "trade-step-3",
     title: "Ship free, get paid fast",
     description: "Post it with our free prepaid label. Payment sent within 24hrs.",
     icon: moneyIcon,

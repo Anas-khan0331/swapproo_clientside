@@ -11,7 +11,10 @@ const ProductCategory = () => {
         <div className="grow space-y-4">
           <h2 className="text-2xl font-semibold md:text-3xl lg:text-4xl">Categories</h2>
         </div>
-        <Link href="#" className="hover:text-primary transition-colors">
+        <Link
+          href="/categories"
+          className="hover:text-primary transition-colors hover:cursor-pointer"
+        >
           view all
         </Link>
       </div>

@@ -8,7 +8,7 @@ import { SearchNormal1 } from "iconsax-reactjs";
 const SignupPage = () => {
   return (
     <AuthLayout>
-      <AuthCard className="min-w-[430px]">
+      <AuthCard className="min-w-full sm:min-w-[430px]">
         <AuthLogo />
         <div className="mt-6 flex flex-col gap-4">
           <h2 className="text-foreground text-xl leading-7 font-semibold">Personal Information</h2>

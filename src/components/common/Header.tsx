@@ -6,6 +6,7 @@ import { Routing2, SearchNormal1, User } from "iconsax-reactjs";
 import Link from "next/link";
 import { Separator } from "../ui/separator";
 import { MegaMenu } from "./MegaMenu";
+import { SearchInput } from "../shared/SearchInput";
 const Property1Default = () => {
   const primaryLinks = [
     { label: "for Business", href: "/business" },
@@ -25,14 +26,15 @@ const Property1Default = () => {
             <Link href="/" className="shrink-0">
               <Image src={logo} alt="Swapproo Logo" width={201} height={36} priority />
             </Link>
-            <Field className="w-full">
+            {/* <Field className="w-full">
               <InputGroup className="py-5">
                 <InputGroupInput className="w-full" id="header-search" placeholder="Search" />
                 <InputGroupAddon align="inline-start">
                   <SearchNormal1 size="16" className="text-muted-foreground" />
                 </InputGroupAddon>
               </InputGroup>
-            </Field>
+            </Field> */}
+            <SearchInput className="w-full" id="header-search" placeholder="Search" />
           </div>
           <div className="col-span-5">
             <div className="flex items-center justify-between">
