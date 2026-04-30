@@ -1,4 +1,5 @@
 import { Providers } from "@/components/providers";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
 import { Geist } from "next/font/google";
 
@@ -11,7 +12,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning className={geist.variable}>
       <body className={geist.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <ScrollToTop />
+          {children}
+        </Providers>
       </body>
     </html>
   );

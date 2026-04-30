@@ -24,9 +24,15 @@ export function TrackTradeInResults({ orderNumber }: TrackTradeInResultsProps) {
   const steps = DEFAULT_TRACK_STEPS;
 
   return (
+<<<<<<< HEAD
     <div className="bg-background wrapper mb-25 flex flex-col items-center justify-center gap-8 pt-8 pb-20">
       <div className="flex w-full flex-col gap-8">
         <h1 className="text-foreground text-3xl leading-9 font-bold">Trade-in {order}</h1>
+=======
+    <div className="bg-background mb-25 flex flex-col items-center justify-center gap-8 pt-8 pb-20">
+      <div className="flex w-full max-w-7xl flex-col gap-8 px-8">
+        <h1 className="text-foreground text-3xl leading-9 font-bold">Trade-in #{orderNumber}</h1>
+>>>>>>> b8437c4 (All Swapproo Screen Implemented)
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-4 rounded-[14px] border py-4">
             <div className="flex flex-row items-center gap-2 px-4">

@@ -37,6 +37,7 @@ const ProfilePage = () => {
         <CardContent>
           <FieldGroup>
             <Field orientation="horizontal">
+<<<<<<< HEAD
               <Input type="text" placeholder="First Name*" className="h-11 !bg-white" />
               <Input type="text" placeholder="Last Name*" className="h-11 !bg-white" />
             </Field>
@@ -47,12 +48,28 @@ const ProfilePage = () => {
 
             <Field>
               <Input type="tel" placeholder="Phone Number (optional)" className="h-11 !bg-white" />
+=======
+              <Input type="text" placeholder="First Name*" className="h-11" />
+              <Input type="text" placeholder="Last Name*" className="h-11" />
+            </Field>
+
+            <Field>
+              <Input type="email" placeholder="Email*" className="h-11" />
+            </Field>
+
+            <Field>
+              <Input type="tel" placeholder="Phone Number (optional)" className="h-11" />
+>>>>>>> b8437c4 (All Swapproo Screen Implemented)
             </Field>
 
             <h2 className="text-foreground text-base font-bold">Address</h2>
 
             <Field>
+<<<<<<< HEAD
               <InputGroup className="h-11 !bg-white">
+=======
+              <InputGroup className="h-11">
+>>>>>>> b8437c4 (All Swapproo Screen Implemented)
                 <InputGroupInput placeholder="Postcode or Address*" />
                 <InputGroupAddon align="inline-end">
                   <SearchNormal1 size={18} className="text-muted-foreground" />
@@ -61,8 +78,13 @@ const ProfilePage = () => {
             </Field>
 
             <Field orientation="horizontal">
+<<<<<<< HEAD
               <Input type="text" placeholder="City*" className="h-11 !bg-white" />
               <Input type="text" placeholder="Country*" className="h-11 !bg-white" />
+=======
+              <Input type="text" placeholder="City*" className="h-11" />
+              <Input type="text" placeholder="Country*" className="h-11" />
+>>>>>>> b8437c4 (All Swapproo Screen Implemented)
             </Field>
             <div className="">
               <Button variant="default" size="default" className="bg-foreground px-3 py-5">

@@ -5,6 +5,9 @@ import { useReviewModal } from "./useReviewModal";
 import { MEDIA_REVIEWS_VIDEOS } from "./constants";
 import { ReviewModal } from "./ReviewModal";
 import PlayIcon from "@/assets/icons/PlayIcon";
+import { MEDIA_REVIEWS_VIDEOS } from "./constants";
+import { ReviewModal } from "./ReviewModal";
+import PlayIcon from "@/assets/icons/PlayIcon";
 
 const ReviewMedia = () => {
   const { isOpen, lastIndex, openModal, closeModal, goPrev, goNext } = useReviewModal(
@@ -13,6 +16,7 @@ const ReviewMedia = () => {
 
   return (
     <>
+      <div className="flex flex-wrap items-center gap-2">
       <div className="flex flex-wrap items-center gap-2">
         {MEDIA_REVIEWS_VIDEOS.map(({ thumbnail, review_by, id }, index) => (
           <button
@@ -28,7 +32,7 @@ const ReviewMedia = () => {
             )}
 
             <div className="absolute inset-0 flex h-full w-full items-center justify-center bg-black/40 transition group-hover:bg-black/55">
-              <PlayIcon />
+              <PlayIcon className="h-6 w-6" />
             </div>
           </button>
         ))}

@@ -42,6 +42,7 @@ export function TradeInProductCard({
         </div>
         <div className="flex flex-col items-end gap-3">
           <p className="text-foreground text-2xl leading-8 font-semibold">#{tradeIn.id}</p>
+<<<<<<< HEAD
           <Button
             onClick={(e) => {
               e.preventDefault();
@@ -52,6 +53,9 @@ export function TradeInProductCard({
             data-icon="inline-end"
             className="relative z-50 cursor-pointer bg-white! px-3 py-1.5"
           >
+=======
+          <Button variant="outline" size="sm" data-icon="inline-end" className="px-3 py-1.5">
+>>>>>>> b8437c4 (All Swapproo Screen Implemented)
             Download Shipping Label
             <ArrowDown className="size-3.5" />
           </Button>

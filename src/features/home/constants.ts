@@ -4,7 +4,6 @@ import moneyIcon from "@/assets/icons/money-3.svg";
 import cardImage1 from "@/assets/images/blog-images/card1.png";
 import cardImage2 from "@/assets/images/blog-images/card2.png";
 import cardImage3 from "@/assets/images/blog-images/card3.png";
-<<<<<<< HEAD
 import mobile from "@/assets/images/category-images/mobile-phone.png";
 import tablet from "@/assets/images/category-images/tablet.png";
 import gamingConsole from "@/assets/images/category-images/gaming-consoles.png";
@@ -47,29 +46,18 @@ export const PRODUCT_CARDS = [
 export const TRADE_IN_STEPS = [
   {
     id: "trade-step-1",
-=======
-
-export const TRADE_IN_STEPS = [
-  {
->>>>>>> afa9168 (Homepage sections implementation)
     title: "Get an instant offer",
     description: "We price your device in real time, no waiting, no haggling.",
     icon: tagIcon,
   },
   {
-<<<<<<< HEAD
     id: "trade-step-2",
-=======
->>>>>>> afa9168 (Homepage sections implementation)
     title: "Pack your device",
     description: "Tell us about your device and get an instant quote.",
     icon: deviceIcon,
   },
   {
-<<<<<<< HEAD
     id: "trade-step-3",
-=======
->>>>>>> afa9168 (Homepage sections implementation)
     title: "Ship free, get paid fast",
     description: "Post it with our free prepaid label. Payment sent within 24hrs.",
     icon: moneyIcon,
@@ -97,7 +85,6 @@ export const BLOG_POSTS = [
   },
 ];
 
-<<<<<<< HEAD
 export const HOME_BLOG_POSTS = [
   {
     title: "Design Smarter: How User Behavior Shapes Winning Products",
@@ -220,8 +207,6 @@ export const REVIEWS_DATA = [
   },
 ];
 
-=======
->>>>>>> afa9168 (Homepage sections implementation)
 export const FAQ_DATA = [
   {
     question: "Do you charge for each upgrade?",
@@ -243,7 +228,6 @@ export const FAQ_DATA = [
     answer: "Explore Our Most Commonly Asked Questions and Find the Information You Need.",
   },
 ];
-<<<<<<< HEAD
 
 // Products Per Category Data
 export const PRODUCTS_PER_CATEGORY: Record<
@@ -311,5 +295,3 @@ export const PRODUCTS_PER_CATEGORY: Record<
     { name: "Amazfit GTR 4", price: "£180", specifications: "46mm | Standard | Excellent" },
   ],
 };
-=======
->>>>>>> afa9168 (Homepage sections implementation)

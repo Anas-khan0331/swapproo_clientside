@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { VideoPlay } from "iconsax-reactjs";
 import Link from "next/link";
+import Link from "next/link";
 import { useState } from "react";
 
 function StarIcon({ filled }: { filled: boolean }) {
@@ -121,8 +122,6 @@ export default function WriteAReview() {
               </Label>
             </div>
           </div>
-
-          {/* Submit */}
           <Link href="/review-thank-you">
             <Button
               className="bg-foreground text-background h-10 w-full"
