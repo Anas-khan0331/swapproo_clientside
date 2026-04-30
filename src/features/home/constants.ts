@@ -15,7 +15,7 @@ export const PRODUCT_CARDS = [
     mainClass: "hover:border-neutral-975 hover:bg-primary-50",
     buttonClass: "bg-neutral-950 text-white hover:bg-neutral-800",
     badgeClass: "px-3 py-1 rounded-full bg-neutral-200 text-neutral-700 border-transparent",
-    productLink: "/iphone",
+    productLink: "iphone",
   },
   {
     img: tablet,
@@ -23,7 +23,7 @@ export const PRODUCT_CARDS = [
     mainClass: "hover:border-neutral-975 hover:bg-primary-50",
     buttonClass: "bg-neutral-950 text-white hover:bg-neutral-800",
     badgeClass: "px-3 py-1 rounded-full bg-neutral-200 text-neutral-700 border-transparent",
-    productLink: "/tablet",
+    productLink: "tablet",
   },
   {
     img: gamingConsole,
@@ -31,7 +31,7 @@ export const PRODUCT_CARDS = [
     mainClass: "hover:border-neutral-975 hover:bg-primary-50",
     buttonClass: "bg-neutral-950 text-white hover:bg-neutral-800",
     badgeClass: "px-3 py-1 rounded-full bg-neutral-200 text-neutral-700 border-transparent",
-    productLink: "/gaming",
+    productLink: "gaming",
   },
   {
     img: smartWatch,
@@ -39,7 +39,7 @@ export const PRODUCT_CARDS = [
     mainClass: "hover:border-neutral-975 hover:bg-primary-50",
     buttonClass: "bg-neutral-950 text-white hover:bg-neutral-800",
     badgeClass: "px-3 py-1 rounded-full bg-neutral-200 text-neutral-700 border-transparent",
-    productLink: "/smartwatch",
+    productLink: "smartwatch",
   },
 ];
 
@@ -169,6 +169,8 @@ export const REVIEWS_DATA = [
     date: "11-11-2023",
     description:
       "I absolutely love this smartwatch! It tracks my steps, heart rate, and even sleep patterns with great accuracy. The design is sleek and lightweight, making it comfortable to wear all day. The battery lasts several days, and the notifications from my phone come through perfectly.",
+    videoUrl: "https://example.com/video1.mp4",
+    videoThumbnail: "https://picsum.photos/seed/zain/120/120",
   },
   {
     id: 2,
@@ -178,6 +180,8 @@ export const REVIEWS_DATA = [
     date: "11-11-2023",
     description:
       "This portable blender is a game changer! It's compact, easy to use, and powerful enough to blend smoothies, protein shakes, and even ice. The rechargeable battery lasts a long time, making it perfect for on-the-go use.",
+    videoUrl: "https://example.com/video2.mp4",
+    videoThumbnail: "https://picsum.photos/seed/erin/120/120",
   },
   {
     id: 3,
@@ -187,6 +191,8 @@ export const REVIEWS_DATA = [
     date: "11-11-2023",
     description:
       "I'm so impressed with this LED desk lamp! It has multiple brightness settings and an adjustable arm, making it perfect for reading, studying, or working late at night. The touch controls are super convenient, and the light is easy on the eyes.",
+    videoUrl: "https://example.com/video3.mp4",
+    videoThumbnail: "https://picsum.photos/seed/wilson/120/120",
   },
   {
     id: 4,
@@ -196,6 +202,8 @@ export const REVIEWS_DATA = [
     date: "12-11-2023",
     description:
       "I'm so impressed with this LED desk lamp! It has multiple brightness settings and an adjustable arm, making it perfect for reading, studying, or working late at night. The touch controls are super convenient, and the light is easy on the eyes.",
+    videoUrl: "https://example.com/video4.mp4",
+    videoThumbnail: "https://picsum.photos/seed/john/120/120",
   },
 ];
 
@@ -220,3 +228,70 @@ export const FAQ_DATA = [
     answer: "Explore Our Most Commonly Asked Questions and Find the Information You Need.",
   },
 ];
+
+// Products Per Category Data
+export const PRODUCTS_PER_CATEGORY: Record<
+  string,
+  { name: string; price: string; specifications?: string }[]
+> = {
+  iphone: [
+    {
+      name: "Samsung Galaxy S25 Ultra",
+      price: "£850",
+      specifications: "256GB | Unlocked | Excellent",
+    },
+    { name: "iPhone 15 Pro Max", price: "£920", specifications: "256GB | Unlocked | Excellent" },
+    { name: "Google Pixel 9 Pro", price: "£780", specifications: "256GB | Unlocked | Excellent" },
+    { name: "OnePlus 12", price: "£640", specifications: "256GB | Unlocked | Excellent" },
+    { name: "Samsung Galaxy S24", price: "£720", specifications: "256GB | Unlocked | Excellent" },
+    { name: "iPhone 14 Pro", price: "£760", specifications: "256GB | Unlocked | Excellent" },
+    { name: "Xiaomi 14 Ultra", price: "£680", specifications: "256GB | Unlocked | Excellent" },
+    { name: "Sony Xperia 1 VI", price: "£740", specifications: "256GB | Unlocked | Excellent" },
+  ],
+  tablet: [
+    { name: "iPad Pro 13-inch", price: "£950", specifications: "256GB | Wi-Fi | Excellent" },
+    {
+      name: "Samsung Galaxy Tab S9 Ultra",
+      price: "£880",
+      specifications: "256GB | Wi-Fi | Excellent",
+    },
+    { name: "iPad Air M2", price: "£720", specifications: "256GB | Wi-Fi | Excellent" },
+    {
+      name: "Microsoft Surface Pro 10",
+      price: "£860",
+      specifications: "256GB | Wi-Fi | Excellent",
+    },
+    { name: "Samsung Galaxy Tab S9", price: "£660", specifications: "256GB | Wi-Fi | Excellent" },
+    { name: "iPad Mini 7", price: "£540", specifications: "256GB | Wi-Fi | Excellent" },
+    { name: "Lenovo Tab P12 Pro", price: "£580", specifications: "256GB | Wi-Fi | Excellent" },
+    { name: "Google Pixel Tablet", price: "£480", specifications: "256GB | Wi-Fi | Excellent" },
+  ],
+  gaming: [
+    { name: "PlayStation 5 Disc", price: "£420", specifications: "1TB | Standard | Excellent" },
+    { name: "Xbox Series X", price: "£400", specifications: "1TB | Standard | Excellent" },
+    { name: "Nintendo Switch OLED", price: "£280", specifications: "64GB | Standard | Excellent" },
+    { name: "PlayStation 5 Digital", price: "£360", specifications: "1TB | Standard | Excellent" },
+    { name: "Xbox Series S", price: "£240", specifications: "512GB | Standard | Excellent" },
+    { name: "Steam Deck OLED", price: "£520", specifications: "512GB | Standard | Excellent" },
+    { name: "Nintendo Switch Lite", price: "£180", specifications: "64GB | Standard | Excellent" },
+    { name: "Asus ROG Ally", price: "£580", specifications: "512GB | Standard | Excellent" },
+  ],
+  smartwatch: [
+    { name: "Apple Watch Ultra 2", price: "£680", specifications: "49mm | GPS | Excellent" },
+    {
+      name: "Samsung Galaxy Watch 7",
+      price: "£420",
+      specifications: "44mm | Bluetooth | Excellent",
+    },
+    { name: "Google Pixel Watch 3", price: "£380", specifications: "41mm | Wi-Fi | Excellent" },
+    { name: "Apple Watch Series 10", price: "£520", specifications: "45mm | GPS | Excellent" },
+    { name: "Garmin Fenix 8", price: "£740", specifications: "47mm | GPS | Excellent" },
+    {
+      name: "Samsung Galaxy Watch FE",
+      price: "£280",
+      specifications: "40mm | Bluetooth | Excellent",
+    },
+    { name: "Fitbit Sense 2", price: "£220", specifications: "40mm | Standard | Excellent" },
+    { name: "Amazfit GTR 4", price: "£180", specifications: "46mm | Standard | Excellent" },
+  ],
+};

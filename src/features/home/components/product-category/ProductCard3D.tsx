@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export type ProductCard = {
   img: string | StaticImageData;
@@ -22,6 +23,7 @@ interface CardTransform {
 }
 
 const ProductCard3D = ({ item }: { item: ProductCard[number] }) => {
+  const router = useRouter();
   const cardRef = useRef<HTMLDivElement>(null);
   const imageWrapperRef = useRef<HTMLDivElement>(null);
   const animationFrameRef = useRef<number | undefined>(undefined);
@@ -90,8 +92,9 @@ const ProductCard3D = ({ item }: { item: ProductCard[number] }) => {
       rect = card.getBoundingClientRect();
       centerX = rect.left + rect.width / 2;
       centerY = rect.top + rect.height / 2;
-      card.style.transition = "transform 0.2s ease, box-shadow 0.2s ease";
+      card.style.transition = "transform 0.2s ease, box-shadow 0.2s ease, height 0.3s ease";
       imageWrapper.style.transition = "transform 0.2s ease";
+      card.style.height = "319px";
       animate();
     };
 
@@ -102,7 +105,8 @@ const ProductCard3D = ({ item }: { item: ProductCard[number] }) => {
 
       card.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
       card.style.boxShadow = "none";
-      card.style.transition = "transform 0.5s ease, box-shadow 0.5s ease";
+      card.style.transition = "transform 0.5s ease, box-shadow 0.5s ease, height 0.3s ease";
+      card.style.height = "286px";
 
       imageWrapper.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
       imageWrapper.style.transition = "transform 0.5s ease";
@@ -118,7 +122,6 @@ const ProductCard3D = ({ item }: { item: ProductCard[number] }) => {
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
-
       card.removeEventListener("mouseenter", handleMouseEnter);
       card.removeEventListener("mousemove", handleMouseMove);
       card.removeEventListener("mouseleave", handleMouseLeave);
@@ -126,13 +129,18 @@ const ProductCard3D = ({ item }: { item: ProductCard[number] }) => {
   }, []);
 
   return (
-    <Link href={item.productLink}>
+    <div
+      style={{ height: "286px" }}
+      className="relative cursor-pointer"
+      onClick={() => router.push(`/category/${item.productLink}`)}
+    >
       <Card
         ref={cardRef}
         className={cn(
-          "bg-neutral-075 relative h-[271px] w-full overflow-visible rounded-xl border border-transparent transition-colors duration-300",
+          "bg-neutral-075 group relative overflow-visible rounded-xl border border-transparent transition-colors duration-300",
           item.mainClass,
         )}
+        style={{ height: "286px" }}
       >
         <CardContent className="space-y-0 p-0 text-sm">
           <div ref={imageWrapperRef} className="absolute -top-20 left-1/2 size-70 -translate-x-1/2">
@@ -144,16 +152,18 @@ const ProductCard3D = ({ item }: { item: ProductCard[number] }) => {
               className="h-[280px] w-[280px] object-contain"
             />
           </div>
-          <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-6 text-center whitespace-nowrap">
-            <div className="space-y-2">
-              <h3 className="text-2xl leading-8 font-semibold tracking-normal text-neutral-950">
-                {item.title}
-              </h3>
-            </div>
-          </div>
+          <h3 className="absolute bottom-12 left-1/2 -translate-x-1/2 text-center text-2xl leading-8 font-semibold tracking-normal whitespace-nowrap text-neutral-950">
+            {item.title}
+          </h3>
+          <Link
+            href={`/category/${item.productLink}`}
+            className="text-foreground absolute bottom-5 left-1/2 -translate-x-1/2 text-sm font-medium whitespace-nowrap opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          >
+            View Products
+          </Link>
         </CardContent>
       </Card>
-    </Link>
+    </div>
   );
 };
 

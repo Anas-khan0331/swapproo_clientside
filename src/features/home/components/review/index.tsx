@@ -16,7 +16,7 @@ const ProductReviews = () => {
       </div>
       <div className="mt-10 flex justify-center">
         <Button asChild variant="outline" className="rounded-lg px-6">
-          <Link href="/reviews">Show all</Link>
+          <Link href="/all-reviews">Show all</Link>
         </Button>
       </div>
     </section>

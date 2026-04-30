@@ -1,4 +1,3 @@
-export * from "./page";
 export * from "./components/hero";
 export * from "./components/trade-in-steps";
 export * from "./components/blog";

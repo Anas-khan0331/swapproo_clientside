@@ -1,22 +1,7 @@
-import {
-  HeroSection,
-  TradeInSteps,
-  Blog,
-  FAQSection,
-  ReviewSection,
-  BusinessCTA,
-  ProductCategory,
-} from "@/features/home";
-export default function HomePage() {
-  return (
-    <>
-      <HeroSection />
-      <ProductCategory />
-      <TradeInSteps />
-      <ReviewSection />
-      <BusinessCTA />
-      <FAQSection />
-      <Blog />
-    </>
-  );
-}
+import { HomePage } from "@/features/home/index.tsx";
+
+const Home = () => {
+  return <HomePage />;
+};
+
+export default Home;

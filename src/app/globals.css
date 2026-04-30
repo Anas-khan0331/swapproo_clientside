@@ -38,6 +38,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-sidebar-foreground: var(--sidebar-foreground);
 
   /* Primary green scale — confirmed from Figma design system */
   --color-primary-50: #efffb2;
@@ -49,6 +50,7 @@
   --color-primary-600: #0c9733;
   --color-primary-700: #0d6f22;
   --color-primary-800: #0c4914;
+  --color-primary-825: #16a34a;
   --color-primary-900: #08250a;
   --color-primary-950: #041205;
 
@@ -103,7 +105,7 @@
   /* ── shadcn semantic colors ── */
   --background: #ffffff;
   --foreground: #0a0a0a;
-
+  --sidebar-foreground: #404040;
   --card: #ffffff;
   --card-foreground: #0a0a0a;
 

@@ -5,6 +5,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { VideoPlay } from "iconsax-reactjs";
+import Link from "next/link";
 import { useState } from "react";
 
 function StarIcon({ filled }: { filled: boolean }) {
@@ -115,16 +116,17 @@ export default function WriteAReview() {
               </Label>
             </div>
           </div>
-          <Button
-            className="bg-foreground text-background h-10 w-full"
-            disabled={!rating || !agreed}
-            onClick={() => {
-              // TODO: Implement submission logic
-              console.log({ rating, reviewText, videoFile, agreed });
-            }}
-          >
-            Submit review
-          </Button>
+          <Link href="/review-thank-you">
+            <Button
+              className="bg-foreground text-background h-10 w-full"
+              disabled={!rating || !agreed}
+              onClick={() => {
+                console.log({ rating, reviewText, videoFile, agreed });
+              }}
+            >
+              Submit review
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

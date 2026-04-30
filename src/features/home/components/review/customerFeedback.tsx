@@ -4,15 +4,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Rating } from "@/components/ui/rating";
 import { REVIEWS_DATA } from "@/features/home/constants";
-import { Play } from "iconsax-reactjs";
-import Image from "next/image";
 import Show from "@/components/common/show";
-import ReviewMedia, { MEDIA_REVIEWS_VIDEOS, ReviewModal } from "./reviewMedia";
+import ReviewMedia, { MEDIA_REVIEWS_VIDEOS } from "./reviewMedia";
+import { ReviewModal } from "./ReviewModal";
 import { useReviewModal } from "./useReviewModal";
-
-const videoIndexByName = Object.fromEntries(
-  MEDIA_REVIEWS_VIDEOS.map((v, i) => [v.review_by.toLowerCase(), i]),
-);
+import { VideoReviewThumbnail } from "./VideoReviewThumbnail";
 
 const CustomerFeedback = () => {
   const { isOpen, lastIndex, openModal, closeModal, goPrev, goNext } = useReviewModal(
@@ -24,9 +20,6 @@ const CustomerFeedback = () => {
       <h2 className="text-3xl font-semibold">Customer Videos & Reviews</h2>
       <ReviewMedia />
       {REVIEWS_DATA.map((item) => {
-        const vidIdx = videoIndexByName[item.name.toLowerCase()];
-        const video = vidIdx !== undefined ? MEDIA_REVIEWS_VIDEOS[vidIdx] : null;
-
         return (
           <div key={`${item.name}-${item.id}`}>
             <Card className="border-neutral-150 w-full border-b shadow-none ring-0">
@@ -45,22 +38,13 @@ const CustomerFeedback = () => {
 
                 <p className="text-muted-foreground">{item.description}</p>
 
-                <Show when={!!video}>
-                  <button
-                    onClick={() => openModal(vidIdx)}
-                    className="group relative h-20 w-20 overflow-hidden rounded-md border border-neutral-200 focus:outline-none"
-                    aria-label={`Play review video by ${video?.review_by}`}
-                  >
-                    <Image
-                      src={video?.thumbnail ?? ""}
-                      alt={`Review by ${video?.review_by}`}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/40 transition group-hover:bg-black/55">
-                      <Play variant="Bold" color="#fff" size={20} />
-                    </div>
-                  </button>
+                <Show when={!!item.videoUrl}>
+                  <VideoReviewThumbnail
+                    videoUrl={item.videoUrl}
+                    videoThumbnail={item.videoThumbnail}
+                    reviewerName={item.name}
+                    onClick={() => openModal(0)}
+                  />
                 </Show>
               </CardContent>
             </Card>

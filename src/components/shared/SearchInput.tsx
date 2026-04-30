@@ -1,35 +1,18 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { SearchNormal1, CloseCircle } from "iconsax-reactjs";
-
-const SUGGESTIONS = [
-  { id: "iphone-15-pro-max", label: "iPhone 15 Pro Max" },
-  { id: "iphone-15-pro", label: "iPhone 15 Pro" },
-  { id: "iphone-15", label: "iPhone 15" },
-  { id: "iphone-14-pro-max", label: "iPhone 14 Pro Max" },
-  { id: "iphone-14-pro", label: "iPhone 14 Pro" },
-  { id: "iphone-14", label: "iPhone 14" },
-  { id: "iphone-13-pro-max", label: "iPhone 13 Pro Max" },
-  { id: "iphone-13-pro", label: "iPhone 13 Pro" },
-  { id: "iphone-13", label: "iPhone 13" },
-  { id: "samsung-galaxy-s24", label: "Samsung Galaxy S24" },
-  { id: "samsung-galaxy-s23", label: "Samsung Galaxy S23" },
-  { id: "macbook-pro", label: "MacBook Pro" },
-  { id: "ipad-pro", label: "iPad Pro" },
-];
-
-interface SearchInputProps {
-  placeholder?: string;
-  id?: string;
-  className?: string;
-}
+import Show from "@/components/common/show";
+import { SUGGESTIONS } from "@/constants/search";
+import type { SearchInputProps } from "./types";
 
 export function SearchInput({
   placeholder = "Search",
   id = "header-search",
   className,
 }: SearchInputProps) {
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -40,7 +23,7 @@ export function SearchInput({
     ? SUGGESTIONS.filter((s) => s.label.toLowerCase().includes(query.toLowerCase()))
     : [];
 
-  const showDropdown = open && filtered.length > 0;
+  const showDropdown = open && query.trim().length > 0;
 
   const handleClick = useCallback((e: MouseEvent) => {
     if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
@@ -54,6 +37,15 @@ export function SearchInput({
   }, [handleClick]);
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      navigate(showDropdown ? filtered[activeIndex].label : query);
+      return;
+    }
+    if (e.key === "Escape") {
+      setOpen(false);
+      return;
+    }
     if (!showDropdown) return;
     if (e.key === "ArrowDown") {
       e.preventDefault();
@@ -61,19 +53,17 @@ export function SearchInput({
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setActiveIndex((i) => Math.max(i - 1, 0));
-    } else if (e.key === "Enter") {
-      e.preventDefault();
-      selectSuggestion(filtered[activeIndex].label);
-    } else if (e.key === "Escape") {
-      setOpen(false);
     }
   }
 
-  function selectSuggestion(value: string) {
-    setQuery(value);
+  function navigate(value: string) {
+    const q = value.trim();
+    if (!q) return;
+    setQuery(q);
     setActiveIndex(0);
     setOpen(false);
-    inputRef.current?.blur();
+    inputRef.current?.focus();
+    router.push(`/category?q=${encodeURIComponent(q)}`);
   }
 
   const handleClear = useCallback(() => {
@@ -101,7 +91,9 @@ export function SearchInput({
           }}
           onFocus={() => setOpen(true)}
           onKeyDown={handleKeyDown}
-          className="bg-background text-foreground placeholder:text-muted-foreground focus:border-border h-10 w-full rounded-lg border border-transparent py-2 pr-9 pl-9 text-sm transition-colors outline-none focus:ring-0"
+          className={`bg-background text-foreground placeholder:text-muted-foreground focus:border-border h-10 w-full rounded-lg border py-2 pr-9 pl-9 text-sm transition-colors outline-none focus:ring-0 ${
+            showDropdown ? "border-border rounded-b-none" : "border-primary-600"
+          }`}
         />
         {query && (
           <button
@@ -115,28 +107,33 @@ export function SearchInput({
         )}
       </div>
       {showDropdown && (
-        <div className="bg-background border-border/60 absolute top-[calc(100%+6px)] left-0 z-50 w-full min-w-[320px] overflow-hidden rounded-2xl border shadow-lg">
-          <ul role="listbox" className="p-2">
-            {filtered.map((item, i) => (
-              <li
-                key={item.id}
-                role="option"
-                aria-selected={i === activeIndex}
-                onMouseEnter={() => setActiveIndex(i)}
-                onMouseDown={(e) => {
-                  e.preventDefault();
-                  selectSuggestion(item.label);
-                }}
-                className={`cursor-pointer rounded-xl px-5 py-3 text-sm transition-colors ${
-                  i === activeIndex
-                    ? "text-foreground bg-neutral-100 hover:rounded-xl"
-                    : "text-foreground hover:bg-neutral-50"
-                }`}
-              >
-                {item.label}
-              </li>
-            ))}
-          </ul>
+        <div className="bg-background border-border border-t-border/60 absolute top-full left-0 z-50 w-full min-w-[320px] overflow-hidden rounded-t-none rounded-b-lg border border-t text-start shadow-lg">
+          <Show when={filtered.length > 0}>
+            <ul role="listbox" className="px-2 py-1">
+              {filtered.map((item, i) => (
+                <li
+                  key={item.id}
+                  role="option"
+                  aria-selected={i === activeIndex}
+                  onMouseEnter={() => setActiveIndex(i)}
+                  onMouseDown={(e) => {
+                    e.preventDefault();
+                    navigate(item.label);
+                  }}
+                  className={`text-foreground cursor-pointer rounded-xl p-3 text-sm transition-colors hover:rounded-2xl ${
+                    i === activeIndex ? "rounded-2xl bg-neutral-100" : "hover:bg-neutral-50"
+                  }`}
+                >
+                  {item.label}
+                </li>
+              ))}
+            </ul>
+          </Show>
+          <Show when={filtered.length === 0}>
+            <div className="flex items-center justify-center py-12">
+              <p className="text-foreground text-4xl font-semibold">Not found</p>
+            </div>
+          </Show>
         </div>
       )}
     </div>
