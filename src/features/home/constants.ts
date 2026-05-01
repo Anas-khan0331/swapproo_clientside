@@ -15,7 +15,7 @@ export const PRODUCT_CARDS = [
     mainClass: "hover:border-neutral-975 hover:bg-primary-50",
     buttonClass: "bg-neutral-950 text-white hover:bg-neutral-800",
     badgeClass: "px-3 py-1 rounded-full bg-neutral-200 text-neutral-700 border-transparent",
-    productLink: "iphone",
+    productLink: "mobile-phone",
   },
   {
     img: tablet,
@@ -234,7 +234,7 @@ export const PRODUCTS_PER_CATEGORY: Record<
   string,
   { name: string; price: string; specifications?: string }[]
 > = {
-  iphone: [
+  "mobile-phone": [
     {
       name: "Samsung Galaxy S25 Ultra",
       price: "£850",
