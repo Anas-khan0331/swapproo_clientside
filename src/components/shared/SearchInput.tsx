@@ -130,10 +130,14 @@ export function SearchInput({
             </ul>
           </Show>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <Show when={filtered.length === 0 && !showMenu}>
 =======
           <Show when={filtered.length === 0}>
 >>>>>>> b8437c4 (All Swapproo Screen Implemented)
+=======
+          <Show when={filtered.length === 0 && !showMenu}>
+>>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
             <div className="flex items-center justify-center py-12">
               <p className="text-foreground text-4xl font-semibold">Not found</p>
             </div>

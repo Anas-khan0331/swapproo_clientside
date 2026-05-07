@@ -4,9 +4,13 @@ import { useState } from "react";
 import { Rating } from "@/components/ui/rating";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Separator } from "@/components/ui/separator";
 =======
 >>>>>>> b8437c4 (All Swapproo Screen Implemented)
+=======
+import { Separator } from "@/components/ui/separator";
+>>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
 import ReviewMedia, { MEDIA_REVIEWS_VIDEOS } from "@/features/home/components/review/reviewMedia";
 import { ReviewModal } from "@/features/home/components/review/ReviewModal";
 import { useReviewModal } from "@/features/home/components/review/useReviewModal";
@@ -71,6 +75,9 @@ const AllReviewsPage = () => {
               {/* Review Cards */}
               <div className="flex flex-col">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
                 {filteredReviews.map((review, index) => (
                   <div key={review.id}>
                     <div className="bg-card flex flex-col gap-3 py-6">
@@ -97,6 +104,7 @@ const AllReviewsPage = () => {
                             </div>
                             <p className="text-muted-foreground text-base font-medium">
                               {review.date}
+<<<<<<< HEAD
                             </p>
                           </div>
                         </div>
@@ -135,27 +143,30 @@ const AllReviewsPage = () => {
                           <div className="flex items-center gap-2">
                             <p className="text-card-foreground text-lg font-semibold">
                               {review.name}
+=======
+>>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
                             </p>
-                            {review.verified && (
-                              <div className="flex items-center gap-1">
-                                <TickCircle className="text-primary-825 size-[18px]" />
-                                <p className="text-muted-foreground text-base">Verified</p>
-                              </div>
-                            )}
                           </div>
-                          <p className="text-muted-foreground text-base font-medium">
-                            {review.date}
-                          </p>
                         </div>
+                        <Rating
+                          readOnly
+                          variant="yellow"
+                          size={16}
+                          value={review.rating}
+                          precision={0.5}
+                        />
                       </div>
-                      <Rating
-                        readOnly
-                        variant="yellow"
-                        size={16}
-                        value={review.rating}
-                        precision={0.5}
-                      />
+                      <p className="text-muted-foreground text-base">{review.text}</p>
+                      {review.hasMedia && review.videoIndex !== undefined && (
+                        <VideoReviewThumbnail
+                          videoUrl={MEDIA_REVIEWS_VIDEOS[review.videoIndex].url}
+                          videoThumbnail={MEDIA_REVIEWS_VIDEOS[review.videoIndex].thumbnail}
+                          reviewerName={review.name}
+                          onClick={() => openModal(review.videoIndex!)}
+                        />
+                      )}
                     </div>
+<<<<<<< HEAD
                     <p className="text-muted-foreground text-base">{review.text}</p>
                     {review.hasMedia && review.videoIndex !== undefined && (
                       <VideoReviewThumbnail
@@ -166,6 +177,9 @@ const AllReviewsPage = () => {
                       />
                     )}
 >>>>>>> b8437c4 (All Swapproo Screen Implemented)
+=======
+                    {index < filteredReviews.length - 1 && <Separator />}
+>>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
                   </div>
                 ))}
               </div>

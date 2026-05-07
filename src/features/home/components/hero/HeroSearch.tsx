@@ -5,7 +5,7 @@ const HeroSearch = () => {
     <div className="mx-auto mt-6 max-w-lg">
       <SearchInput
         id="hero-search"
-        placeholder="Search your item"
+        placeholder="Ask Your Query "
         className="bg-background rounded-lg"
       />
     </div>

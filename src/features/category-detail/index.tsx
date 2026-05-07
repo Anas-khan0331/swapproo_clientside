@@ -51,10 +51,14 @@ const CategoryDetailPage = ({ name, query }: { name?: string; query?: string }) 
   return (
     <>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <section className="wrapper pt-8 pb-14">
 =======
       <section className="wrapper py-14">
 >>>>>>> b8437c4 (All Swapproo Screen Implemented)
+=======
+      <section className="wrapper pt-8 pb-14">
+>>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
         <h1 className="text-foreground mb-8 text-3xl leading-9 font-bold tracking-normal">
           {heading || "Category Name"}
         </h1>

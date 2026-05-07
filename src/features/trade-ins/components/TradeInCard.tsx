@@ -43,9 +43,12 @@ export const TradeInCard = ({ tradeIn }: { tradeIn: TradeIn }) => {
       <div className="bg-background flex flex-col items-center justify-center pt-8">
         <div className="flex w-full flex-col gap-8 px-0">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
           <h1 className="text-foreground text-3xl leading-9 font-bold">Trade-in #{orderNumber}</h1>
 >>>>>>> b8437c4 (All Swapproo Screen Implemented)
+=======
+>>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-4 rounded-[14px] border px-4 py-4">
               <TradeInProductCard tradeIn={tradeIn} showTimeline={false} />

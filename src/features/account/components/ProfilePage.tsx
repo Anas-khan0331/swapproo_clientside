@@ -38,6 +38,7 @@ const ProfilePage = () => {
           <FieldGroup>
             <Field orientation="horizontal">
 <<<<<<< HEAD
+<<<<<<< HEAD
               <Input type="text" placeholder="First Name*" className="h-11 !bg-white" />
               <Input type="text" placeholder="Last Name*" className="h-11 !bg-white" />
             </Field>
@@ -51,25 +52,37 @@ const ProfilePage = () => {
 =======
               <Input type="text" placeholder="First Name*" className="h-11" />
               <Input type="text" placeholder="Last Name*" className="h-11" />
+=======
+              <Input type="text" placeholder="First Name*" className="h-11 !bg-white" />
+              <Input type="text" placeholder="Last Name*" className="h-11 !bg-white" />
+>>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
             </Field>
 
             <Field>
-              <Input type="email" placeholder="Email*" className="h-11" />
+              <Input type="email" placeholder="Email*" className="h-11 !bg-white" />
             </Field>
 
             <Field>
+<<<<<<< HEAD
               <Input type="tel" placeholder="Phone Number (optional)" className="h-11" />
 >>>>>>> b8437c4 (All Swapproo Screen Implemented)
+=======
+              <Input type="tel" placeholder="Phone Number (optional)" className="h-11 !bg-white" />
+>>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
             </Field>
 
             <h2 className="text-foreground text-base font-bold">Address</h2>
 
             <Field>
 <<<<<<< HEAD
+<<<<<<< HEAD
               <InputGroup className="h-11 !bg-white">
 =======
               <InputGroup className="h-11">
 >>>>>>> b8437c4 (All Swapproo Screen Implemented)
+=======
+              <InputGroup className="h-11 !bg-white">
+>>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
                 <InputGroupInput placeholder="Postcode or Address*" />
                 <InputGroupAddon align="inline-end">
                   <SearchNormal1 size={18} className="text-muted-foreground" />
@@ -79,12 +92,17 @@ const ProfilePage = () => {
 
             <Field orientation="horizontal">
 <<<<<<< HEAD
+<<<<<<< HEAD
               <Input type="text" placeholder="City*" className="h-11 !bg-white" />
               <Input type="text" placeholder="Country*" className="h-11 !bg-white" />
 =======
               <Input type="text" placeholder="City*" className="h-11" />
               <Input type="text" placeholder="Country*" className="h-11" />
 >>>>>>> b8437c4 (All Swapproo Screen Implemented)
+=======
+              <Input type="text" placeholder="City*" className="h-11 !bg-white" />
+              <Input type="text" placeholder="Country*" className="h-11 !bg-white" />
+>>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
             </Field>
             <div className="">
               <Button variant="default" size="default" className="bg-foreground px-3 py-5">

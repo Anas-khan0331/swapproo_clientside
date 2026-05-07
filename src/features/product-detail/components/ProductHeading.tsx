@@ -16,12 +16,18 @@ const ProductHeading = ({ productName, img, headingLabel, price }: ProductHeadin
         </div>
         <div className="flex flex-col gap-2">
 <<<<<<< HEAD
+<<<<<<< HEAD
           <h1 className="text-foreground text-2xl leading-8">
             <ProductHeadingLabel label={headingLabel} />
           </h1>
 =======
           <h1 className="text-foreground text-2xl leading-8 font-semibold">{headingLabel}</h1>
 >>>>>>> b8437c4 (All Swapproo Screen Implemented)
+=======
+          <h1 className="text-foreground text-2xl leading-8">
+            <ProductHeadingLabel label={headingLabel} />
+          </h1>
+>>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
           <p className="text-primary-600 text-4xl leading-10 font-bold">{price}</p>
         </div>
       </div>
@@ -30,6 +36,9 @@ const ProductHeading = ({ productName, img, headingLabel, price }: ProductHeadin
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
 function ProductHeadingLabel({ label }: { label: string }) {
   const [name, ...specs] = label.split(" | ");
 
@@ -41,6 +50,9 @@ function ProductHeadingLabel({ label }: { label: string }) {
   );
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> b8437c4 (All Swapproo Screen Implemented)
+=======
+>>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
 export default ProductHeading;

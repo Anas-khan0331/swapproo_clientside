@@ -11,9 +11,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { useAuth } from "@/features/auth/hooks/useAuth";
 >>>>>>> b8437c4 (All Swapproo Screen Implemented)
+=======
+>>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
 import Link from "next/link";
 
 interface MenuItem {
@@ -25,10 +28,14 @@ interface MenuItem {
 
 const UserDropdown = () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
   const { user, isAuthenticated, logout } = { user: null, isAuthenticated: true, logout: () => {} };
 =======
   const { user, isAuthenticated, logout } = useAuth();
 >>>>>>> b8437c4 (All Swapproo Screen Implemented)
+=======
+  const { user, isAuthenticated, logout } = { user: null, isAuthenticated: true, logout: () => {} };
+>>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
 
   const menuItems: MenuItem[] = [
     { label: "Trade-ins", href: "/trade-ins" },
