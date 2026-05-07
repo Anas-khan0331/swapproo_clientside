@@ -42,7 +42,16 @@ export function TradeInProductCard({
         </div>
         <div className="flex flex-col items-end gap-3">
           <p className="text-foreground text-2xl leading-8 font-semibold">#{tradeIn.id}</p>
-          <Button variant="outline" size="sm" data-icon="inline-end" className="px-3 py-1.5">
+          <Button
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+            variant="outline"
+            size="sm"
+            data-icon="inline-end"
+            className="relative z-50 cursor-pointer bg-white! px-3 py-1.5"
+          >
             Download Shipping Label
             <ArrowDown className="size-3.5" />
           </Button>

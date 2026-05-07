@@ -10,7 +10,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/features/auth/hooks/useAuth";
 import Link from "next/link";
 
 interface MenuItem {
@@ -21,7 +20,7 @@ interface MenuItem {
 }
 
 const UserDropdown = () => {
-  const { user, isAuthenticated, logout } = useAuth();
+  const { user, isAuthenticated, logout } = { user: null, isAuthenticated: true, logout: () => {} };
 
   const menuItems: MenuItem[] = [
     { label: "Trade-ins", href: "/trade-ins" },

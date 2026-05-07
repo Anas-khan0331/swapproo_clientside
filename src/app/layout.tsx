@@ -1,7 +1,7 @@
 import { Providers } from "@/components/providers";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import "./globals.css";
 import { Geist } from "next/font/google";
+import "./globals.css";
 
 const geist = Geist({
   variable: "--font-geist-sans",
@@ -14,6 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={geist.className}>
         <Providers>
           <ScrollToTop />
+
           {children}
         </Providers>
       </body>

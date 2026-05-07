@@ -43,7 +43,7 @@ const TradeInDetailPage = ({ tradeIn }: { tradeIn: TradeIn }) => {
   return (
     <div className="wrapper mb-20 pt-8 pb-20">
       <Breadcrumb tradeInId={tradeIn.id} />
-      <Card className="border-border mb-6 rounded-xl border">
+      <Card className="border-border mb-6 rounded-xl border ring-0">
         <CardContent className="p-5">
           <TradeInProductCard
             tradeIn={tradeIn}
@@ -70,7 +70,7 @@ const TradeInDetailPage = ({ tradeIn }: { tradeIn: TradeIn }) => {
           />
         </CardContent>
       </Card>
-      <Card className="border-border rounded-xl border p-0">
+      <Card className="border-border rounded-xl border p-0 ring-0">
         <CardContent className="p-0">
           <div className="divide-border grid grid-cols-2 divide-x">
             <ShippingInfo shippingAddress={tradeIn.shippingAddress} />

@@ -15,12 +15,25 @@ const ProductHeading = ({ productName, img, headingLabel, price }: ProductHeadin
           <Image src={img} alt={productName} width={80} height={80} className="object-contain" />
         </div>
         <div className="flex flex-col gap-2">
-          <h1 className="text-foreground text-2xl leading-8 font-semibold">{headingLabel}</h1>
+          <h1 className="text-foreground text-2xl leading-8">
+            <ProductHeadingLabel label={headingLabel} />
+          </h1>
           <p className="text-primary-600 text-4xl leading-10 font-bold">{price}</p>
         </div>
       </div>
     </div>
   );
 };
+
+function ProductHeadingLabel({ label }: { label: string }) {
+  const [name, ...specs] = label.split(" | ");
+
+  return (
+    <>
+      <span className="font-semibold">{name}</span>
+      {specs.length > 0 && <span className="font-normal">{" | " + specs.join(" | ")}</span>}
+    </>
+  );
+}
 
 export default ProductHeading;

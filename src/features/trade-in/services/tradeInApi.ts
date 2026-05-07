@@ -1,4 +1,4 @@
-import { api } from "@/store/api";
+import { api } from "@/store/makeRequest";
 import type { Product, Bid } from "@/types";
 
 export const tradeInApi = api.injectEndpoints({

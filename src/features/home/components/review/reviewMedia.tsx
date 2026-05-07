@@ -28,7 +28,7 @@ const ReviewMedia = () => {
             )}
 
             <div className="absolute inset-0 flex h-full w-full items-center justify-center bg-black/40 transition group-hover:bg-black/55">
-              <PlayIcon className="h-6 w-6" />
+              <PlayIcon />
             </div>
           </button>
         ))}

@@ -37,22 +37,22 @@ const ProfilePage = () => {
         <CardContent>
           <FieldGroup>
             <Field orientation="horizontal">
-              <Input type="text" placeholder="First Name*" className="h-11" />
-              <Input type="text" placeholder="Last Name*" className="h-11" />
+              <Input type="text" placeholder="First Name*" className="h-11 !bg-white" />
+              <Input type="text" placeholder="Last Name*" className="h-11 !bg-white" />
             </Field>
 
             <Field>
-              <Input type="email" placeholder="Email*" className="h-11" />
+              <Input type="email" placeholder="Email*" className="h-11 !bg-white" />
             </Field>
 
             <Field>
-              <Input type="tel" placeholder="Phone Number (optional)" className="h-11" />
+              <Input type="tel" placeholder="Phone Number (optional)" className="h-11 !bg-white" />
             </Field>
 
             <h2 className="text-foreground text-base font-bold">Address</h2>
 
             <Field>
-              <InputGroup className="h-11">
+              <InputGroup className="h-11 !bg-white">
                 <InputGroupInput placeholder="Postcode or Address*" />
                 <InputGroupAddon align="inline-end">
                   <SearchNormal1 size={18} className="text-muted-foreground" />
@@ -61,8 +61,8 @@ const ProfilePage = () => {
             </Field>
 
             <Field orientation="horizontal">
-              <Input type="text" placeholder="City*" className="h-11" />
-              <Input type="text" placeholder="Country*" className="h-11" />
+              <Input type="text" placeholder="City*" className="h-11 !bg-white" />
+              <Input type="text" placeholder="Country*" className="h-11 !bg-white" />
             </Field>
             <div className="">
               <Button variant="default" size="default" className="bg-foreground px-3 py-5">

@@ -1,4 +1,4 @@
-import { api } from "@/store/api";
+import { api } from "@/store/makeRequest";
 import type { AuthUser } from "../types";
 
 type LoginPayload = { email: string; password: string };

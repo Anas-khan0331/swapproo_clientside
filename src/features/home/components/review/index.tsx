@@ -15,7 +15,7 @@ const ProductReviews = () => {
         </div>
       </div>
       <div className="mt-10 flex justify-center">
-        <Button asChild variant="outline" className="rounded-lg px-6">
+        <Button className="text-foreground border-border hover:bg-muted rounded-lg border bg-white px-4 py-5 shadow-xs">
           <Link href="/all-reviews">Show all</Link>
         </Button>
       </div>

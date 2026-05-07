@@ -6,3 +6,5 @@ export const CURRENCIES: Record<Region, string> = {
   US: "USD",
   MENA: "AED",
 };
+
+export const HELP_CENTER_CLIENT_URL = process.env.NEXT_PUBLIC_HELP_CENTER_CLIENT_URL;

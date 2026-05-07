@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Rating } from "@/components/ui/rating";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Separator } from "@/components/ui/separator";
 import ReviewMedia, { MEDIA_REVIEWS_VIDEOS } from "@/features/home/components/review/reviewMedia";
 import { ReviewModal } from "@/features/home/components/review/ReviewModal";
 import { useReviewModal } from "@/features/home/components/review/useReviewModal";
@@ -66,51 +67,54 @@ const AllReviewsPage = () => {
 
               {/* Review Cards */}
               <div className="flex flex-col">
-                {filteredReviews.map((review) => (
-                  <div key={review.id} className="bg-card flex flex-col gap-3 py-6">
-                    <div className="flex gap-3">
-                      <div className="flex flex-1 gap-3">
-                        <Avatar>
-                          <AvatarImage
-                            src={`https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-${review.avatar}.png`}
-                            className="size-10"
-                          />
-                          <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
-                        </Avatar>
-                        <div className="flex flex-col gap-1">
-                          <div className="flex items-center gap-2">
-                            <p className="text-card-foreground text-lg font-semibold">
-                              {review.name}
+                {filteredReviews.map((review, index) => (
+                  <div key={review.id}>
+                    <div className="bg-card flex flex-col gap-3 py-6">
+                      <div className="flex gap-3">
+                        <div className="flex flex-1 gap-3">
+                          <Avatar>
+                            <AvatarImage
+                              src={`https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-${review.avatar}.png`}
+                              className="size-10"
+                            />
+                            <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
+                          </Avatar>
+                          <div className="flex flex-col gap-1">
+                            <div className="flex items-center gap-2">
+                              <p className="text-card-foreground text-lg font-semibold">
+                                {review.name}
+                              </p>
+                              {review.verified && (
+                                <div className="flex items-center gap-1">
+                                  <TickCircle className="text-primary-825 size-[18px]" />
+                                  <p className="text-muted-foreground text-base">Verified</p>
+                                </div>
+                              )}
+                            </div>
+                            <p className="text-muted-foreground text-base font-medium">
+                              {review.date}
                             </p>
-                            {review.verified && (
-                              <div className="flex items-center gap-1">
-                                <TickCircle className="text-primary-825 size-[18px]" />
-                                <p className="text-muted-foreground text-base">Verified</p>
-                              </div>
-                            )}
                           </div>
-                          <p className="text-muted-foreground text-base font-medium">
-                            {review.date}
-                          </p>
                         </div>
+                        <Rating
+                          readOnly
+                          variant="yellow"
+                          size={16}
+                          value={review.rating}
+                          precision={0.5}
+                        />
                       </div>
-                      <Rating
-                        readOnly
-                        variant="yellow"
-                        size={16}
-                        value={review.rating}
-                        precision={0.5}
-                      />
+                      <p className="text-muted-foreground text-base">{review.text}</p>
+                      {review.hasMedia && review.videoIndex !== undefined && (
+                        <VideoReviewThumbnail
+                          videoUrl={MEDIA_REVIEWS_VIDEOS[review.videoIndex].url}
+                          videoThumbnail={MEDIA_REVIEWS_VIDEOS[review.videoIndex].thumbnail}
+                          reviewerName={review.name}
+                          onClick={() => openModal(review.videoIndex!)}
+                        />
+                      )}
                     </div>
-                    <p className="text-muted-foreground text-base">{review.text}</p>
-                    {review.hasMedia && review.videoIndex !== undefined && (
-                      <VideoReviewThumbnail
-                        videoUrl={MEDIA_REVIEWS_VIDEOS[review.videoIndex].url}
-                        videoThumbnail={MEDIA_REVIEWS_VIDEOS[review.videoIndex].thumbnail}
-                        reviewerName={review.name}
-                        onClick={() => openModal(review.videoIndex!)}
-                      />
-                    )}
+                    {index < filteredReviews.length - 1 && <Separator />}
                   </div>
                 ))}
               </div>

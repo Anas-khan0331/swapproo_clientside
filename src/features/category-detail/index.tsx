@@ -50,7 +50,7 @@ const CategoryDetailPage = ({ name, query }: { name?: string; query?: string }) 
 
   return (
     <>
-      <section className="wrapper py-14">
+      <section className="wrapper pt-8 pb-14">
         <h1 className="text-foreground mb-8 text-3xl leading-9 font-bold tracking-normal">
           {heading || "Category Name"}
         </h1>

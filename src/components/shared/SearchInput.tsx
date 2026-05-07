@@ -129,7 +129,7 @@ export function SearchInput({
               ))}
             </ul>
           </Show>
-          <Show when={filtered.length === 0}>
+          <Show when={filtered.length === 0 && !showMenu}>
             <div className="flex items-center justify-center py-12">
               <p className="text-foreground text-4xl font-semibold">Not found</p>
             </div>
