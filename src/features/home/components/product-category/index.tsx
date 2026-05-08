@@ -11,7 +11,9 @@ const ProductCategory = () => {
         <div className="grow space-y-4">
           <h2 className="text-2xl font-semibold md:text-3xl lg:text-4xl">Categories</h2>
         </div>
-        <Link href={"#"}>view all</Link>
+        <Link href="#" className="hover:text-primary transition-colors">
+          view all
+        </Link>
       </div>
       <div className="grid grid-cols-1 gap-x-6 gap-y-32 pt-24 sm:grid-cols-2 lg:grid-cols-4">
         {PRODUCT_CARDS.map((item, index) => (

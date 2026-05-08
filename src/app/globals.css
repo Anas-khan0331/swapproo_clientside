@@ -152,11 +152,11 @@
 }
 
 .wrapper > * {
-  grid-column: content;
+  grid-column: 2 / -2;
 }
 
 .wrapper > .full-width {
-  grid-column: full-width;
+  grid-column: 1 / -1;
 }
 
 @layer base {

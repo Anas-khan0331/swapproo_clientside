@@ -1,35 +1,52 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
+import { cn } from "@/lib/utils";
+import logo from "@/assets/images/auth-images/auth-logo.png";
 
 interface AuthCardProps {
   children: React.ReactNode;
-  maxWidth?: string;
+  className?: string;
 }
 
-export function AuthLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="auth-bg flex min-h-screen w-full items-center justify-center px-4 py-16">
-      {children}
-    </div>
-  );
-}
-
-export function AuthCard({ children, maxWidth = "max-w-[520px]" }: AuthCardProps) {
+export function AuthLayout({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <div
-      className={`w-full ${maxWidth} flex min-w-[328px] flex-col gap-6 rounded-[14px] bg-white py-6`}
-      style={{ boxShadow: "0px 4px 6px 0px rgba(0,0,0,0.10), 0px 2px 4px 0px rgba(0,0,0,0.10)" }}
+      className={cn(
+        "auth-bg flex min-h-screen w-full items-center justify-center px-4 py-16",
+        className,
+      )}
     >
       {children}
     </div>
   );
 }
 
+export function AuthCard({ children, className }: AuthCardProps) {
+  return (
+    <div
+      className={cn(
+        "flex min-h-[343px] w-full max-w-[300px] min-w-[550px] flex-col gap-6 rounded-[14px] bg-white py-6",
+        className,
+      )}
+      style={{ boxShadow: "0px 4px 6px 0px rgba(0,0,0,0.10), 0px 2px 4px 0px rgba(0,0,0,0.10)" }}
+    >
+      <div className="px-6">{children}</div>
+    </div>
+  );
+}
+
 export function AuthLogo() {
   return (
-    <div className="flex h-[90px] items-center px-6">
-      <span className="brand-logo">SWAPPROo</span>
+    <div className="flex h-[90px] items-center">
+      <Image src={logo} alt="Swapproo Logo" width={200} height={36} />
     </div>
   );
 }

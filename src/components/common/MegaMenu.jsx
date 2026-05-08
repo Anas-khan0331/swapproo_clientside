@@ -46,7 +46,7 @@ function ListItem({ title, href, ...props }) {
     <li {...props}>
       <NavigationMenuLink asChild>
         <Link href={href}>
-          <div className="text-sm leading-5 font-normal tracking-normal text-neutral-500">
+          <div className="hover:text-primary text-sm leading-5 font-normal tracking-normal text-neutral-500 transition-colors">
             {title}
           </div>
         </Link>
