@@ -8,11 +8,6 @@ const geist = Geist({
   subsets: ["latin"],
 });
 
-const geist = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className={geist.variable}>
