@@ -27,6 +27,12 @@ export default function LoginPage() {
       region: "US",
     };
 
+    // Save to localStorage for useAuth hook
+    if (typeof window !== "undefined") {
+      localStorage.setItem("user", JSON.stringify(testUser));
+      localStorage.setItem("accessToken", "test-access-token");
+    }
+
     dispatch(
       setCredentials({
         user: testUser,

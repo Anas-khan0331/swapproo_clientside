@@ -90,10 +90,13 @@ const ProductCard3D = ({ item }: { item: ProductCard[number] }) => {
       rect = card.getBoundingClientRect();
       centerX = rect.left + rect.width / 2;
       centerY = rect.top + rect.height / 2;
-      card.style.transition = "transform 0.2s ease, box-shadow 0.2s ease, height 0.3s ease";
-      card.style.transition = "transform 0.2s ease, box-shadow 0.2s ease, height 0.3s ease";
+      card.style.transition =
+        "transform 0.2s ease, box-shadow 0.2s ease, height 0.3s ease, border 0.2s ease";
+      card.style.transition =
+        "transform 0.2s ease, box-shadow 0.2s ease, height 0.3s ease, border 0.2s ease";
       imageWrapper.style.transition = "transform 0.2s ease";
       card.style.height = "328px";
+      card.style.border = "2px solid rgba(23, 23, 23, 0.4)";
       animate();
     };
 
@@ -104,9 +107,12 @@ const ProductCard3D = ({ item }: { item: ProductCard[number] }) => {
 
       card.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
       card.style.boxShadow = "none";
-      card.style.transition = "transform 0.5s ease, box-shadow 0.5s ease, height 0.3s ease";
+      card.style.border = "2px solid transparent";
+      card.style.transition =
+        "transform 0.5s ease, box-shadow 0.5s ease, height 0.3s ease, border 0.5s ease";
       card.style.height = "286px";
-      card.style.transition = "transform 0.5s ease, box-shadow 0.5s ease, height 0.3s ease";
+      card.style.transition =
+        "transform 0.5s ease, box-shadow 0.5s ease, height 0.3s ease, border 0.5s ease";
       card.style.height = "286px";
 
       imageWrapper.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";

@@ -28,7 +28,7 @@ const CTASection = () => {
                 type="email"
                 placeholder="Your email address"
                 required
-                className="h-10 border-0 shadow-none focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50"
+                className="h-10 border border-black/5 shadow-xs focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50"
               />
               <Button className="bg-foreground hover:bg-foreground/90 shrink-0 rounded-lg px-4 py-2 leading-5 text-white shadow-sm transition-transform active:scale-95 disabled:cursor-not-allowed disabled:opacity-50">
                 Get started

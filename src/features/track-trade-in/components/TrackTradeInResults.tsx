@@ -40,7 +40,8 @@ export function TrackTradeInResults({ orderNumber }: TrackTradeInResultsProps) {
               <div className="flex flex-col gap-2">
                 <div className="flex flex-row items-center gap-2 pr-4">
                   <h2 className="text-foreground text-2xl leading-8">
-                    iPhone 17 Pro Max | 256GB | Unlocked | Excellent
+                    <span className="text-2xl leading-8 font-semibold">iPhone 17 Pro Max</span> |
+                    256GB | Unlocked | Excellent
                   </h2>
                 </div>
                 <div className="flex flex-row items-center gap-2 pr-4">
