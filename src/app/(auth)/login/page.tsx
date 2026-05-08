@@ -6,8 +6,9 @@ import { Label } from "@/components/ui/label";
 
 import { AuthCard, AuthLayout, AuthLogo } from "@/features/auth";
 import { useRouter } from "next/navigation";
-import { useAppDispatch } from "@/store/hooks";
+
 import { setCredentials } from "@/features/auth/store/authSlice";
+import { useAppDispatch } from "@/store/hooks";
 
 export default function LoginPage() {
   const router = useRouter();

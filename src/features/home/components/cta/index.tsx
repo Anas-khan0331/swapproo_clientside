@@ -23,14 +23,14 @@ const CTASection = () => {
                 Use the power of SWAPPROO to buy more, and reach your next milestone.
               </p>
             </div>
-            <div className="border-neutral-975 flex w-full max-w-sm shrink-0 items-center gap-2 rounded-xl border-2 p-3">
+            <div className="border-neutral-975 focus-within:border-primary-500 flex w-full max-w-sm shrink-0 items-center gap-2 rounded-xl border-2 p-3 transition-colors">
               <Input
                 type="email"
                 placeholder="Your email address"
                 required
-                className="h-10 border-0 shadow-none focus-visible:ring-0"
+                className="h-10 border-0 shadow-none focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50"
               />
-              <Button className="bg-foreground hover:bg-foreground/90 shrink-0 rounded-lg px-4 py-2 leading-5 text-white shadow-sm">
+              <Button className="bg-foreground hover:bg-foreground/90 shrink-0 rounded-lg px-4 py-2 leading-5 text-white shadow-sm transition-transform active:scale-95 disabled:cursor-not-allowed disabled:opacity-50">
                 Get started
               </Button>
             </div>

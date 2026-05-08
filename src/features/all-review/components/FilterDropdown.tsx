@@ -1,16 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { ArrowDown2 } from "iconsax-reactjs";
-=======
->>>>>>> b8437c4 (All Swapproo Screen Implemented)
-=======
-import { ArrowDown2 } from "iconsax-reactjs";
->>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
 
 function FilterDropdown({
   label,
@@ -38,29 +30,12 @@ function FilterDropdown({
     <div ref={ref} className="relative">
       <Button
         variant="outline"
-<<<<<<< HEAD
-<<<<<<< HEAD
         className="border-border bg-background flex h-9 items-center justify-center gap-2 rounded-lg border px-4 py-2 shadow-xs"
         onClick={() => setOpen((p) => !p)}
       >
         {value === "All" ? label : value}
         <ArrowDown2
           color="#0a0a0a"
-=======
-        className="h-9 gap-2 rounded-lg px-4"
-        onClick={() => setOpen((p) => !p)}
-      >
-        {value === "All" ? label : value}
-        <ChevronDown
->>>>>>> b8437c4 (All Swapproo Screen Implemented)
-=======
-        className="border-border bg-background flex h-9 items-center justify-center gap-2 rounded-lg border px-4 py-2 shadow-xs"
-        onClick={() => setOpen((p) => !p)}
-      >
-        {value === "All" ? label : value}
-        <ArrowDown2
-          color="#0a0a0a"
->>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
           className={`size-4 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
         />
       </Button>

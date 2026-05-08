@@ -3,6 +3,11 @@ export enum ArticleType {
   FAQ = "faq",
 }
 
+export type FAQ = {
+  question: string;
+  answer: string;
+};
+
 export type ArticleSection = {
   id: string;
   heading: string;
@@ -15,7 +20,7 @@ export type Article = {
   slug: string;
   type: ArticleType;
   category: string;
-  content: string;
+  content: string | FAQ[];
   published: boolean;
   createdAt: string;
   updatedAt: string;

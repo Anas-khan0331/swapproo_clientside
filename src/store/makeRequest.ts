@@ -4,7 +4,7 @@ import axios, { AxiosRequestConfig } from "axios";
 const BASE_URL = "http://localhost:3000";
 const HELP_CENTER_BASE_URL = "https://help.ecomminds.co.uk/api";
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: BASE_URL,
 });
 

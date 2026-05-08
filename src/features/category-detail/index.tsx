@@ -1,15 +1,14 @@
 "use client";
 
+import { GenericPagination } from "@/components/ui/pagination";
+import { PRODUCTS_PER_CATEGORY } from "@/features/home/constants";
 import Link from "next/link";
 import { useState } from "react";
 import { Blog } from "../home/components/blog";
 import { FAQSection } from "../home/components/faq";
 import { TradeInSteps } from "../home/components/trade-in-steps";
-import { PRODUCTS_PER_CATEGORY } from "@/features/home/constants";
-import Show from "@/components/common/show";
-import { CATEGORY_MAP, ALL_PRODUCTS } from "./constants";
 import { ProductCard } from "./components/ProductCard";
-import { DynamicPagination } from "@/components/ui/pagination";
+import { ALL_PRODUCTS, CATEGORY_MAP } from "./constants";
 
 const ITEMS_PER_PAGE = 8;
 
@@ -50,23 +49,11 @@ const CategoryDetailPage = ({ name, query }: { name?: string; query?: string }) 
 
   return (
     <>
-<<<<<<< HEAD
-<<<<<<< HEAD
       <section className="wrapper pt-8 pb-14">
-=======
-      <section className="wrapper py-14">
->>>>>>> b8437c4 (All Swapproo Screen Implemented)
-=======
-      <section className="wrapper pt-8 pb-14">
->>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
         <h1 className="text-foreground mb-8 text-3xl leading-9 font-bold tracking-normal">
           {heading || "Category Name"}
         </h1>
-        <Show when={isSearch}>
-          <p className="text-muted-foreground py-10 text-center">
-            No results found for &ldquo;{query}&rdquo;
-          </p>
-        </Show>
+
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {products.map((product) => (
             <ProductCard
@@ -79,7 +66,7 @@ const CategoryDetailPage = ({ name, query }: { name?: string; query?: string }) 
         </div>
         {totalPages > 1 && (
           <div className="mt-8 flex justify-center">
-            <DynamicPagination
+            <GenericPagination
               currentPage={currentPage}
               totalPages={totalPages}
               onPageChange={handlePageChange}

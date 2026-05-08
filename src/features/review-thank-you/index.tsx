@@ -18,7 +18,7 @@ const ReviewThankYouPage = () => {
   );
 
   return (
-    <div className="mx-auto mb-[124px] max-w-2xl pt-14">
+    <div className="mx-auto mb-[124px] max-w-3xl pt-14">
       <div className="flex flex-col gap-8">
         <h1 className="text-foreground text-[30px] leading-9 font-bold">Thanks for your review!</h1>
         <Card className="bg-card shadow-none ring-0">

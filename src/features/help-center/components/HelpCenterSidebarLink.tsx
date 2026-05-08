@@ -3,14 +3,19 @@
 import { useArticleScroll } from "../hooks/useArticleScroll";
 import { SanitizedContent } from "./SanitizedContent";
 
-export default function HelpCenterSidebarLink(props) {
+interface HelpCenterSidebarLinkProps {
+  title: string;
+  href: string;
+}
+
+export default function HelpCenterSidebarLink(props: HelpCenterSidebarLinkProps) {
   const { title, href } = props;
   const currentId = useArticleScroll();
 
   const normalizedHref = href?.startsWith("#") ? href.slice(1) : href;
   const isActive = currentId === normalizedHref;
 
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     window.location.hash = normalizedHref;
   };

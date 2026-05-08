@@ -11,7 +11,7 @@ export function ConditionDetails({ selectedCondition }: ConditionDetailsProps) {
   return (
     <div className="flex flex-col gap-2">
       <h3 className="text-foreground text-lg leading-7 font-semibold">{selectedCondition.label}</h3>
-      <div className="flex flex-col gap-2 rounded-lg border p-3">
+      <div className="flex flex-col gap-2 rounded-md border p-3">
         <p className="text-foreground text-base leading-6">
           <span className="text-foreground text-base font-semibold">
             No Visible scratches or damage

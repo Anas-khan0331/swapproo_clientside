@@ -29,7 +29,11 @@ export default function CategoryPage(props: HelpCenterCategory) {
                   <AccordionItem key={article._id} value={article._id}>
                     <AccordionTrigger>{article.title}</AccordionTrigger>
                     <AccordionContent>
-                      <p>{article.content || "FAQ answer content goes here."}</p>
+                      <p>
+                        {typeof article.content === "string"
+                          ? article.content
+                          : "FAQ answer content goes here."}
+                      </p>
                     </AccordionContent>
                   </AccordionItem>
                 ))}

@@ -29,7 +29,7 @@ export default function ArticleSidebar({ sidebar }: ArticleSidebarProps) {
                 <a
                   href={`#${item.href}`}
                   style={{ textDecoration: "none" }}
-                  className={`nav-item mb-2 px-4 py-2 transition-all duration-300 ease-in-out ${isActive ? "bg-neutral-975 rounded-sm" : "border-border text-neutral-025 min-w-[240px] rounded-sm border leading-6 font-normal"}`}
+                  className={`nav-item mb-2 px-4 py-2 transition-all duration-300 ease-in-out ${isActive ? "bg-neutral-975 rounded-sm" : "border-border text-foreground min-w-[240px] rounded-sm border leading-6 font-normal"}`}
                 >
                   <span
                     className={`nav-link transition-colors duration-300 ease-in-out ${isActive ? "text-white" : "text-neutral-650"}`}

@@ -1,11 +1,13 @@
-import Header from "@/components/common/Header";
+import HelpCenterHeader from "@/features/help-center/components/HelpCenterHeader";
 import Footer from "@/components/common/Footer";
-export default function HelpCenterLayout({ children }) {
+import { ReactNode } from "react";
+
+export default function HelpCenterLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <Header />
+      <HelpCenterHeader />
       {children}
-      <Footer showBoxShadow={true} />
+      <Footer />
     </>
   );
 }

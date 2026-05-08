@@ -3,6 +3,7 @@ import ArticleFaqs from "@/features/help-center/components/ArticleFaqs";
 import { ARTICLE_TYPES } from "@/features/help-center/data/article";
 import { parseSections } from "@/features/help-center/utils/article";
 import { fetchArticleBySlug } from "@/store/help-center";
+import type { FAQ } from "@/types/help-center";
 
 export default async function HelpCenterArticlePage({
   params,
@@ -19,11 +20,11 @@ export default async function HelpCenterArticlePage({
 
   function renderContent() {
     if (article?.type === ARTICLE_TYPES.TEXT) {
-      const sections = parseSections(article?.content);
+      const sections = parseSections(article?.content as string);
       return <ArticleContent sections={sections} />;
     }
     if (article?.type === ARTICLE_TYPES.FAQ) {
-      return <ArticleFaqs faqs={article?.content} />;
+      return <ArticleFaqs faqs={article?.content as FAQ[]} />;
     }
   }
 

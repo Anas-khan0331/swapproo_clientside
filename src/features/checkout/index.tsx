@@ -23,7 +23,7 @@ const Checkout = ({ slug }: { slug: string }) => {
   return (
     <div className="bg-background flex min-h-screen w-full flex-col">
       <CheckoutHeader />
-      <main className="bg-background wrapper flex flex-col py-8">
+      <main className="bg-background wrapper flex flex-col pt-8 pb-10">
         <div>
           <div className="flex flex-row justify-center gap-6">
             <CheckoutFormSection onSubmit={handleSubmit} />

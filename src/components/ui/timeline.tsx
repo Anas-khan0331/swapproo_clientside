@@ -83,7 +83,7 @@ const TimelineIndicator = React.forwardRef<
         "flex size-[38px] items-center justify-center rounded-full",
         isCompleted && "bg-foreground",
         isPending && "bg-primary-50 border-foreground border",
-        isInactive && "bg-muted",
+        isInactive && "bg-neutral-075",
         className,
       )}
       {...props}

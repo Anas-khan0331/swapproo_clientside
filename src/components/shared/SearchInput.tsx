@@ -3,9 +3,10 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { SearchNormal1, CloseCircle } from "iconsax-reactjs";
-import Show from "@/components/common/show";
 import { SUGGESTIONS } from "@/constants/search";
 import type { SearchInputProps } from "./types";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
+import { cn } from "@/lib/utils";
 
 export function SearchInput({
   placeholder = "Search",
@@ -74,14 +75,22 @@ export function SearchInput({
   }, []);
 
   return (
-    <div ref={containerRef} className={`relative w-full ${className ?? ""}`}>
-      {/* Input */}
-      <div className="relative flex items-center">
-        <SearchNormal1 size="16" className="text-muted-foreground absolute left-3 shrink-0" />
-        <input
+    <div ref={containerRef} className={cn("relative w-full", className)}>
+      <InputGroup
+        className={cn(
+          "h-10 px-3 py-3",
+          showDropdown &&
+            "border-neutral-150 has-[[data-slot=input-group-control]:focus-visible]:border-neutral-150 rounded-b-none has-[[data-slot=input-group-control]:focus-visible]:ring-0",
+          !showDropdown && "border-primary-500 p-1",
+        )}
+      >
+        <InputGroupAddon align="inline-end">
+          <SearchNormal1 size="16" className="text-muted-foreground shrink-0" />
+        </InputGroupAddon>
+
+        <InputGroupInput
           ref={inputRef}
           id={id}
-          type="text"
           value={query}
           placeholder={placeholder}
           onChange={(e) => {
@@ -91,24 +100,24 @@ export function SearchInput({
           }}
           onFocus={() => setOpen(true)}
           onKeyDown={handleKeyDown}
-          className={`bg-background text-foreground placeholder:text-muted-foreground focus:border-border h-10 w-full rounded-lg border py-2 pr-9 pl-9 text-sm transition-colors outline-none focus:ring-0 ${
-            showDropdown ? "border-border rounded-b-none" : "border-primary-600"
-          }`}
         />
+
         {query && (
-          <button
-            type="button"
-            onClick={handleClear}
-            className="text-muted-foreground hover:text-foreground absolute right-3 transition-colors"
-            aria-label="Clear search"
-          >
-            <CloseCircle size="16" />
-          </button>
+          <InputGroupAddon align="inline-end">
+            <button
+              type="button"
+              onClick={handleClear}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Clear search"
+            >
+              <CloseCircle size="16" />
+            </button>
+          </InputGroupAddon>
         )}
-      </div>
+      </InputGroup>
       {showDropdown && (
-        <div className="bg-background border-border border-t-border/60 absolute top-full left-0 z-50 w-full min-w-[320px] overflow-hidden rounded-t-none rounded-b-lg border border-t text-start shadow-lg">
-          <Show when={filtered.length > 0}>
+        <div className="bg-background border-border border-t-border/60 absolute top-full left-0 z-50 max-h-[448px] w-full min-w-[320px] overflow-auto rounded-t-none rounded-b-lg border border-t text-start shadow-lg">
+          {filtered.length > 0 ? (
             <ul role="listbox" className="px-2 py-1">
               {filtered.map((item, i) => (
                 <li
@@ -120,28 +129,21 @@ export function SearchInput({
                     e.preventDefault();
                     navigate(item.label);
                   }}
-                  className={`text-foreground cursor-pointer rounded-xl p-3 text-sm transition-colors hover:rounded-2xl ${
-                    i === activeIndex ? "rounded-2xl bg-neutral-100" : "hover:bg-neutral-50"
-                  }`}
+                  className={cn(
+                    "text-foreground cursor-pointer rounded-xl p-3 text-sm transition-colors",
+                    "hover:bg-neutral-075 hover:rounded-md",
+                    i === activeIndex && "bg-neutral-075 rounded-md",
+                  )}
                 >
                   {item.label}
                 </li>
               ))}
             </ul>
-          </Show>
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <Show when={filtered.length === 0 && !showMenu}>
-=======
-          <Show when={filtered.length === 0}>
->>>>>>> b8437c4 (All Swapproo Screen Implemented)
-=======
-          <Show when={filtered.length === 0 && !showMenu}>
->>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
+          ) : (
             <div className="flex items-center justify-center py-12">
               <p className="text-foreground text-4xl font-semibold">Not found</p>
             </div>
-          </Show>
+          )}
         </div>
       )}
     </div>

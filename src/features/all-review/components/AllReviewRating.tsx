@@ -5,9 +5,11 @@ import { RATING_DISTRIBUTION } from "../constants";
 const AllReviewRating = ({ value }: { value: number }) => {
   return (
     <>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col items-center justify-center gap-2">
         <p className="text-card-foreground text-6xl font-semibold">{value}/5</p>
-        <Rating readOnly variant="yellow" size={24} value={value} precision={0.5} />
+        <div className="mt-5">
+          <Rating readOnly variant="yellow" size={24} value={value} precision={0.5} />
+        </div>
         <p className="text-card-foreground text-base font-medium">Based on 65 verified reviews</p>
       </div>
       <div className="flex flex-1 flex-col gap-2.5">

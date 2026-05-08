@@ -14,7 +14,7 @@ import { MENU_CATEGORIES } from "@/constants/menu";
 
 export function MegaMenu() {
   return (
-    <div className="wrapper bg-neutral-025 border-neutral-150 border-b py-[14px]">
+    <div className="wrapper bg-neutral-025 border-neutral-150 border-b py-1">
       <NavigationMenu viewport={false}>
         <NavigationMenuList className="gap-11">
           {MENU_CATEGORIES?.map((category) => (

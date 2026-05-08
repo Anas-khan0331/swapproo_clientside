@@ -1,6 +1,16 @@
 import Link from "next/link";
 
-const Suggestions = ({ items = [] }) => {
+interface SuggestionItem {
+  id: string | number;
+  url: string;
+  suggestion: string;
+}
+
+interface SuggestionsProps {
+  items?: SuggestionItem[];
+}
+
+const Suggestions = ({ items = [] }: SuggestionsProps) => {
   return (
     <div className="suggestions">
       <div className="suggestions-header">

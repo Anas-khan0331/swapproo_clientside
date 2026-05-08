@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export function SanitizedContent({ content }) {
+export function SanitizedContent({ content }: { content: string }) {
   const [sanitizedHtml, setSanitizedHtml] = useState("");
 
   useEffect(() => {

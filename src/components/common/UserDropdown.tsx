@@ -10,13 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 import { useAuth } from "@/features/auth/hooks/useAuth";
->>>>>>> b8437c4 (All Swapproo Screen Implemented)
-=======
->>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
 import Link from "next/link";
 
 interface MenuItem {
@@ -27,15 +21,7 @@ interface MenuItem {
 }
 
 const UserDropdown = () => {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  const { user, isAuthenticated, logout } = { user: null, isAuthenticated: true, logout: () => {} };
-=======
   const { user, isAuthenticated, logout } = useAuth();
->>>>>>> b8437c4 (All Swapproo Screen Implemented)
-=======
-  const { user, isAuthenticated, logout } = { user: null, isAuthenticated: true, logout: () => {} };
->>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
 
   const menuItems: MenuItem[] = [
     { label: "Trade-ins", href: "/trade-ins" },
@@ -66,7 +52,9 @@ const UserDropdown = () => {
           className="flex items-center gap-2 bg-transparent text-white hover:bg-none hover:text-white data-[state=open]:bg-transparent data-[state=open]:text-white"
         >
           <User size={24} />
-          <span className="text-base leading-6 font-light tracking-normal">Account</span>
+          <span className="text-base leading-6 font-light tracking-normal">
+            {user?.name || "User"}
+          </span>
           <ArrowDown2 size={16} />
         </Button>
       </DropdownMenuTrigger>

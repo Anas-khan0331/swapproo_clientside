@@ -3,14 +3,7 @@
 import { useState } from "react";
 import { Rating } from "@/components/ui/rating";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { Separator } from "@/components/ui/separator";
-=======
->>>>>>> b8437c4 (All Swapproo Screen Implemented)
-=======
-import { Separator } from "@/components/ui/separator";
->>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
 import ReviewMedia, { MEDIA_REVIEWS_VIDEOS } from "@/features/home/components/review/reviewMedia";
 import { ReviewModal } from "@/features/home/components/review/ReviewModal";
 import { useReviewModal } from "@/features/home/components/review/useReviewModal";
@@ -41,10 +34,10 @@ const AllReviewsPage = () => {
 
   return (
     <>
-      <section className="wrapper py-8">
+      <section className="wrapper pt-8">
         <div className="flex flex-col">
           <h2 className="text-foreground text-4xl leading-10 font-semibold">All Reviews</h2>
-          <div className="flex flex-col py-15">
+          <div className="flex flex-col py-8">
             <div className="grid grid-cols-12 items-center gap-10">
               <div className="col-span-8 flex items-center gap-10">
                 <AllReviewRating value={4.5} />
@@ -56,7 +49,6 @@ const AllReviewsPage = () => {
 
             <div className="mt-15 flex flex-col gap-8">
               <ReviewMedia />
-
               <div className="flex gap-4">
                 <FilterDropdown
                   label="Rating"
@@ -74,10 +66,6 @@ const AllReviewsPage = () => {
 
               {/* Review Cards */}
               <div className="flex flex-col">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
                 {filteredReviews.map((review, index) => (
                   <div key={review.id}>
                     <div className="bg-card flex flex-col gap-3 py-6">
@@ -104,7 +92,6 @@ const AllReviewsPage = () => {
                             </div>
                             <p className="text-muted-foreground text-base font-medium">
                               {review.date}
-<<<<<<< HEAD
                             </p>
                           </div>
                         </div>
@@ -127,59 +114,6 @@ const AllReviewsPage = () => {
                       )}
                     </div>
                     {index < filteredReviews.length - 1 && <Separator />}
-=======
-                {filteredReviews.map((review) => (
-                  <div key={review.id} className="bg-card flex flex-col gap-3 py-6">
-                    <div className="flex gap-3">
-                      <div className="flex flex-1 gap-3">
-                        <Avatar>
-                          <AvatarImage
-                            src={`https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-${review.avatar}.png`}
-                            className="size-10"
-                          />
-                          <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
-                        </Avatar>
-                        <div className="flex flex-col gap-1">
-                          <div className="flex items-center gap-2">
-                            <p className="text-card-foreground text-lg font-semibold">
-                              {review.name}
-=======
->>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
-                            </p>
-                          </div>
-                        </div>
-                        <Rating
-                          readOnly
-                          variant="yellow"
-                          size={16}
-                          value={review.rating}
-                          precision={0.5}
-                        />
-                      </div>
-                      <p className="text-muted-foreground text-base">{review.text}</p>
-                      {review.hasMedia && review.videoIndex !== undefined && (
-                        <VideoReviewThumbnail
-                          videoUrl={MEDIA_REVIEWS_VIDEOS[review.videoIndex].url}
-                          videoThumbnail={MEDIA_REVIEWS_VIDEOS[review.videoIndex].thumbnail}
-                          reviewerName={review.name}
-                          onClick={() => openModal(review.videoIndex!)}
-                        />
-                      )}
-                    </div>
-<<<<<<< HEAD
-                    <p className="text-muted-foreground text-base">{review.text}</p>
-                    {review.hasMedia && review.videoIndex !== undefined && (
-                      <VideoReviewThumbnail
-                        videoUrl={MEDIA_REVIEWS_VIDEOS[review.videoIndex].url}
-                        videoThumbnail={MEDIA_REVIEWS_VIDEOS[review.videoIndex].thumbnail}
-                        reviewerName={review.name}
-                        onClick={() => openModal(review.videoIndex!)}
-                      />
-                    )}
->>>>>>> b8437c4 (All Swapproo Screen Implemented)
-=======
-                    {index < filteredReviews.length - 1 && <Separator />}
->>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
                   </div>
                 ))}
               </div>

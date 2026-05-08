@@ -8,7 +8,16 @@ import {
 } from "@/components/ui/accordion";
 import { slugify } from "../utils";
 
-export default function ArticleFaqs({ faqs }) {
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface ArticleFaqsProps {
+  faqs: FAQ[];
+}
+
+export default function ArticleFaqs({ faqs }: ArticleFaqsProps) {
   return (
     <>
       <Accordion type="single" collapsible className="w-full">

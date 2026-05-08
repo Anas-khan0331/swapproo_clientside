@@ -20,7 +20,6 @@ export function TradeInProductCard({
 }: TradeInProductCardProps) {
   return (
     <div className="flex flex-col gap-4">
-      {/* Product info row */}
       <div className="flex flex-row items-center justify-between gap-2">
         <div className="flex flex-row items-center gap-4">
           <div className="bg-muted relative h-20 w-20 overflow-hidden">
@@ -42,10 +41,6 @@ export function TradeInProductCard({
         </div>
         <div className="flex flex-col items-end gap-3">
           <p className="text-foreground text-2xl leading-8 font-semibold">#{tradeIn.id}</p>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
           <Button
             onClick={(e) => {
               e.preventDefault();
@@ -56,12 +51,6 @@ export function TradeInProductCard({
             data-icon="inline-end"
             className="relative z-50 cursor-pointer bg-white! px-3 py-1.5"
           >
-<<<<<<< HEAD
-=======
-          <Button variant="outline" size="sm" data-icon="inline-end" className="px-3 py-1.5">
->>>>>>> b8437c4 (All Swapproo Screen Implemented)
-=======
->>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
             Download Shipping Label
             <ArrowDown className="size-3.5" />
           </Button>

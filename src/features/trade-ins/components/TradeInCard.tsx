@@ -17,7 +17,6 @@ import {
 import { TradeInProductCard } from "./TradeInProductCard";
 
 export const TradeInCard = ({ tradeIn }: { tradeIn: TradeIn }) => {
-  const orderNumber = tradeIn.id;
   const statusOrder = ["processing", "shipped", "delivered", "inspection", "approved", "paid"];
   const currentIndex = statusOrder.indexOf(tradeIn.status);
 
@@ -42,18 +41,13 @@ export const TradeInCard = ({ tradeIn }: { tradeIn: TradeIn }) => {
     <Link href={`/trade-ins/${tradeIn.id}`}>
       <div className="bg-background flex flex-col items-center justify-center pt-8">
         <div className="flex w-full flex-col gap-8 px-0">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-          <h1 className="text-foreground text-3xl leading-9 font-bold">Trade-in #{orderNumber}</h1>
->>>>>>> b8437c4 (All Swapproo Screen Implemented)
-=======
->>>>>>> 61d172b (Swappro Changes implementation with help-center and api integrations)
           <div className="flex flex-col gap-6">
-            <div className="flex flex-col gap-4 rounded-[14px] border px-4 py-4">
-              <TradeInProductCard tradeIn={tradeIn} showTimeline={false} />
+            <div className="flex flex-col gap-4 rounded-[14px] border px-0 py-4">
+              <div className="px-4">
+                <TradeInProductCard tradeIn={tradeIn} showTimeline={false} />
+              </div>
               <Separator />
-              <div className="flex flex-row gap-4">
+              <div className="flex flex-row gap-4 px-4">
                 <Timeline>
                   {steps.map((step, index) => (
                     <TimelineItem key={index}>
@@ -62,8 +56,10 @@ export const TradeInCard = ({ tradeIn }: { tradeIn: TradeIn }) => {
                         {step.showLine && <TimelineConnector status={step.status} />}
                       </TimelineRow>
                       <TimelineContent>
-                        <TimelineTitle>{step.title}</TimelineTitle>
-                        <TimelineDescription>{step.description}</TimelineDescription>
+                        <TimelineTitle className="font-medium">{step.title}</TimelineTitle>
+                        <TimelineDescription className="text-sm">
+                          {step.description}
+                        </TimelineDescription>
                       </TimelineContent>
                     </TimelineItem>
                   ))}

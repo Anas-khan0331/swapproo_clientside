@@ -12,7 +12,7 @@ export const FooterLinkGroup = ({
         <li key={link.label}>
           <a
             href={link.href}
-            className="text-neutral-125 text-base leading-6 font-light transition-colors hover:text-neutral-900"
+            className="text-neutral-125 font-regular text-base leading-6 transition-colors hover:text-neutral-900"
           >
             {link.label}
           </a>

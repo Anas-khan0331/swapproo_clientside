@@ -6,22 +6,7 @@ type SignupPayload = { name: string; email: string; password: string; region: st
 type OtpPayload = { email: string; code: string };
 type AuthResponse = { accessToken: string; refreshToken: string; user: AuthUser };
 
-export const authApi = api.injectEndpoints({
-  endpoints: (build) => ({
-    login: build.mutation<AuthResponse, LoginPayload>({
-      query: (body) => ({ url: "/auth/login", method: "POST", body }),
-    }),
-    signup: build.mutation<AuthResponse, SignupPayload>({
-      query: (body) => ({ url: "/auth/signup", method: "POST", body }),
-    }),
-    verifyOtp: build.mutation<AuthResponse, OtpPayload>({
-      query: (body) => ({ url: "/auth/otp/verify", method: "POST", body }),
-    }),
-    logout: build.mutation<void, void>({
-      query: () => ({ url: "/auth/logout", method: "POST" }),
-    }),
-  }),
-});
-
-export const { useLoginMutation, useSignupMutation, useVerifyOtpMutation, useLogoutMutation } =
-  authApi;
+export const login = (body: LoginPayload) => api.post<AuthResponse>("/auth/login", body);
+export const signup = (body: SignupPayload) => api.post<AuthResponse>("/auth/signup", body);
+export const verifyOtp = (body: OtpPayload) => api.post<AuthResponse>("/auth/otp/verify", body);
+export const logout = () => api.post("/auth/logout");

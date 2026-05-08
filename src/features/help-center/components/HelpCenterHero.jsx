@@ -13,7 +13,7 @@ const HelpCenterHero = () => {
           </p>
         </div>
         <div className="mx-auto mt-6 max-w-lg">
-          <HelpCenterHeroSearch />
+          <HelpCenterHeroSearch className="h-10" />
         </div>
       </div>
     </div>

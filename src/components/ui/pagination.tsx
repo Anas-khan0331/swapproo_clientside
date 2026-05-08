@@ -41,6 +41,7 @@ const PaginationLink = ({ className, isActive, size = "icon", ...props }: Pagina
         variant: isActive ? "outline" : "ghost",
         size,
       }),
+      isActive && "!bg-white",
       className,
     )}
     {...props}
@@ -104,100 +105,4 @@ export {
   PaginationPrevious,
 };
 
-// ── Dynamic Pagination ───────────────────────────────────────────────────────
-
-interface DynamicPaginationProps {
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
-  className?: string;
-}
-
-export function DynamicPagination({
-  currentPage,
-  totalPages,
-  onPageChange,
-  className,
-}: DynamicPaginationProps) {
-  const getPageNumbers = () => {
-    const pages: (number | string)[] = [];
-    const showEllipsis = totalPages > 7;
-
-    if (showEllipsis) {
-      if (currentPage <= 4) {
-        for (let i = 1; i <= 5; i++) {
-          pages.push(i);
-        }
-        pages.push("...");
-        pages.push(totalPages);
-      } else if (currentPage >= totalPages - 3) {
-        pages.push(1);
-        pages.push("...");
-        for (let i = totalPages - 4; i <= totalPages; i++) {
-          pages.push(i);
-        }
-      } else {
-        pages.push(1);
-        pages.push("...");
-        for (let i = currentPage - 1; i <= currentPage + 1; i++) {
-          pages.push(i);
-        }
-        pages.push("...");
-        pages.push(totalPages);
-      }
-    } else {
-      for (let i = 1; i <= totalPages; i++) {
-        pages.push(i);
-      }
-    }
-
-    return pages;
-  };
-
-  return (
-    <Pagination className={className}>
-      <PaginationContent>
-        <PaginationItem>
-          <PaginationPrevious
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              if (currentPage > 1) onPageChange(currentPage - 1);
-            }}
-            aria-disabled={currentPage === 1}
-            className={currentPage === 1 ? "pointer-events-none opacity-50" : ""}
-          />
-        </PaginationItem>
-        {getPageNumbers().map((page, index) => (
-          <PaginationItem key={index}>
-            {page === "..." ? (
-              <PaginationEllipsis />
-            ) : (
-              <PaginationLink
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onPageChange(page as number);
-                }}
-                isActive={page === currentPage}
-              >
-                {page}
-              </PaginationLink>
-            )}
-          </PaginationItem>
-        ))}
-        <PaginationItem>
-          <PaginationNext
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              if (currentPage < totalPages) onPageChange(currentPage + 1);
-            }}
-            aria-disabled={currentPage === totalPages}
-            className={currentPage === totalPages ? "pointer-events-none opacity-50" : ""}
-          />
-        </PaginationItem>
-      </PaginationContent>
-    </Pagination>
-  );
-}
+export { GenericPagination } from "./pagination/Pagination";

@@ -25,9 +25,9 @@ const starBreakdown = [5, 4, 3, 2, 1].map((star) => {
 
 const AverageRating = () => {
   return (
-    <div className="space-y-8">
+    <div className="">
       <h2 className="text-3xl font-semibold">Average Rating</h2>
-      <Card className="w-full shadow-none">
+      <Card className="mt-8 w-full p-0 shadow-none">
         <CardHeader>
           <CardTitle className="flex items-center gap-3 text-3xl font-semibold">
             {averageRating}
@@ -37,7 +37,7 @@ const AverageRating = () => {
           </CardTitle>
           <CardDescription>Based on {totalReviews} verified reviews</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="px-6">
           <div className="space-y-3">
             {starBreakdown.map(({ star, percentage }) => (
               <div key={star} className="flex items-center gap-3">
@@ -50,7 +50,7 @@ const AverageRating = () => {
             ))}
           </div>
         </CardContent>
-        <CardFooter className="mt-2 flex-col items-start gap-4 border-none bg-transparent">
+        <CardFooter className="mt-0 flex-col items-start gap-4 border-none bg-transparent p-6">
           <h5 className="text-foreground text-lg leading-7 font-semibold tracking-normal">
             Write your Review
           </h5>

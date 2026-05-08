@@ -10,11 +10,19 @@ import {
 } from "@/components/ui/breadcrumb";
 import { SearchNormal } from "iconsax-reactjs";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React, { useMemo } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import React, { useMemo, useState } from "react";
 
-export default function HelpBreadcrumb() {
+export default function HelpBreadcrumb({ defaultValue = "" }) {
   const pathname = usePathname();
+  const router = useRouter();
+  const [search, setSearch] = useState(defaultValue);
+
+  function navigate() {
+    const q = search.trim();
+    if (!q) return;
+    router.push("/help-center/search?q=" + encodeURIComponent(q));
+  }
 
   const items = useMemo(() => {
     const segments = pathname.split("/").filter(Boolean);
@@ -46,14 +54,24 @@ export default function HelpBreadcrumb() {
           ))}
         </BreadcrumbList>
       </Breadcrumb>
+
       <div className="relative w-72">
-        <SearchNormal
-          className="text-muted-foreground absolute top-1/2 right-4 -translate-y-1/2"
-          size={18}
-        />
+        <button
+          type="button"
+          onClick={navigate}
+          aria-label="Search"
+          className="absolute top-1/2 right-4 -translate-y-1/2"
+        >
+          <SearchNormal className="text-muted-foreground" size={18} />
+        </button>
         <input
           type="text"
           placeholder="Search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") navigate();
+          }}
           className="border-input bg-background focus:border-ring w-full rounded-lg border py-2.5 pr-10 pl-4 text-sm transition-colors focus:outline-none"
         />
       </div>

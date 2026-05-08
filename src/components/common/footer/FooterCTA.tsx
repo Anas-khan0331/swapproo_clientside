@@ -31,11 +31,11 @@ export const FooterCTA = () => {
         <Input
           type="email"
           placeholder="Business email address"
-          className="h-10 rounded-lg border-neutral-200 !bg-white text-sm placeholder:text-neutral-400"
+          className="focus-visible:ring-primary-500 focus-visible:border-primary-500 h-10 rounded-lg border-neutral-200 !bg-white text-sm transition-colors placeholder:text-neutral-400 focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50"
         />
         <Button
           variant="secondary"
-          className="h-10 w-full text-sm font-medium text-neutral-400 hover:text-neutral-900"
+          className="h-10 w-full text-sm font-medium text-neutral-400 transition-transform hover:text-neutral-900 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Get started free
         </Button>
@@ -48,9 +48,9 @@ export const FooterCTA = () => {
             key={label}
             href={href}
             aria-label={label}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 text-neutral-500 transition-colors hover:border-neutral-400 hover:text-neutral-900"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-200 text-neutral-500 transition-colors hover:border-neutral-400 hover:text-neutral-900"
           >
-            <Icon size={16} variant="Bold" color="currentColor" />
+            <Icon size={24} variant="Bold" color="currentColor" />
           </a>
         ))}
       </div>
