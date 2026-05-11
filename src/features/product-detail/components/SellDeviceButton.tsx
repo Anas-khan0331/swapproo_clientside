@@ -10,7 +10,7 @@ export function SellDeviceButton({ slug }: SellDeviceButtonProps) {
   return (
     <Show when={!!slug}>
       <Link href={`/checkout/${slug}`}>
-        <Button className="bg-foreground text-background h-12 w-full rounded-lg text-sm font-semibold">
+        <Button className="bg-foreground hover:bg-foreground/80 text-background h-12 w-full rounded-lg text-sm font-semibold">
           Sell My Device
         </Button>
       </Link>

@@ -65,7 +65,11 @@ const ProfilePage = () => {
               <Input type="text" placeholder="Country*" className="h-11 !bg-white" />
             </Field>
             <div className="">
-              <Button variant="default" size="default" className="bg-foreground px-3 py-5">
+              <Button
+                variant="default"
+                size="default"
+                className="bg-foreground hover:bg-foreground/80 px-3 py-5"
+              >
                 Update
               </Button>
             </div>

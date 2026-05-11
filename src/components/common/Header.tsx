@@ -1,5 +1,5 @@
 import logo from "@/assets/images/logo.png";
-import { Routing2 } from "iconsax-reactjs";
+import { HamburgerMenu, Routing2 } from "iconsax-reactjs";
 import Image from "next/image";
 import Link from "next/link";
 import { SearchInput } from "../shared/SearchInput";
@@ -21,18 +21,22 @@ const Property1Default = ({ className, showSearch = false }: HeaderProps) => {
   return (
     <div className={className || ""}>
       <header className="wrapper bg-primary-600 h-16 border-b border-white/10 py-3">
-        <div className="grid grid-cols-12 items-center gap-12">
-          <div className="col-span-7 flex items-center gap-8">
+        <div className="grid grid-cols-12 items-center gap-4 md:gap-8 lg:gap-12">
+          <div className="col-span-6 flex items-center gap-4 md:gap-8 lg:col-span-7 xl:col-span-7">
             <Link href="/" className="shrink-0">
               <Image src={logo} alt="Swapproo Logo" width={201} height={36} priority />
             </Link>
             <Show when={!!showSearch}>
-              <SearchInput className="w-full" id="header-search" placeholder="Search" />
+              <SearchInput
+                className="hidden w-full lg:flex"
+                id="header-search"
+                placeholder="Search"
+              />
             </Show>
           </div>
-          <div className="col-span-5">
-            <div className="flex items-center justify-end gap-4">
-              <div className="flex items-center gap-12">
+          <div className="col-span-6 flex items-center justify-end gap-4 lg:col-span-5 xl:col-span-5">
+            <div className="hidden items-center justify-end gap-4 lg:flex">
+              <div className="flex items-center lg:gap-3 xl:gap-12">
                 {links.map((link) => (
                   <Link
                     key={link.label}
@@ -46,6 +50,10 @@ const Property1Default = ({ className, showSearch = false }: HeaderProps) => {
               </div>
               <span className="h-5 w-px bg-white" aria-hidden="true" />
               <UserDropdown />
+            </div>
+            <div className="flex items-center gap-2 lg:hidden">
+              <UserDropdown />
+              <HamburgerMenu size="24" color="#fafafa" onClick={() => alert("hello")} />
             </div>
           </div>
         </div>

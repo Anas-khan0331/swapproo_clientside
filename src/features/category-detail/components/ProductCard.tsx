@@ -12,7 +12,7 @@ interface ProductCardProps {
 export function ProductCard({ name, price, img }: ProductCardProps) {
   return (
     <Link href={`/product/${toSlug(name)}`}>
-      <Card className="group flex w-full cursor-pointer flex-col overflow-hidden pt-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+      <Card className="group flex w-full cursor-pointer flex-col overflow-hidden rounded-md p-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
         <div className="bg-neutral-075 flex w-full items-center justify-center p-4">
           <Image
             src={img}
@@ -22,7 +22,7 @@ export function ProductCard({ name, price, img }: ProductCardProps) {
             className="h-60 w-60 object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </div>
-        <CardHeader className="rounded-none">
+        <CardHeader className="rounded-none p-4">
           <CardTitle className="text-lg leading-7 font-semibold tracking-normal">{name}</CardTitle>
           <CardDescription className="text-muted-foreground text-sm leading-5 font-normal tracking-normal">
             Get up to{" "}

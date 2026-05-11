@@ -44,7 +44,10 @@ export function TrackingForm({ onSubmit }: TrackingFormProps) {
         </div>
       </div>
       <div>
-        <Button type="submit" className="bg-foreground h-12 w-full font-semibold">
+        <Button
+          type="submit"
+          className="bg-foreground hover:bg-foreground/80 h-12 w-full font-semibold"
+        >
           Track Trade-in
         </Button>
       </div>

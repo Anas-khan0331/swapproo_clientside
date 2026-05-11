@@ -17,7 +17,10 @@ export function CheckoutFormSection({ onSubmit }: CheckoutFormSectionProps) {
         <PostageSelection />
         <PaymentSelection />
       </div>
-      <Button className="bg-foreground h-12 w-full text-sm font-semibold" onClick={onSubmit}>
+      <Button
+        className="bg-foreground hover:bg-foreground/80 h-12 w-full text-sm font-semibold"
+        onClick={onSubmit}
+      >
         Place Trade-in
       </Button>
     </div>

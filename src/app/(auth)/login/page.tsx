@@ -62,7 +62,7 @@ export default function LoginPage() {
           </div>
 
           <Button
-            className="bg-foreground text-background w-full p-5"
+            className="bg-foreground hover:bg-foreground/80 text-background w-full p-5"
             onClick={handleClick}
             type="submit"
           >

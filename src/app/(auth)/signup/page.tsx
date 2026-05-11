@@ -31,7 +31,10 @@ const SignupPage = () => {
             </div>
           </div>
         </div>
-        <Button className="bg-foreground text-background mt-6 w-full p-5" type="submit">
+        <Button
+          className="bg-foreground hover:bg-foreground/80 text-background mt-6 w-full p-5"
+          type="submit"
+        >
           Submit
         </Button>
       </AuthCard>

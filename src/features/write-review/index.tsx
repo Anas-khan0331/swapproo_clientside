@@ -123,7 +123,7 @@ export default function WriteAReview() {
           {/* Submit */}
           <Link href="/review-thank-you">
             <Button
-              className="bg-foreground text-background h-10 w-full"
+              className="bg-foreground text-background hover:bg-foreground/80 h-10 w-full"
               disabled={!rating || !agreed}
               onClick={() => {
                 console.log({ rating, reviewText, videoFile, agreed });

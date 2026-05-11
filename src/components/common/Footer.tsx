@@ -12,9 +12,9 @@ const Footer = () => {
       </div>
 
       <footer className="wrapper bg-white py-12">
-        <div className="grid grid-cols-[2fr_1fr_1fr_1fr_1.5fr] gap-8">
+        <div className="grid grid-cols-12 gap-4 md:gap-8">
           {/* Contact */}
-          <div className="flex flex-col gap-4">
+          <div className="col-span-12 flex flex-col gap-4 md:col-span-4 lg:col-span-3">
             <h3 className="text-xl font-semibold text-neutral-950">Contact</h3>
             <div className="flex flex-col gap-3">
               <div className="flex flex-col gap-0.5">
@@ -28,10 +28,18 @@ const Footer = () => {
               <p className="text-base leading-6 font-normal text-neutral-950">{CONTACT.email}</p>
             </div>
           </div>
-          <FooterLinkGroup title="Company" links={COMPANY_LINKS} />
-          <FooterLinkGroup title="Information" links={INFORMATION_LINKS} />
-          <FooterLinkGroup title="Legal" links={LEGAL_LINKS} />
-          <FooterCTA />
+          <div className="col-span-6 md:col-span-4 lg:col-span-2">
+            <FooterLinkGroup title="Company" links={COMPANY_LINKS} />
+          </div>
+          <div className="col-span-6 md:col-span-4 lg:col-span-2">
+            <FooterLinkGroup title="Information" links={INFORMATION_LINKS} />
+          </div>
+          <div className="col-span-6 md:col-span-4 lg:col-span-2">
+            <FooterLinkGroup title="Legal" links={LEGAL_LINKS} />
+          </div>
+          <div className="col-span-12 md:col-span-6 lg:col-span-3">
+            <FooterCTA />
+          </div>
         </div>
         <Separator className="mt-10 mb-6" />
         <p className="font-regular text-center text-base leading-6 text-neutral-950">
