@@ -11,7 +11,7 @@ export default function HelpCenterSearchPage({ queryParams }: { queryParams: { q
   const { data: articles, isLoading } = useSearchArticles(q);
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-10">
+    <div className="wrapper px-6 py-10">
       <HelpBreadcrumb defaultValue={q} />
 
       <div className="mt-8">
