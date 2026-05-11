@@ -19,7 +19,7 @@ const WidgetSection = () => {
           <div className="col-span-3">
             <div className="flex h-full items-center justify-start gap-3">
               <div className="">
-                <Image src={widget} width={305} height={32} alt="widget-img" />
+                <Image src={widget} width={305} height={32} alt="widget-image" />
               </div>
             </div>
           </div>
