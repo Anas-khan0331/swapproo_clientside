@@ -8,13 +8,13 @@ import { FAQ_DATA } from "@/features/home/constants";
 
 const FAQSection = () => {
   return (
-    <div className="bg-neutral-025 px-8">
-      <section className="px-20 py-24">
-        <div className="mb-24 flex flex-col gap-4 text-center">
-          <h2 className="text-foreground text-4xl leading-10 font-semibold tracking-normal">
+    <div className="bg-neutral-025 px-4 md:px-8">
+      <section className="py-12 md:px-20 md:py-24">
+        <div className="mb-12 flex flex-col gap-4 text-center md:mb-24">
+          <h2 className="text-foreground text-4xl leading-8 font-semibold tracking-normal md:leading-10">
             Need Help? We&apos;ve Got Answers
           </h2>
-          <p className="text-muted-foreground text-xl leading-7 font-normal tracking-normal">
+          <p className="text-neutral-125 text-xl leading-7 font-normal tracking-normal md:leading-8">
             Explore Our Most Commonly Asked Questions and Find the Information You Need.
           </p>
         </div>

@@ -4,17 +4,20 @@ import { RATING_DISTRIBUTION } from "../constants";
 
 const AllReviewRating = ({ value }: { value: number }) => {
   return (
-    <>
-      <div className="flex flex-col items-center justify-center gap-2">
-        <p className="text-card-foreground text-6xl font-semibold">{value}/5</p>
-        <div className="mt-5">
+    <div className="flex w-full flex-col items-start gap-6 lg:flex-row lg:items-center lg:gap-10">
+      <div className="flex flex-col items-start justify-center gap-1 lg:items-center lg:gap-2">
+        <p className="text-card-foreground hidden text-6xl font-semibold lg:block">{value}/5</p>
+        <div className="mt-0 flex items-center gap-3 lg:mt-5">
+          <p className="text-card-foreground block text-6xl font-semibold lg:hidden">{value}</p>
           <Rating readOnly variant="yellow" size={24} value={value} precision={0.5} />
         </div>
-        <p className="text-card-foreground text-base font-medium">Based on 65 verified reviews</p>
+        <p className="lg:text-card-foreground text-muted-foreground text-base font-medium">
+          Based on 65 verified reviews
+        </p>
       </div>
-      <div className="flex flex-1 flex-col gap-2.5">
+      <div className="flex w-full flex-col gap-2.5 lg:flex-1">
         {RATING_DISTRIBUTION?.map((item) => (
-          <div key={item.stars} className="flex items-center gap-3">
+          <div key={item.stars} className="flex w-full items-center gap-3">
             <p className="text-card-foreground w-2.5 text-right text-sm font-semibold">
               {item.stars}
             </p>
@@ -25,7 +28,7 @@ const AllReviewRating = ({ value }: { value: number }) => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

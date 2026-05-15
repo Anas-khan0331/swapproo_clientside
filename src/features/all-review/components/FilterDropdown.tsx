@@ -30,7 +30,7 @@ function FilterDropdown({
     <div ref={ref} className="relative">
       <Button
         variant="outline"
-        className="border-border bg-background flex h-9 items-center justify-center gap-2 rounded-lg border px-4 py-2 shadow-xs"
+        className="border-border bg-background flex h-9 w-full items-center justify-center gap-2 rounded-lg border px-4 py-2 shadow-xs lg:w-auto"
         onClick={() => setOpen((p) => !p)}
       >
         {value === "All" ? label : value}

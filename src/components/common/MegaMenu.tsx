@@ -14,7 +14,7 @@ import { MENU_CATEGORIES } from "@/constants/menu";
 
 export function MegaMenu() {
   return (
-    <div className="wrapper bg-neutral-025 border-neutral-150 !hidden border-b py-1 lg:!grid">
+    <div className="wrapper bg-neutral-025 border-neutral-150 hidden! border-b py-1 lg:grid!">
       <NavigationMenu viewport={false}>
         <NavigationMenuList className="gap-11">
           {MENU_CATEGORIES?.map((category) => (
@@ -41,7 +41,15 @@ export function MegaMenu() {
   );
 }
 
-function ListItem({ title, href, ...props }) {
+function ListItem({
+  title,
+  href,
+  ...props
+}: {
+  title: string;
+  href: string;
+  [key: string]: unknown;
+}) {
   return (
     <li {...props}>
       <NavigationMenuLink asChild>

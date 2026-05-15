@@ -17,7 +17,7 @@ const CustomerFeedback = () => {
 
   return (
     <div className="space-y-8 lg:col-span-2">
-      <h2 className="text-3xl font-semibold">Customer Videos & Reviews</h2>
+      <h2 className="text-3xl leading-9 font-semibold">Customer Videos & Reviews</h2>
       <ReviewMedia />
       {REVIEWS_DATA.map((item) => {
         return (

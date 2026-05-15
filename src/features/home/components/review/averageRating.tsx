@@ -27,7 +27,7 @@ const AverageRating = () => {
   return (
     <div className="">
       <h2 className="text-3xl font-semibold">Average Rating</h2>
-      <Card className="mt-8 w-full p-0 shadow-none">
+      <Card className="mt-8 w-full overflow-hidden p-0 shadow-none">
         <CardHeader>
           <CardTitle className="flex items-center gap-3 text-3xl font-semibold">
             {averageRating}

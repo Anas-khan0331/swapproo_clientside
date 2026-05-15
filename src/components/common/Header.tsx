@@ -1,5 +1,5 @@
 import logo from "@/assets/images/logo.png";
-import { HamburgerMenu, Routing2 } from "iconsax-reactjs";
+import { HamburgerMenu, Routing2, User } from "iconsax-reactjs";
 import Image from "next/image";
 import Link from "next/link";
 import { SearchInput } from "../shared/SearchInput";
@@ -20,11 +20,18 @@ const Property1Default = ({ className, showSearch = false }: HeaderProps) => {
 
   return (
     <div className={className || ""}>
-      <header className="wrapper bg-primary-600 h-16 border-b border-white/10 py-3">
+      <header className="wrapper bg-primary-600 h-20 border-b border-white/10 py-5 md:h-16 md:py-3">
         <div className="grid grid-cols-12 items-center gap-4 md:gap-8 lg:gap-12">
           <div className="col-span-6 flex items-center gap-4 md:gap-8 lg:col-span-7 xl:col-span-7">
             <Link href="/" className="shrink-0">
-              <Image src={logo} alt="Swapproo Logo" width={201} height={36} priority />
+              <Image
+                src={logo}
+                alt="Swapproo Logo"
+                width={201}
+                height={36}
+                priority
+                className="h-5 sm:w-[200px]"
+              />
             </Link>
             <Show when={!!showSearch}>
               <SearchInput
@@ -51,9 +58,14 @@ const Property1Default = ({ className, showSearch = false }: HeaderProps) => {
               <span className="h-5 w-px bg-white" aria-hidden="true" />
               <UserDropdown />
             </div>
-            <div className="flex items-center gap-2 lg:hidden">
-              <UserDropdown />
-              <HamburgerMenu size="24" color="#fafafa" onClick={() => alert("hello")} />
+            <div className="flex items-center gap-6 lg:hidden">
+              <div className="flex items-center gap-4">
+                <Routing2 size={24} color="#fff" />
+                <User size={24} color="#fff" />
+              </div>
+              <div className="flex h-9 w-9 items-center justify-center rounded-md bg-white">
+                <HamburgerMenu size={16} color="#171717" onClick={() => alert("hello")} />
+              </div>
             </div>
           </div>
         </div>

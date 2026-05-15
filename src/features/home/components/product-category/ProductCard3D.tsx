@@ -141,7 +141,7 @@ const ProductCard3D = ({ item }: { item: ProductCard[number] }) => {
         <Card
           ref={cardRef}
           className={cn(
-            "bg-neutral-075 group absolute inset-x-0 top-0 overflow-visible rounded-xl border border-transparent transition-colors duration-300",
+            "bg-neutral-075 group absolute inset-x-0 top-0 overflow-visible rounded-xl ring-0 transition-colors duration-300",
             item.mainClass,
           )}
           style={{ height: "286px" }}

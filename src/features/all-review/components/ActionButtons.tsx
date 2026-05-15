@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const ActionButtons = () => {
   return (
-    <div className="flex flex-col items-end gap-5">
+    <div className="flex flex-col gap-5">
       <Button
         className="bg-foreground! h-10 w-full rounded-lg px-6 py-[10px] font-normal hover:bg-neutral-950/80!"
         asChild

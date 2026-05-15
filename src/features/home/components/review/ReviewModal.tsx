@@ -30,12 +30,12 @@ export const ReviewModal = ({
         className="gap-0 overflow-visible rounded-2xl border-0 p-0 shadow-xl ring-0 sm:max-w-none"
         showCloseButton={false}
         backdropClassName="bg-black/50"
-        style={{ width: 998, maxWidth: 998, height: 571 }}
+        style={{ width: "min(998px, 95vw)", maxWidth: "95vw", height: "auto", maxHeight: "90vh" }}
         onInteractOutside={(e) => e.preventDefault()}
       >
         <DialogTitle className="sr-only">{""}</DialogTitle>
-        <div className="flex h-full w-full overflow-hidden rounded-2xl">
-          <div className="relative w-[50%] shrink-0 overflow-hidden">
+        <div className="flex h-full w-full flex-col overflow-hidden rounded-2xl md:flex-row">
+          <div className="relative h-[280px] w-full shrink-0 overflow-hidden md:h-auto md:w-[50%]">
             <video
               key={review.id}
               src={review.url}
@@ -44,7 +44,7 @@ export const ReviewModal = ({
               playsInline
             />
           </div>
-          <div className="flex w-[50%] flex-col gap-4 overflow-y-auto bg-white p-6">
+          <div className="flex w-full flex-col gap-4 overflow-y-auto bg-white p-6 md:w-[50%]">
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
                 <div className="relative h-10 w-10 overflow-hidden rounded-full bg-neutral-200">

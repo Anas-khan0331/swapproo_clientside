@@ -31,8 +31,8 @@ export default function WriteAReview() {
   const activeRating = hovered || rating;
 
   return (
-    <div className="bg-white pt-8 pb-11">
-      <div className="mx-auto mb-20 max-w-3xl">
+    <div className="bg-white px-4 pt-8 pb-8 lg:px-0 lg:pt-8 lg:pb-11">
+      <div className="mx-auto mb-12 w-full lg:mb-20 lg:max-w-3xl">
         <h2 className="text-foreground mb-8 text-3xl font-bold">Write a review</h2>
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
@@ -109,13 +109,9 @@ export default function WriteAReview() {
               />
               <Label
                 htmlFor="terms"
-                className="text-muted-foreground cursor-pointer text-sm leading-relaxed"
+                className="text-muted-foreground flex cursor-pointer items-start text-sm leading-relaxed text-nowrap"
               >
-                By publishing this review you agree with the{" "}
-                <a href="/terms" className="text-foreground underline hover:no-underline">
-                  terms and conditions
-                </a>
-                .
+                By publishing this review you agree with the <span></span> .
               </Label>
             </div>
           </div>

@@ -6,15 +6,15 @@ export type { ProductCard } from "./ProductCard3D";
 
 const ProductCategory = ({ showView = true }) => {
   return (
-    <section className="wrapper py-14">
-      <div className="mb-[67px] flex gap-6 max-md:flex-col">
+    <section className="wrapper py-14 md:pt-8 md:pb-25">
+      <div className="mb-[57px] flex items-center gap-6">
         <div className="grow space-y-4">
-          <h2 className="text-2xl font-semibold md:text-3xl lg:text-4xl">Categories</h2>
+          <h2 className="text-3xl font-semibold lg:text-4xl">Categories</h2>
         </div>
         <Show when={!!showView}>
           <Link
             href="/category"
-            className="hover:text-primary transition-colors hover:cursor-pointer"
+            className="hover:text-primary text-sm font-medium transition-colors hover:cursor-pointer"
           >
             view all
           </Link>

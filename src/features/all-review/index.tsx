@@ -38,30 +38,33 @@ const AllReviewsPage = () => {
         <div className="flex flex-col">
           <h2 className="text-foreground text-4xl leading-10 font-semibold">All Reviews</h2>
           <div className="flex flex-col py-8">
-            <div className="grid grid-cols-12 items-center gap-10">
-              <div className="col-span-8 flex items-center gap-10">
+            <div className="grid grid-cols-12 items-center gap-6 lg:gap-10">
+              <div className="col-span-12 min-w-0 lg:col-span-8">
                 <AllReviewRating value={4.5} />
               </div>
-              <div className="col-span-4">
+              <div className="col-span-12 min-w-0 lg:col-span-4">
                 <ActionButtons />
               </div>
             </div>
-
-            <div className="mt-15 flex flex-col gap-8">
+            <div className="mt-15 flex w-full min-w-0 flex-col gap-8">
               <ReviewMedia />
               <div className="flex gap-4">
-                <FilterDropdown
-                  label="Rating"
-                  options={["All", "5", "4", "3", "2", "1"]}
-                  value={ratingFilter}
-                  onChange={setRatingFilter}
-                />
-                <FilterDropdown
-                  label="Verified"
-                  options={["All", "Verified", "Not Verified"]}
-                  value={typeFilter}
-                  onChange={setTypeFilter}
-                />
+                <div className="flex-1 lg:flex-none">
+                  <FilterDropdown
+                    label="Rating"
+                    options={["All", "5", "4", "3", "2", "1"]}
+                    value={ratingFilter}
+                    onChange={setRatingFilter}
+                  />
+                </div>
+                <div className="flex-1 lg:flex-none">
+                  <FilterDropdown
+                    label="Verified"
+                    options={["All", "Verified", "Not Verified"]}
+                    value={typeFilter}
+                    onChange={setTypeFilter}
+                  />
+                </div>
               </div>
 
               {/* Review Cards */}

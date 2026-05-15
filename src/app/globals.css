@@ -135,7 +135,6 @@
 
   --radius: 0.625rem;
 
-  /* ── Figma border-radius design tokens ── */
   --borderradius-rounded-box: 0.875rem; /* 14px — card containers  */
   --borderradius-rounded-field: 0.5rem; /* 8px  — buttons, selects */
   --borderradius-rounded-input: 0.625rem; /* 10px — inputs, OTP slots */
@@ -162,7 +161,7 @@
 
 @media (max-width: 767px) {
   .wrapper {
-    --padding-inline: 1.5rem;
+    --padding-inline: 1rem;
   }
 }
 

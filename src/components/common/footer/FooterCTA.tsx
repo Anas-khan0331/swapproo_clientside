@@ -25,7 +25,7 @@ const SOCIAL_LINKS = [
 
 export const FooterCTA = () => {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="mt-8 flex flex-col gap-4 lg:mt-0">
       <h3 className="text-xl font-semibold text-neutral-950">Trade-in, Built For Your Store</h3>
       <div className="flex flex-col gap-3">
         <Input
@@ -40,9 +40,7 @@ export const FooterCTA = () => {
           Get started free
         </Button>
       </div>
-
-      {/* Social icons */}
-      <div className="flex items-center gap-3 pt-1">
+      <div className="flex items-center justify-center gap-3 pt-1">
         {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
           <a
             key={label}
