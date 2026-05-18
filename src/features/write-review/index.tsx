@@ -58,7 +58,7 @@ export default function WriteAReview() {
             <p className="text-sm font-medium">Write your review</p>
             <Textarea
               placeholder="Type here"
-              className="h-[72px] !bg-white shadow-sm"
+              className="h-[72px] bg-white shadow-sm"
               value={reviewText}
               onChange={(e) => setReviewText(e.target.value)}
             />
@@ -105,17 +105,17 @@ export default function WriteAReview() {
                 id="terms"
                 checked={agreed}
                 onCheckedChange={(v) => setAgreed(!!v)}
-                className="mt-0.5 size-5 rounded"
+                className="mt-0.5 size-5 shrink-0 rounded"
               />
-              <Label
-                htmlFor="terms"
-                className="text-muted-foreground flex cursor-pointer items-start text-sm leading-relaxed text-nowrap"
-              >
-                By publishing this review you agree with the <span></span> .
-              </Label>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                By publishing this review you agree with the{" "}
+                <Link href="/terms" className="text-foreground underline">
+                  terms and conditions
+                </Link>
+                .
+              </p>
             </div>
           </div>
-
           {/* Submit */}
           <Link href="/review-thank-you">
             <Button

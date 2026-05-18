@@ -1,6 +1,9 @@
+"use client";
+
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Facebook, Instagram } from "iconsax-reactjs";
+import { useState } from "react";
 
 const LinkedinIcon = ({ size = 20, color = "#737373" }: { size?: number; color?: string }) => (
   <svg
@@ -24,6 +27,8 @@ const SOCIAL_LINKS = [
 ];
 
 export const FooterCTA = () => {
+  const [email, setEmail] = useState("");
+
   return (
     <div className="mt-8 flex flex-col gap-4 lg:mt-0">
       <h3 className="text-xl font-semibold text-neutral-950">Trade-in, Built For Your Store</h3>
@@ -31,16 +36,20 @@ export const FooterCTA = () => {
         <Input
           type="email"
           placeholder="Business email address"
-          className="focus-visible:ring-primary-500 focus-visible:border-primary-500 h-10 rounded-lg border-neutral-200 !bg-white text-sm transition-colors placeholder:text-neutral-400 focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="focus-visible:ring-primary-500 focus-visible:border-primary-500 py-[7px]text-sm h-10 rounded-md border-neutral-200 px-3 transition-colors placeholder:text-neutral-400 focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50"
         />
         <Button
+          onClick={() => alert("CTA BTN CLICKED")}
           variant="secondary"
-          className="h-10 w-full text-sm font-medium text-neutral-400 transition-transform hover:text-neutral-900 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+          disabled={!email}
+          className="h-10 w-full text-sm font-medium text-neutral-900 transition-transform hover:text-neutral-900 disabled:pointer-events-auto! disabled:cursor-not-allowed! disabled:opacity-50"
         >
           Get started free
         </Button>
       </div>
-      <div className="flex items-center justify-center gap-3 pt-1">
+      <div className="flex items-center justify-center gap-3 pt-1 md:justify-start">
         {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
           <a
             key={label}

@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import Image, { StaticImageData } from "next/image";
@@ -15,140 +14,29 @@ export type ProductCard = {
   mainClass?: string;
 }[];
 
-interface CardTransform {
-  rotateX: number;
-  rotateY: number;
-  scale: number;
-}
-
 const ProductCard3D = ({ item }: { item: ProductCard[number] }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const imageWrapperRef = useRef<HTMLDivElement>(null);
-  const animationFrameRef = useRef<number | undefined>(undefined);
-  const lastMousePosition = useRef({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const card = cardRef.current;
-    const imageWrapper = imageWrapperRef.current;
-
-    if (!card || !imageWrapper) return;
-
-    let rect: DOMRect;
-    let centerX: number;
-    let centerY: number;
-
-    const updateCardTransform = (mouseX: number, mouseY: number) => {
-      if (!rect) {
-        rect = card.getBoundingClientRect();
-        centerX = rect.left + rect.width / 2;
-        centerY = rect.top + rect.height / 2;
-      }
-
-      const relativeX = mouseX - centerX;
-      const relativeY = mouseY - centerY;
-
-      const cardTransform: CardTransform = {
-        rotateX: -relativeY * 0.035,
-        rotateY: relativeX * 0.035,
-        scale: 1.025,
-      };
-
-      const imageTransform: CardTransform = {
-        rotateX: -relativeY * 0.025,
-        rotateY: relativeX * 0.025,
-        scale: 1.1,
-      };
-
-      return { cardTransform, imageTransform };
-    };
-
-    const animate = () => {
-      const { cardTransform, imageTransform } = updateCardTransform(
-        lastMousePosition.current.x,
-        lastMousePosition.current.y,
-      );
-
-      card.style.transform = `perspective(1000px) rotateX(${cardTransform.rotateX}deg) rotateY(${cardTransform.rotateY}deg) scale3d(${cardTransform.scale}, ${cardTransform.scale}, ${cardTransform.scale})`;
-      card.style.boxShadow = "0 10px 35px rgba(0, 0, 0, 0.2)";
-
-      imageWrapper.style.transform = `perspective(1000px) rotateX(${imageTransform.rotateX}deg) rotateY(${imageTransform.rotateY}deg) scale3d(${imageTransform.scale}, ${imageTransform.scale}, ${imageTransform.scale})`;
-
-      animationFrameRef.current = requestAnimationFrame(animate);
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      lastMousePosition.current = { x: e.clientX, y: e.clientY };
-
-      if (!rect) {
-        rect = card.getBoundingClientRect();
-        centerX = rect.left + rect.width / 2;
-        centerY = rect.top + rect.height / 2;
-      }
-    };
-
-    const handleMouseEnter = () => {
-      rect = card.getBoundingClientRect();
-      centerX = rect.left + rect.width / 2;
-      centerY = rect.top + rect.height / 2;
-      card.style.transition =
-        "transform 0.2s ease, box-shadow 0.2s ease, height 0.3s ease, border 0.2s ease";
-      card.style.transition =
-        "transform 0.2s ease, box-shadow 0.2s ease, height 0.3s ease, border 0.2s ease";
-      imageWrapper.style.transition = "transform 0.2s ease";
-      card.style.height = "328px";
-      card.style.border = "2px solid rgba(23, 23, 23, 0.4)";
-      animate();
-    };
-
-    const handleMouseLeave = () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
-
-      card.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
-      card.style.boxShadow = "none";
-      card.style.border = "2px solid transparent";
-      card.style.transition =
-        "transform 0.5s ease, box-shadow 0.5s ease, height 0.3s ease, border 0.5s ease";
-      card.style.height = "286px";
-      card.style.transition =
-        "transform 0.5s ease, box-shadow 0.5s ease, height 0.3s ease, border 0.5s ease";
-      card.style.height = "286px";
-
-      imageWrapper.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
-      imageWrapper.style.transition = "transform 0.5s ease";
-
-      rect = undefined as unknown as DOMRect;
-    };
-
-    card.addEventListener("mouseenter", handleMouseEnter);
-    card.addEventListener("mousemove", handleMouseMove);
-    card.addEventListener("mouseleave", handleMouseLeave);
-
-    return () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
-      card.removeEventListener("mouseenter", handleMouseEnter);
-      card.removeEventListener("mousemove", handleMouseMove);
-      card.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, []);
-
   return (
     <div style={{ height: "286px" }} className="relative">
       <Link href={`/category/${item.productLink}`} className="block">
         <Card
-          ref={cardRef}
           className={cn(
-            "bg-neutral-075 group absolute inset-x-0 top-0 overflow-visible rounded-xl ring-0 transition-colors duration-300",
+            "bg-neutral-075 group absolute inset-x-0 top-0 overflow-visible rounded-xl border-2 border-transparent ring-0 transition-[height,border-color] duration-300 hover:border-neutral-900/40",
             item.mainClass,
           )}
-          style={{ height: "286px" }}
+          style={{ height: "286px", transition: "height 0.3s ease, border-color 0.3s ease" }}
+          onMouseEnter={(e) => {
+            const el = e.currentTarget as HTMLDivElement;
+            el.style.height = "328px";
+            el.style.borderColor = "rgba(23,23,23,0.4)";
+          }}
+          onMouseLeave={(e) => {
+            const el = e.currentTarget as HTMLDivElement;
+            el.style.height = "286px";
+            el.style.borderColor = "transparent";
+          }}
         >
           <CardContent className="flex h-full flex-col p-0 text-sm">
             <div
-              ref={imageWrapperRef}
               className="absolute -top-20 left-1/2 -translate-x-1/2"
               style={{ width: 280, height: 280 }}
             >

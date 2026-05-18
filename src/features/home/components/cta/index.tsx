@@ -1,9 +1,13 @@
+"use client";
+import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 
 const CTASection = () => {
+  const [email, setEmail] = useState("");
+
   return (
     <section className="bg-primary-50 py-8 lg:py-24">
       <div className="wrapper">
@@ -12,7 +16,7 @@ const CTASection = () => {
             <div className="flex flex-col gap-4">
               <Badge
                 variant="outline"
-                className="border-primary-300 text-foreground w-fit text-sm font-normal"
+                className="border-primary-300 text-foreground w-fit p-3 text-sm font-normal"
               >
                 SWAPPROO for Business
               </Badge>
@@ -23,14 +27,19 @@ const CTASection = () => {
                 Use the power of SWAPPROO to buy more, and reach your next milestone.
               </p>
             </div>
-            <div className="border-neutral-975 focus-within:border-primary-500 flex w-full max-w-sm shrink-0 flex-col items-center gap-2 rounded-xl border-2 p-3 transition-colors lg:flex-row">
+            <div className="border-neutral-975 flex w-full max-w-sm shrink-0 flex-col items-center gap-2 rounded-xl border-2 p-3 lg:flex-row">
               <Input
                 type="email"
                 placeholder="Your email address"
                 required
-                className="h-10 border border-black/5 shadow-xs focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="h-10 border border-black/5 px-3 py-[7px] shadow-xs focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50"
               />
-              <Button className="bg-foreground hover:bg-foreground/90 w-full rounded-lg p-5 text-white shadow-sm transition-transform active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 md:w-auto md:shrink-0">
+              <Button
+                disabled={!email}
+                className="bg-foreground hover:bg-foreground/90 w-full rounded-lg border-none p-5 font-normal text-white shadow-none focus-visible:ring-0 disabled:pointer-events-auto! disabled:cursor-not-allowed! disabled:opacity-50 md:w-auto md:shrink-0"
+              >
                 Get started
               </Button>
             </div>

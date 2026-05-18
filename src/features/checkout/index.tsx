@@ -1,6 +1,5 @@
 "use client";
 
-import { Separator } from "@/components/ui/separator";
 import { useRouter } from "next/navigation";
 import CheckoutHeader from "../../components/common/CheckoutHeader";
 import { ProductNotFound } from "./components/ProductNotFound";
@@ -24,10 +23,11 @@ const Checkout = ({ slug }: { slug: string }) => {
     <div className="bg-background flex min-h-screen w-full flex-col">
       <CheckoutHeader />
       <main className="bg-background wrapper flex flex-col pt-8 pb-10">
-        <div>
-          <div className="flex flex-row justify-center gap-6">
+        <div className="grid grid-cols-12 gap-6">
+          <div className="col-span-12 lg:col-span-8 lg:border-r lg:pr-6">
             <CheckoutFormSection onSubmit={handleSubmit} />
-            <Separator orientation="vertical" className="h-auto" />
+          </div>
+          <div className="col-span-12 lg:col-span-4">
             <CheckoutSummarySection name={product.name} price={product.price} img={product.img} />
           </div>
         </div>

@@ -22,7 +22,7 @@ const CustomerFeedback = () => {
       {REVIEWS_DATA.map((item) => {
         return (
           <div key={`${item.name}-${item.id}`}>
-            <Card className="border-neutral-150 w-full border-b shadow-none ring-0">
+            <Card className="border-neutral-150 w-full rounded-none border-b shadow-none ring-0">
               <CardContent className="space-y-3 px-0">
                 <div className="flex gap-3">
                   <Avatar className="size-10">
@@ -36,7 +36,7 @@ const CustomerFeedback = () => {
                   <Rating readOnly variant="yellow" size={16} value={item.rating} precision={0.5} />
                 </div>
 
-                <p className="text-muted-foreground">{item.description}</p>
+                <p className="text-muted-foreground text-base">{item.description}</p>
 
                 <Show when={!!item.videoUrl}>
                   <VideoReviewThumbnail

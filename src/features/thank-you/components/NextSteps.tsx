@@ -10,13 +10,13 @@ const NextSteps = () => {
         <div className="flex flex-col gap-4">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {STEPS.map((step, index) => (
-              <Card key={index} className="shadow-sm">
-                <CardContent>
-                  <div className="flex flex-col gap-4 py-6">
-                    <div className="-mx-6 -mt-6 flex flex-row gap-2.5 px-6">
+              <Card key={index} className="ring-neutral-150 rounded-xl p-6 shadow-sm">
+                <CardContent className="p-0">
+                  <div className="flex flex-col gap-4">
+                    <div className="flex flex-row gap-2.5">
                       <step.icon className="h-9 w-9" />
                     </div>
-                    <div className="-mx-6 flex flex-col gap-2 px-6">
+                    <div className="flex flex-col gap-2">
                       <h3 className="text-card-foreground text-base leading-6 font-semibold">
                         {step.title}
                       </h3>

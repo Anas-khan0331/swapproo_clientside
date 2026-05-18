@@ -22,10 +22,10 @@ const FAQSection = () => {
           <Accordion type="single" defaultValue="item-0" collapsible className="mx-auto w-full">
             {FAQ_DATA.map((item, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-foreground text-base leading-6 tracking-normal">
+                <AccordionTrigger className="text-foreground text-lg leading-6 tracking-normal">
                   {item?.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-neutral-125 text-sm leading-5 tracking-normal">
+                <AccordionContent className="text-neutral-125 text-base leading-5 tracking-normal">
                   {item?.answer}
                 </AccordionContent>
               </AccordionItem>

@@ -47,11 +47,7 @@ const UserDropdown = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
-          variant="ghost"
-          className="flex items-center gap-2 bg-transparent text-white hover:bg-none hover:text-white data-[state=open]:bg-transparent data-[state=open]:text-white"
-        >
-          <User size={24} />
+        <Button className="flex items-center gap-2 border-transparent! bg-transparent! text-white! shadow-none! ring-0! outline-none! hover:bg-transparent! hover:opacity-80 focus-visible:border-transparent! focus-visible:ring-0! data-[state=open]:border-transparent! data-[state=open]:bg-transparent! data-[state=open]:text-white! data-[state=open]:shadow-none!">
           <span className="text-base leading-6 font-light tracking-normal">
             {user?.name || "User"}
           </span>
@@ -67,7 +63,7 @@ const UserDropdown = () => {
           <DropdownMenuItem key={item.label} asChild>
             <Link
               href={item.href!}
-              className="text-popover-foreground flex items-center rounded-md text-base font-normal hover:cursor-pointer hover:bg-[#F5F5F5]"
+              className="text-popover-foreground flex items-center rounded-md text-base! font-normal hover:cursor-pointer hover:bg-[#F5F5F5]"
             >
               {item.label}
             </Link>

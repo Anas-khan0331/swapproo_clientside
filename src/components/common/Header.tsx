@@ -15,7 +15,7 @@ const Property1Default = ({ className, showSearch = false }: HeaderProps) => {
   const links = [
     { label: "for Business", href: "/business" },
     { label: "Help", href: "/help" },
-    { label: "Track", href: "/track-trade-in", icon: <Routing2 size="24" /> },
+    { label: "Track", href: "/track-trade-in", icon: <Routing2 variant="Broken" size="24" /> },
   ];
 
   return (
@@ -60,7 +60,7 @@ const Property1Default = ({ className, showSearch = false }: HeaderProps) => {
             </div>
             <div className="flex items-center gap-6 lg:hidden">
               <div className="flex items-center gap-4">
-                <Routing2 size={24} color="#fff" />
+                <Routing2 variant="Broken" size={24} color="#fff" />
                 <User size={24} color="#fff" />
               </div>
               <div className="flex h-9 w-9 items-center justify-center rounded-md bg-white">

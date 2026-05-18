@@ -16,7 +16,7 @@ export function SearchInput({
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -40,7 +40,7 @@ export function SearchInput({
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {
       e.preventDefault();
-      navigate(showDropdown ? filtered[activeIndex].label : query);
+      navigate(showDropdown && activeIndex >= 0 ? filtered[activeIndex].label : query);
       return;
     }
     if (e.key === "Escape") {
@@ -53,7 +53,7 @@ export function SearchInput({
       setActiveIndex((i) => Math.min(i + 1, filtered.length - 1));
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      setActiveIndex((i) => Math.max(i - 1, 0));
+      setActiveIndex((i) => Math.max(i - 1, -1));
     }
   }
 
@@ -61,7 +61,7 @@ export function SearchInput({
     const q = value.trim();
     if (!q) return;
     setQuery(q);
-    setActiveIndex(0);
+    setActiveIndex(-1);
     setOpen(false);
     inputRef.current?.focus();
     router.push(`/category?q=${encodeURIComponent(q)}`);
@@ -69,7 +69,7 @@ export function SearchInput({
 
   const handleClear = useCallback(() => {
     setQuery("");
-    setActiveIndex(0);
+    setActiveIndex(-1);
     setOpen(false);
     inputRef.current?.focus();
   }, []);
@@ -78,16 +78,19 @@ export function SearchInput({
     <div ref={containerRef} className={cn("relative w-full", className)}>
       <InputGroup
         className={cn(
-          "h-10 px-3 py-3",
+          "h-10 overflow-hidden py-3 pr-1 pl-[2px]",
           showDropdown &&
             "border-neutral-150 has-[[data-slot=input-group-control]:focus-visible]:border-neutral-150 rounded-b-none has-[[data-slot=input-group-control]:focus-visible]:ring-0",
-          !showDropdown && "border-primary-500 p-1",
+          !showDropdown && "border-primary-500",
         )}
       >
-        <InputGroupAddon align="inline-end">
-          <SearchNormal1 size="16" className="text-muted-foreground shrink-0" />
-        </InputGroupAddon>
-
+        {!query && (
+          <InputGroupAddon align="inline-end" className="pr-2">
+            <span className="text-muted-foreground flex items-center">
+              <SearchNormal1 size="16" className="shrink-0" />
+            </span>
+          </InputGroupAddon>
+        )}
         <InputGroupInput
           ref={inputRef}
           id={id}
@@ -95,15 +98,14 @@ export function SearchInput({
           placeholder={placeholder}
           onChange={(e) => {
             setQuery(e.target.value);
-            setActiveIndex(0);
+            setActiveIndex(-1);
             setOpen(true);
           }}
           onFocus={() => setOpen(true)}
           onKeyDown={handleKeyDown}
         />
-
         {query && (
-          <InputGroupAddon align="inline-end">
+          <InputGroupAddon align="inline-end" className="pr-3!">
             <button
               type="button"
               onClick={handleClear}
@@ -116,9 +118,9 @@ export function SearchInput({
         )}
       </InputGroup>
       {showDropdown && (
-        <div className="bg-background border-border border-t-border/60 absolute top-full left-0 z-50 max-h-[448px] w-full min-w-[320px] overflow-auto rounded-t-none rounded-b-lg border border-t text-start shadow-lg">
+        <div className="bg-background border-border absolute top-full left-0 z-50 max-h-[448px] w-full min-w-[320px] overflow-auto rounded-t-none rounded-b-lg border border-t-0 text-start shadow-lg">
           {filtered.length > 0 ? (
-            <ul role="listbox" className="px-2 py-1">
+            <ul role="listbox" className="px-2 py-1" onMouseLeave={() => setActiveIndex(-1)}>
               {filtered.map((item, i) => (
                 <li
                   key={item.id}
@@ -132,7 +134,7 @@ export function SearchInput({
                   className={cn(
                     "text-foreground cursor-pointer rounded-xl p-3 text-sm transition-colors",
                     "hover:bg-neutral-075 hover:rounded-md",
-                    i === activeIndex && "bg-neutral-075 rounded-md",
+                    activeIndex >= 0 && i === activeIndex && "bg-neutral-075 rounded-md",
                   )}
                 >
                   {item.label}
