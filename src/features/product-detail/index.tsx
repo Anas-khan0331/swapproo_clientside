@@ -1,11 +1,10 @@
+import { Blog } from "@/features/home/components/blog";
+import { FAQSection } from "@/features/home/components/faq";
 import { TradeInSteps } from "@/features/home/components/trade-in-steps";
 import { PRODUCT_CARDS, PRODUCTS_PER_CATEGORY } from "@/features/home/constants";
-import Link from "next/link";
-import { ReviewSection } from "@/features/home/components/review";
-import ProductOverview from "./components/ProductOverview";
 import { StaticImageData } from "next/image";
-import { FAQSection } from "@/features/home/components/faq";
-import { Blog } from "@/features/home/components/blog";
+import Link from "next/link";
+import ProductOverview from "./components/ProductOverview";
 
 const toSlug = (name: string) =>
   name
@@ -40,11 +39,10 @@ const ProductDetailPage = ({ slug }: { slug: string }) => {
 
   return (
     <div className="">
-      <div className="wrapper border-b border-b-[#E5E5E5]">
+      <div className="wrapper border-b-0 lg:border-b lg:border-b-[#E5E5E5]">
         <ProductOverview productName={product.name} img={product.img} />
       </div>
       <TradeInSteps />
-      <ReviewSection />
       <FAQSection />
       <Blog />
     </div>

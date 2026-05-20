@@ -1,17 +1,33 @@
+"use client";
+
 import logo from "@/assets/images/logo.png";
-import { HamburgerMenu, Routing2, User } from "iconsax-reactjs";
+import { HamburgerMenu, Routing2, User, SearchNormal } from "iconsax-reactjs";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { SearchInput } from "../shared/SearchInput";
 import { MegaMenu } from "./MegaMenu";
+import { MobileMenuDrawer } from "./MobileMenuDrawer";
+import CloseIcon from "../icons/CloseIcon";
 import UserDropdown from "./UserDropdown";
-import Show from "./show";
 interface HeaderProps {
   className?: string;
   showSearch?: boolean;
 }
 
 const Property1Default = ({ className, showSearch = false }: HeaderProps) => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
+
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setDrawerOpen(false);
+    setSearchOpen(false);
+  }
+
   const links = [
     { label: "for Business", href: "/business" },
     { label: "Help", href: "/help" },
@@ -21,8 +37,64 @@ const Property1Default = ({ className, showSearch = false }: HeaderProps) => {
   return (
     <div className={className || ""}>
       <header className="wrapper bg-primary-600 h-20 border-b border-white/10 py-5 md:h-16 md:py-3">
-        <div className="grid grid-cols-12 items-center gap-4 md:gap-8 lg:gap-12">
-          <div className="col-span-6 flex items-center gap-4 md:gap-8 lg:col-span-7 xl:col-span-7">
+        {/* Mobile layout */}
+        <div className="flex items-center justify-between gap-4 lg:hidden">
+          {searchOpen ? (
+            <div className="flex flex-1 items-center gap-3">
+              <SearchInput
+                className="flex-1"
+                id="mobile-header-search"
+                placeholder="Search"
+                autoFocus
+                isMobile
+              />
+              <button
+                onClick={() => setSearchOpen(false)}
+                className="shrink-0 text-sm font-medium text-white"
+              >
+                Cancel
+              </button>
+            </div>
+          ) : (
+            <>
+              <Link href="/" className="shrink-0">
+                <Image
+                  src={logo}
+                  alt="Swapproo Logo"
+                  width={201}
+                  height={36}
+                  priority
+                  className="sm:w-[200px] md:w-[300px]"
+                />
+              </Link>
+              <div className="flex items-center gap-4">
+                {showSearch && (
+                  <button onClick={() => setSearchOpen(true)} aria-label="Search">
+                    <SearchNormal size={24} color="#fff" />
+                  </button>
+                )}
+                <Link href="/track-trade-in">
+                  <Routing2 variant="Broken" size={24} color="#fff" />
+                </Link>
+                <Link href="/account">
+                  <User size={24} color="#fff" />
+                </Link>
+                <button
+                  onClick={() => setDrawerOpen((prev) => !prev)}
+                  className="flex h-9 w-9 items-center justify-center rounded-md bg-white"
+                  aria-label={drawerOpen ? "Close menu" : "Open menu"}
+                >
+                  {drawerOpen ? <CloseIcon /> : <HamburgerMenu size={16} color="#171717" />}
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* Desktop layout: 6-6 grid */}
+        <div className="hidden gap-0 lg:grid lg:grid-cols-12 lg:items-center xl:gap-8">
+          {/* Col 1 (span 6): Logo + Search */}
+          <div className="col-span-8 flex items-center gap-8">
             <Link href="/" className="shrink-0">
               <Image
                 src={logo}
@@ -30,47 +102,35 @@ const Property1Default = ({ className, showSearch = false }: HeaderProps) => {
                 width={201}
                 height={36}
                 priority
-                className="h-5 sm:w-[200px]"
+                className="lg:w-[201px]"
               />
             </Link>
-            <Show when={!!showSearch}>
-              <SearchInput
-                className="hidden w-full lg:flex"
-                id="header-search"
-                placeholder="Search"
-              />
-            </Show>
+            {showSearch && (
+              <SearchInput className="w-[464px]" id="header-search" placeholder="Search" />
+            )}
           </div>
-          <div className="col-span-6 flex items-center justify-end gap-4 lg:col-span-5 xl:col-span-5">
-            <div className="hidden items-center justify-end gap-4 lg:flex">
-              <div className="flex items-center lg:gap-3 xl:gap-12">
-                {links.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    className="flex items-center gap-2 text-base leading-6 font-light tracking-normal text-white capitalize transition-opacity hover:opacity-80"
-                  >
-                    {link.icon && <span className="shrink-0">{link.icon}</span>}
-                    <span>{link.label}</span>
-                  </Link>
-                ))}
-              </div>
+          <div className="col-span-4 flex items-center">
+            <div className="flex items-center gap-12">
+              {links.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="flex items-center gap-2 text-base leading-6 font-light tracking-normal text-white capitalize transition-opacity hover:opacity-80"
+                >
+                  {link.icon && <span className="shrink-0">{link.icon}</span>}
+                  <span className="text-nowrap">{link.label}</span>
+                </Link>
+              ))}
+            </div>
+            <div className="ml-4 flex items-center gap-4">
               <span className="h-5 w-px bg-white" aria-hidden="true" />
               <UserDropdown />
-            </div>
-            <div className="flex items-center gap-6 lg:hidden">
-              <div className="flex items-center gap-4">
-                <Routing2 variant="Broken" size={24} color="#fff" />
-                <User size={24} color="#fff" />
-              </div>
-              <div className="flex h-9 w-9 items-center justify-center rounded-md bg-white">
-                <HamburgerMenu size={16} color="#171717" onClick={() => alert("hello")} />
-              </div>
             </div>
           </div>
         </div>
       </header>
       <MegaMenu />
+      <MobileMenuDrawer isOpen={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </div>
   );
 };

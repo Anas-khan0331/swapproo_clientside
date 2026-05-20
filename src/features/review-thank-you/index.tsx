@@ -18,10 +18,10 @@ const ReviewThankYouPage = () => {
   );
 
   return (
-    <div className="mx-auto mb-[124px] max-w-3xl pt-14">
+    <div className="mx-auto mb-12 max-w-3xl px-4 py-8 lg:mb-[124px] lg:px-0 lg:pt-14 lg:pb-0">
       <div className="flex flex-col gap-8">
         <h1 className="text-foreground text-[30px] leading-9 font-bold">Thanks for your review!</h1>
-        <Card className="bg-card shadow-none ring-0">
+        <Card className="bg-card py-0 shadow-none ring-0">
           <CardContent className="flex flex-col gap-4 px-0 py-6 ring-0">
             <div className="flex flex-col gap-3">
               <div className="flex flex-row items-start gap-3">
@@ -33,7 +33,6 @@ const ReviewThankYouPage = () => {
                     />
                     <AvatarFallback>ZS</AvatarFallback>
                   </Avatar>
-
                   <div className="flex flex-col gap-1">
                     <div className="flex flex-row items-center gap-2">
                       <p className="text-card-foreground text-lg leading-7 font-semibold">

@@ -7,7 +7,7 @@ export type { ProductCard } from "./ProductCard3D";
 
 const ProductCategory = ({ showView = true }) => {
   return (
-    <section className="wrapper py-14 md:py-14">
+    <section className="wrapper py-8 lg:py-14">
       <div className="mb-[57px] flex items-center gap-6">
         <div className="grow space-y-4">
           <h2 className="text-3xl font-semibold lg:text-4xl">Categories</h2>

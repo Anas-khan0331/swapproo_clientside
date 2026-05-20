@@ -10,8 +10,10 @@ interface CheckoutSummarySectionProps {
 
 export function CheckoutSummarySection({ name, price, img }: CheckoutSummarySectionProps) {
   return (
-    <div className="flex w-[432px] flex-col gap-6">
-      <ProductSummary name={name} price={price} img={img} />
+    <div className="flex flex-col gap-6 md:max-w-full">
+      <div className="hidden lg:block">
+        <ProductSummary name={name} price={price} img={img} />
+      </div>
       <FeaturesList />
     </div>
   );

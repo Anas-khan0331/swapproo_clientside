@@ -6,7 +6,7 @@ const Blog = () => {
     <section className="wrapper pt-12 pb-20 lg:py-24">
       <div className="">
         <div className="">
-          <h2 className="text-4xl font-semibold">
+          <h2 className="text-2xl font-semibold lg:text-4xl">
             Build Better Products with Insights & Inspiration.
           </h2>
           <p className="text-muted-foreground mt-4 text-xl">

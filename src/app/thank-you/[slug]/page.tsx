@@ -1,6 +1,8 @@
 import ThankYouPage from "@/features/thank-you/index";
+import type { ThankYouPageProps } from "./types";
 
-export default async function ThankYouPageRoute({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ThankYouPageRoute({ params, searchParams }: ThankYouPageProps) {
   const { slug } = await params;
-  return <ThankYouPage slug={slug} />;
+  const { storage, network, condition } = await searchParams;
+  return <ThankYouPage slug={slug} storage={storage} network={network} condition={condition} />;
 }

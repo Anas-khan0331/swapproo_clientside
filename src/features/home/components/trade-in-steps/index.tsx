@@ -11,12 +11,12 @@ const TradeInSteps = () => {
         {TRADE_IN_STEPS.map((step) => (
           <div
             key={step.id}
-            className="flex flex-col items-center gap-5 rounded-xl px-20 text-center md:px-0"
+            className="flex flex-col items-center gap-5 rounded-xl px-12 text-center md:px-0"
           >
             <div className="flex h-12 w-12 items-center justify-center rounded-xl">
               <Image src={step.icon} alt={step.title} width={48} height={48} />
             </div>
-            <div className="flex max-w-[256px] flex-col gap-2">
+            <div className="flex w-full flex-col gap-2 text-center lg:max-w-[256px]">
               <h3 className="text-xl leading-7 font-semibold tracking-normal">{step.title}</h3>
               <p className="text-foreground text-base leading-6 font-normal tracking-normal">
                 {step.description}

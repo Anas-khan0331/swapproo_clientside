@@ -17,7 +17,7 @@ export type ProductCard = {
 const ProductCard3D = ({ item }: { item: ProductCard[number] }) => {
   return (
     <div style={{ height: "286px" }} className="relative">
-      <Link href={`/category/${item.productLink}`} className="block">
+      <Link href={`/category/${item.productLink}`} className="block h-full">
         <Card
           className={cn(
             "bg-neutral-075 group absolute inset-x-0 top-0 overflow-visible rounded-xl border-2 border-transparent ring-0 transition-[height,border-color] duration-300 hover:border-neutral-900/40",

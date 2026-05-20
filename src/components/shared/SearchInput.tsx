@@ -12,13 +12,21 @@ export function SearchInput({
   placeholder = "Search",
   id = "header-search",
   className,
-}: SearchInputProps) {
+  isMobile = false,
+  autoFocus = false,
+}: SearchInputProps & { isMobile?: boolean; autoFocus?: boolean }) {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (autoFocus) {
+      setTimeout(() => inputRef.current?.focus(), 50);
+    }
+  }, [autoFocus]);
 
   const filtered = query.trim()
     ? SUGGESTIONS.filter((s) => s.label.toLowerCase().includes(query.toLowerCase()))
@@ -80,12 +88,16 @@ export function SearchInput({
         className={cn(
           "h-10 overflow-hidden py-3 pr-1 pl-[2px]",
           showDropdown &&
+            !isMobile &&
             "border-neutral-150 has-[[data-slot=input-group-control]:focus-visible]:border-neutral-150 rounded-b-none has-[[data-slot=input-group-control]:focus-visible]:ring-0",
           !showDropdown && "border-primary-500",
         )}
       >
         {!query && (
-          <InputGroupAddon align="inline-end" className="pr-2">
+          <InputGroupAddon
+            align={isMobile ? "inline-start" : "inline-end"}
+            className={isMobile ? "pl-3" : "pr-2"}
+          >
             <span className="text-muted-foreground flex items-center">
               <SearchNormal1 size="16" className="shrink-0" />
             </span>
@@ -118,9 +130,20 @@ export function SearchInput({
         )}
       </InputGroup>
       {showDropdown && (
-        <div className="bg-background border-border absolute top-full left-0 z-50 max-h-[448px] w-full min-w-[320px] overflow-auto rounded-t-none rounded-b-lg border border-t-0 text-start shadow-lg">
+        <div
+          className={cn(
+            "bg-background border-border z-50 overflow-auto text-start shadow-lg",
+            isMobile
+              ? "fixed inset-0 top-20 right-0 bottom-0 left-0"
+              : "absolute top-full left-0 max-h-[448px] w-full rounded-t-none rounded-b-lg border border-t-0",
+          )}
+        >
           {filtered.length > 0 ? (
-            <ul role="listbox" className="px-2 py-1" onMouseLeave={() => setActiveIndex(-1)}>
+            <ul
+              role="listbox"
+              className={cn(isMobile ? "px-2 py-3" : "px-2 py-1")}
+              onMouseLeave={() => setActiveIndex(-1)}
+            >
               {filtered.map((item, i) => (
                 <li
                   key={item.id}
@@ -132,9 +155,14 @@ export function SearchInput({
                     navigate(item.label);
                   }}
                   className={cn(
-                    "text-foreground cursor-pointer rounded-xl p-3 text-sm transition-colors",
-                    "hover:bg-neutral-075 hover:rounded-md",
-                    activeIndex >= 0 && i === activeIndex && "bg-neutral-075 rounded-md",
+                    "text-foreground cursor-pointer transition-colors",
+                    isMobile
+                      ? "hover:bg-neutral-075 px-2 py-3 text-base hover:rounded-md"
+                      : "hover:bg-neutral-075 rounded-xl p-3 text-sm hover:rounded-md",
+                    !isMobile &&
+                      activeIndex >= 0 &&
+                      i === activeIndex &&
+                      "bg-neutral-075 rounded-md",
                   )}
                 >
                   {item.label}
@@ -142,8 +170,8 @@ export function SearchInput({
               ))}
             </ul>
           ) : (
-            <div className="flex items-center justify-center py-12">
-              <p className="text-foreground text-4xl font-semibold">Not found</p>
+            <div className={cn("flex items-center justify-center", isMobile ? "py-12" : "py-12")}>
+              <p className={cn("font-semibold", isMobile ? "text-2xl" : "text-4xl")}>Not found</p>
             </div>
           )}
         </div>

@@ -7,13 +7,14 @@ export interface TradeIn {
   status: "processing" | "shipped" | "delivered" | "inspection" | "approved" | "paid";
   orderDate: string;
   shippingAddress: {
-    fullName: string;
-    address: string;
-    city: string;
-    postalCode: string;
-    country: string;
+    from: string;
+    to: string;
+    via: string;
+    parcelNumber: string;
   };
   personalInfo: {
+    name: string;
+    address: string;
     email: string;
     phone: string;
   };
@@ -34,13 +35,14 @@ export const TRADE_INS: TradeIn[] = [
     status: "inspection",
     orderDate: "2024-01-15",
     shippingAddress: {
-      fullName: "John Doe",
-      address: "123 Main Street",
-      city: "London",
-      postalCode: "SW1A 1AA",
-      country: "United Kingdom",
+      from: "1 Beehive Road, Bolton, BL32GD, United Kingdom",
+      to: "Mobile Direct, 85 Bury New Road, United Kingdom",
+      via: "Royal Mail",
+      parcelNumber: "FC12345678900GB",
     },
     personalInfo: {
+      name: "John Doe",
+      address: "1 Beehive Road, Bolton, BL32GD, United Kingdom",
       email: "john.doe@example.com",
       phone: "+44 20 1234 5678",
     },
@@ -59,13 +61,14 @@ export const TRADE_INS: TradeIn[] = [
     status: "delivered",
     orderDate: "2024-01-10",
     shippingAddress: {
-      fullName: "Jane Smith",
-      address: "456 Oak Avenue",
-      city: "Manchester",
-      postalCode: "M1 1AA",
-      country: "United Kingdom",
+      from: "456 Oak Avenue, Manchester, M1 1AA, United Kingdom",
+      to: "Mobile Direct, 85 Bury New Road, United Kingdom",
+      via: "Royal Mail",
+      parcelNumber: "FC98765432100GB",
     },
     personalInfo: {
+      name: "Jane Smith",
+      address: "456 Oak Avenue, Manchester, M1 1AA, United Kingdom",
       email: "jane.smith@example.com",
       phone: "+44 161 1234 5678",
     },

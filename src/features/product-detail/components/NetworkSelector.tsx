@@ -10,7 +10,7 @@ export function NetworkSelector({ network, setNetwork }: NetworkSelectorProps) {
   return (
     <div className="flex flex-col gap-3">
       <h2 className="text-foreground text-xl font-semibold">Network</h2>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-3 lg:grid-cols-2">
         {NETWORK_OPTIONS.slice(0, 4).map((opt) => (
           <RadioOption
             key={opt.value}

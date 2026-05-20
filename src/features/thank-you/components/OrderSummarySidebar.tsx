@@ -15,7 +15,7 @@ interface OrderSummarySidebarProps {
 const OrderSummarySidebar = ({ product }: OrderSummarySidebarProps) => {
   return (
     <div className="flex flex-col gap-6">
-      <div className="border-neutral-150 flex flex-col gap-3 border-b py-4">
+      <div className="border-neutral-150 hidden flex-col gap-3 border-b py-4 lg:flex">
         <div className="flex flex-row items-center gap-2">
           <div className="bg-muted flex size-24 items-center justify-center rounded-lg">
             <Image

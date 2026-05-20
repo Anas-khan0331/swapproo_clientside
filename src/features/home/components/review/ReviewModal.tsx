@@ -1,3 +1,5 @@
+"use client";
+
 import Show from "@/components/common/show";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import Image from "next/image";

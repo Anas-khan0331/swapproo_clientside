@@ -11,7 +11,7 @@ const FAQSection = () => {
     <div className="bg-neutral-025 px-4 md:px-8">
       <section className="py-12 md:px-20 md:py-24">
         <div className="mb-12 flex flex-col gap-4 text-center md:mb-24">
-          <h2 className="text-foreground text-4xl leading-8 font-semibold tracking-normal md:leading-10">
+          <h2 className="text-foreground text-2xl leading-8 font-semibold tracking-normal md:leading-10 lg:text-4xl">
             Need Help? We&apos;ve Got Answers
           </h2>
           <p className="text-neutral-125 text-xl leading-7 font-normal tracking-normal md:leading-8">

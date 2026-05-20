@@ -18,7 +18,7 @@ const ProductHeading = ({ productName, img, headingLabel, price }: ProductHeadin
           <h1 className="text-foreground text-2xl leading-8">
             <ProductHeadingLabel label={headingLabel} />
           </h1>
-          <p className="text-primary-600 text-4xl leading-10 font-bold">{price}</p>
+          <p className="text-primary-600 text-3xl leading-10 font-semibold lg:text-4xl">{price}</p>
         </div>
       </div>
     </div>
@@ -29,10 +29,10 @@ function ProductHeadingLabel({ label }: { label: string }) {
   const [name, ...specs] = label.split(" | ");
 
   return (
-    <>
-      <span className="font-semibold">{name}</span>
-      {specs.length > 0 && <span className="font-normal">{" | " + specs.join(" | ")}</span>}
-    </>
+    <span className="flex flex-col gap-0.5">
+      <span className="text-xl font-semibold lg:text-2xl">{name}</span>
+      {specs.length > 0 && <span className="text-lg font-normal">{specs.join(" | ")}</span>}
+    </span>
   );
 }
 

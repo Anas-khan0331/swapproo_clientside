@@ -49,7 +49,7 @@ export const FooterCTA = () => {
           Get started free
         </Button>
       </div>
-      <div className="flex items-center justify-center gap-3 pt-1 md:justify-start">
+      <div className="flex items-center justify-center gap-3 pt-0 pb-6 md:justify-start lg:pb-0">
         {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
           <a
             key={label}

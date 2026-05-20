@@ -13,8 +13,8 @@ const TrackTradeInForm = () => {
   };
 
   return (
-    <div className="bg-background mb-100 flex flex-col items-center gap-8 pt-8 pb-10">
-      <div className="mx-auto w-full max-w-7xl px-8">
+    <div className="bg-background flex flex-col items-center gap-8 py-8 lg:mb-100 lg:pt-8 lg:pb-10">
+      <div className="mx-auto w-full px-4 lg:max-w-7xl lg:px-8">
         <div className="flex flex-col justify-center gap-6 lg:flex-row">
           <div className="flex flex-1 flex-col gap-6">
             <TrackingForm onSubmit={handleSubmit} />

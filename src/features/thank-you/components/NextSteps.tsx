@@ -8,7 +8,7 @@ const NextSteps = () => {
       <div className="flex flex-col gap-4">
         <h2 className="text-foreground text-xl leading-7 font-semibold">What Happens Next?</h2>
         <div className="flex flex-col gap-4">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-2">
             {STEPS.map((step, index) => (
               <Card key={index} className="ring-neutral-150 rounded-xl p-6 shadow-sm">
                 <CardContent className="p-0">
@@ -29,8 +29,9 @@ const NextSteps = () => {
           </div>
         </div>
       </div>
-
-      <ActionButtons />
+      <div className="hidden lg:block">
+        <ActionButtons />
+      </div>
     </div>
   );
 };

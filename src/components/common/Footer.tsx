@@ -11,8 +11,8 @@ const Footer = () => {
         <FooterImage />
       </div>
       <div className="">
-        <footer className="wrapper bg-white py-6 lg:py-14">
-          <div className="grid grid-cols-12 gap-4 md:gap-8">
+        <footer className="wrapper bg-white py-0 lg:py-14">
+          <div className="grid grid-cols-12 gap-0 md:gap-8">
             <div className="col-span-12 md:col-span-4 lg:col-span-3">
               <FooterInfo title="Contact">
                 <div className="flex flex-col gap-3">
@@ -48,7 +48,7 @@ const Footer = () => {
             </div>
           </div>
         </footer>
-        <Separator className="mt-10 lg:mt-0" />
+        <Separator className="mt-0" />
         <div className="p-6">
           <p className="font-regular text-center text-base leading-6 text-neutral-950">
             © 2026 SWAPPROO. All rights reserved.

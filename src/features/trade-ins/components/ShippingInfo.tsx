@@ -8,13 +8,12 @@ interface ShippingInfoProps {
 export function ShippingInfo({ shippingAddress }: ShippingInfoProps) {
   return (
     <div className="p-6">
-      <p className="text-foreground mb-4 text-base font-bold">Shipping</p>
+      <p className="text-foreground mb-[14px] text-base font-bold lg:mb-4">Shipping</p>
       <div className="grid grid-cols-2 gap-5">
-        <InfoRow label="Full Name:" value={shippingAddress.fullName} />
-        <InfoRow label="Address:" value={shippingAddress.address} />
-        <InfoRow label="City:" value={shippingAddress.city} />
-        <InfoRow label="Postal Code:" value={shippingAddress.postalCode} />
-        <InfoRow label="Country:" value={shippingAddress.country} />
+        <InfoRow label="From:" value={shippingAddress.from} />
+        <InfoRow label="To:" value={shippingAddress.to} />
+        <InfoRow label="Via:" value={shippingAddress.via} />
+        <InfoRow label="Parcel number:" value={shippingAddress.parcelNumber} />
       </div>
     </div>
   );

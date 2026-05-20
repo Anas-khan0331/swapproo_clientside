@@ -10,7 +10,7 @@ export function StorageSelector({ storage, setStorage }: StorageSelectorProps) {
   return (
     <div className="flex flex-col gap-3">
       <h2 className="text-foreground text-xl font-semibold">Storage</h2>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-3 lg:grid-cols-2">
         {STORAGE_OPTIONS.map((opt) => (
           <RadioOption
             key={opt.value}

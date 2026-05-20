@@ -10,9 +10,16 @@ interface ProductSummaryProps {
     price: string;
   };
   productName: string;
+  storage?: string;
+  network?: string;
 }
 
-const ProductSummary = ({ selectedCondition, productName }: ProductSummaryProps) => {
+const ProductSummary = ({
+  selectedCondition,
+  productName,
+  storage,
+  network,
+}: ProductSummaryProps) => {
   const slug = toSlug(productName || "");
 
   if (!productName) {
@@ -20,15 +27,22 @@ const ProductSummary = ({ selectedCondition, productName }: ProductSummaryProps)
   }
 
   return (
-    <div className="flex w-[432px] shrink-0 flex-col gap-6">
+    <div className="flex w-full shrink-0 flex-col gap-4 lg:gap-6">
       <ConditionDetails selectedCondition={selectedCondition} />
       <OfferPrice price={selectedCondition.price} />
-      <Show when={!!slug}>
-        <SellDeviceButton slug={slug} />
-      </Show>
-      <Show when={!slug}>
-        <SellDeviceButtonDisabled />
-      </Show>
+      <div className="hidden lg:block">
+        <Show when={!!slug}>
+          <SellDeviceButton
+            slug={slug}
+            storage={storage}
+            network={network}
+            condition={selectedCondition.label}
+          />
+        </Show>
+        <Show when={!slug}>
+          <SellDeviceButtonDisabled />
+        </Show>
+      </div>
     </div>
   );
 };

@@ -1,3 +1,5 @@
+"use client";
+
 import Show from "@/components/common/show";
 
 interface RadioOptionProps {

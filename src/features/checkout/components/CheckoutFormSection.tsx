@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import PersonalInformationForm from "./PersonalInformationForm";
 import AddressForm from "./AddressForm";
@@ -17,12 +19,14 @@ export function CheckoutFormSection({ onSubmit }: CheckoutFormSectionProps) {
         <PostageSelection />
         <PaymentSelection />
       </div>
-      <Button
-        className="bg-foreground hover:bg-foreground/80 h-12 w-full text-sm font-semibold"
-        onClick={onSubmit}
-      >
-        Place Trade-in
-      </Button>
+      <div className="hidden lg:block">
+        <Button
+          className="bg-foreground hover:bg-foreground/80 h-12 w-full text-sm font-semibold"
+          onClick={onSubmit}
+        >
+          Place Trade-in
+        </Button>
+      </div>
     </div>
   );
 }
