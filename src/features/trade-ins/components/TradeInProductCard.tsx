@@ -25,20 +25,22 @@ export function TradeInProductCard({
         <p className="text-foreground text-2xl leading-8 font-semibold">Trade in #{tradeIn.id}</p>
       </div>
       <div className="flex flex-col items-start justify-between gap-5 px-0 xl:flex-row xl:items-center">
-        <div className="flex items-center gap-2">
-          <div className="h-34 w-34 shrink-0 overflow-hidden">
+        <div className="flex items-start gap-2">
+          <div className="h-34 w-34 shrink-0 overflow-hidden lg:h-20 lg:w-20">
             <Image
               src={tradeIn.imageUrl}
               alt={tradeIn.deviceName}
-              width={136}
-              height={136}
-              className="object-cover"
+              width={80}
+              height={80}
+              className="h-34 w-34 object-cover lg:h-20 lg:w-20"
             />
           </div>
           <div className="flex flex-col gap-2">
-            <p className="text-foreground text-lg font-semibold">
+            <p className="text-foreground text-lg font-semibold lg:text-2xl">
               <span className="font-bold">{tradeIn.deviceName}</span>{" "}
-              <span className="text-muted-foreground font-normal">| {tradeIn.deviceSpecs}</span>
+              <span className="text-muted-foreground text-xl font-normal lg:text-2xl">
+                | {tradeIn.deviceSpecs}
+              </span>
             </p>
             <p className="text-primary-600 mt-0.5 text-2xl font-bold">£{tradeIn.price}</p>
           </div>
