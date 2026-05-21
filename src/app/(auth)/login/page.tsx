@@ -45,7 +45,7 @@ export default function LoginPage() {
 
   return (
     <AuthLayout>
-      <AuthCard className="min-w-[520px]">
+      <AuthCard className="w-full lg:min-w-[520px]">
         <AuthLogo />
         <h6 className="my-6 text-2xl leading-8 font-semibold tracking-normal">Login / Register</h6>
         <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>

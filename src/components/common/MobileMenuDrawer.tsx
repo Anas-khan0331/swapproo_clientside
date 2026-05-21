@@ -22,12 +22,12 @@ export function MobileMenuDrawer({ isOpen, onClose }: MobileMenuDrawerProps) {
 
   return (
     <div
-      className={`fixed top-20 right-0 bottom-0 left-0 z-50 flex flex-col transition-transform duration-300 ease-in-out lg:hidden ${
+      className={`fixed top-20 right-0 bottom-0 left-0 z-50 flex flex-col transition-transform duration-300 ease-in-out md:top-16 lg:hidden ${
         isOpen ? "translate-y-0" : "translate-y-full"
       }`}
     >
       {isOpen && (
-        <div className="absolute -top-3.5 right-5 z-10">
+        <div className="absolute -top-3.5 right-[19px] z-10 md:top-[-12px] md:right-[43px]">
           <svg width="29" height="25" viewBox="0 0 29 25" fill="none">
             <path d="M14.2893 0L28.5787 24.75H-0.000112534L14.2893 0Z" fill="white" />
           </svg>
@@ -47,7 +47,7 @@ export function MobileMenuDrawer({ isOpen, onClose }: MobileMenuDrawerProps) {
               <li key={category.name}>
                 <button
                   onClick={() => setActiveCategory(category)}
-                  className="text-muted-foreground hover:bg-neutral-075 flex w-full items-center justify-between rounded-md px-2 py-3 text-base font-medium transition-colors"
+                  className="text-muted-foreground flex w-full items-center justify-between py-3 text-base font-medium"
                 >
                   <span>{category.name}</span>
                   <ArrowRight2 size={20} color="#171717" />
@@ -93,7 +93,7 @@ export function MobileMenuDrawer({ isOpen, onClose }: MobileMenuDrawerProps) {
                 <Link
                   href={item.href}
                   onClick={handleClose}
-                  className="hover:bg-neutral-075 block rounded-md px-2 py-3.5 text-base text-neutral-600 transition-colors"
+                  className="block py-3.5 text-base text-neutral-600"
                 >
                   {item.title}
                 </Link>

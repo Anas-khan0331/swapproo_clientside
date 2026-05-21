@@ -36,7 +36,7 @@ const PaymentSelection = () => {
               } ${
                 index === 0
                   ? "rounded-t-[10px]"
-                  : index === PAYMENT_OPTIONS.length - 1
+                  : index === PAYMENT_OPTIONS.length - 1 && selectedPayment !== opt.value
                     ? "rounded-b-[10px]"
                     : ""
               }`}
@@ -62,6 +62,11 @@ const PaymentSelection = () => {
                 <Input placeholder="Account Title*" className="h-10 w-full" />
                 <Input placeholder="Account Number*" className="h-10 w-full" />
                 <Input placeholder="Sort Code*" className="h-10 w-full" />
+              </div>
+            )}
+            {opt.value === "paypal" && selectedPayment === "paypal" && (
+              <div className="border-neutral-975 flex flex-col gap-4 overflow-hidden rounded-b-lg border-x border-b bg-neutral-50 p-3">
+                <Input placeholder="PayPal Email*" type="email" className="h-10 w-full" />
               </div>
             )}
           </div>

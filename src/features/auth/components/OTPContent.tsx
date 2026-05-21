@@ -35,7 +35,7 @@ function OTPForm() {
 
   return (
     <AuthLayout>
-      <AuthCard className="min-w-full sm:min-w-[430px]">
+      <AuthCard className="min-w-full lg:min-w-[430px]">
         <AuthLogo />
         <div>
           <h6 className="mb-2 text-2xl leading-8 font-semibold tracking-normal">OTP</h6>

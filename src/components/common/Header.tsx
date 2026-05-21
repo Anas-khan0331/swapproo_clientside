@@ -37,7 +37,6 @@ const Property1Default = ({ className, showSearch = false }: HeaderProps) => {
   return (
     <div className={className || ""}>
       <header className="wrapper bg-primary-600 h-20 border-b border-white/10 py-5 md:h-16 md:py-3">
-        {/* Mobile layout */}
         <div className="flex items-center justify-between gap-4 lg:hidden">
           {searchOpen ? (
             <div className="flex flex-1 items-center gap-3">
@@ -90,11 +89,8 @@ const Property1Default = ({ className, showSearch = false }: HeaderProps) => {
             </>
           )}
         </div>
-
-        {/* Desktop layout: 6-6 grid */}
-        <div className="hidden gap-0 lg:grid lg:grid-cols-12 lg:items-center xl:gap-8">
-          {/* Col 1 (span 6): Logo + Search */}
-          <div className="col-span-8 flex items-center gap-8">
+        <div className="hidden gap-0 md:gap-3 lg:grid lg:grid-cols-12 lg:items-center xl:gap-8">
+          <div className="flex items-center gap-8 md:col-span-6! lg:col-span-7!">
             <Link href="/" className="shrink-0">
               <Image
                 src={logo}
@@ -102,27 +98,31 @@ const Property1Default = ({ className, showSearch = false }: HeaderProps) => {
                 width={201}
                 height={36}
                 priority
-                className="lg:w-[201px]"
+                className="sm:w-[199px]! lg:w-[201px]"
               />
             </Link>
             {showSearch && (
-              <SearchInput className="w-[464px]" id="header-search" placeholder="Search" />
+              <SearchInput
+                className="md:w-[250px] lg:w-[464px]!"
+                id="header-search"
+                placeholder="Search"
+              />
             )}
           </div>
-          <div className="col-span-4 flex items-center">
-            <div className="flex items-center gap-12">
+          <div className="flex items-center justify-end md:col-span-6! lg:col-span-5!">
+            <div className="flex items-center gap-12 md:gap-4 xl:gap-12">
               {links.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="flex items-center gap-2 text-base leading-6 font-light tracking-normal text-white capitalize transition-opacity hover:opacity-80"
+                  className="flex items-center gap-2 leading-6 font-light tracking-normal text-white capitalize transition-opacity hover:opacity-80 md:text-sm lg:text-base"
                 >
                   {link.icon && <span className="shrink-0">{link.icon}</span>}
                   <span className="text-nowrap">{link.label}</span>
                 </Link>
               ))}
             </div>
-            <div className="ml-4 flex items-center gap-4">
+            <div className="ml-4 flex items-center gap-4 md:gap-2 xl:gap-4">
               <span className="h-5 w-px bg-white" aria-hidden="true" />
               <UserDropdown />
             </div>

@@ -29,15 +29,14 @@ export const ReviewModal = ({
   return (
     <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
       <DialogContent
-        className="gap-0 overflow-visible rounded-2xl border-0 p-0 shadow-xl ring-0 sm:max-w-none"
+        className="h-[676px] w-[392px] gap-0 overflow-visible rounded-2xl border-0 p-0 shadow-xl ring-0 sm:h-auto sm:max-h-[90dvh] sm:w-[min(998px,95vw)] sm:max-w-none lg:h-[571px] lg:w-[998px]"
         showCloseButton={false}
         backdropClassName="bg-black/50"
-        style={{ width: "min(998px, 95vw)", maxWidth: "95vw", height: "auto", maxHeight: "90vh" }}
         onInteractOutside={(e) => e.preventDefault()}
       >
         <DialogTitle className="sr-only">{""}</DialogTitle>
         <div className="flex h-full w-full flex-col overflow-hidden rounded-2xl md:flex-row">
-          <div className="relative h-[280px] w-full shrink-0 overflow-hidden md:h-auto md:w-[50%]">
+          <div className="relative h-[449px] w-full shrink-0 overflow-hidden md:h-auto md:w-[50%]">
             <video
               key={review.id}
               src={review.url}
@@ -46,7 +45,7 @@ export const ReviewModal = ({
               playsInline
             />
           </div>
-          <div className="flex w-full flex-col gap-4 overflow-y-auto bg-white p-6 md:w-[50%]">
+          <div className="flex w-full flex-1 flex-col gap-4 overflow-y-auto bg-white p-6 md:w-[50%]">
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
                 <div className="relative h-10 w-10 overflow-hidden rounded-full bg-neutral-200">
@@ -73,7 +72,7 @@ export const ReviewModal = ({
           onClick={onPrev}
           disabled={activeIndex === 0}
           variant="ghost"
-          className="absolute top-1/2 left-[-22px] z-10 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white shadow-md ring-2 ring-neutral-400/50 transition hover:bg-neutral-50 disabled:cursor-not-allowed disabled:opacity-30"
+          className="absolute top-1/2 left-[-10px] z-10 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white shadow-md ring-2 ring-neutral-400/50 transition hover:bg-neutral-50 disabled:cursor-not-allowed disabled:opacity-30 lg:left-[-22px]"
           aria-label="Previous"
         >
           <ArrowLeft2 size={24} color="#111" />
@@ -82,14 +81,14 @@ export const ReviewModal = ({
           onClick={onNext}
           disabled={activeIndex === reviews.length - 1}
           variant="ghost"
-          className="absolute top-1/2 right-[-22px] z-10 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white shadow-md ring-2 ring-neutral-400/50 transition hover:bg-neutral-50 disabled:cursor-not-allowed disabled:opacity-30"
+          className="absolute top-1/2 right-[-10px] z-10 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white shadow-md ring-2 ring-neutral-400/50 transition hover:bg-neutral-50 disabled:cursor-not-allowed disabled:opacity-30 lg:right-[-22px]"
           aria-label="Next"
         >
           <ArrowRight2 size={24} color="#111" />
         </Button>
         <button
           onClick={onClose}
-          className="absolute top-0 -right-12 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-transparent transition"
+          className="absolute top-[-40px] right-0 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-transparent transition lg:top-0 lg:-right-12"
           aria-label="Close"
         >
           <CloseCircle size={24} color="#fff" />

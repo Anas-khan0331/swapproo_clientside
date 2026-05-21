@@ -28,7 +28,7 @@ const ProductOverview = ({ productName, img }: ProductOverviewProps) => {
   const headingLabel = `${productName} | ${selectedStorage.label} | ${selectedNetwork.label} | ${selectedCondition.label}`;
 
   return (
-    <div className="bg-background flex flex-col gap-8 pt-4 pb-8 lg:pb-10">
+    <div className="bg-background flex flex-col gap-8 pt-4 pb-8 lg:pb-20">
       <div className="w-full">
         <ProductHeading
           productName={productName}
