@@ -21,18 +21,18 @@ export function TradeInProductCard({
 }: TradeInProductCardProps) {
   return (
     <div className="flex flex-col gap-5 lg:gap-4">
-      <div className="block px-5 xl:hidden">
+      <div className="block px-0 xl:hidden">
         <p className="text-foreground text-2xl leading-8 font-semibold">Trade in #{tradeIn.id}</p>
       </div>
-      <div className="flex flex-col items-start justify-between gap-2 px-5 xl:flex-row xl:items-center">
+      <div className="flex flex-col items-start justify-between gap-2 px-0 xl:flex-row xl:items-center">
         <div className="flex flex-row items-center gap-4">
-          <div className="bg-muted relative h-20 w-20 overflow-hidden">
+          <div className="relative h-34 w-34 overflow-hidden">
             <Image
               src={tradeIn.imageUrl}
               alt={tradeIn.deviceName}
-              width={80}
-              height={80}
-              className="object-contain"
+              width={136}
+              height={136}
+              className=""
             />
           </div>
           <div className="flex flex-col gap-2">
