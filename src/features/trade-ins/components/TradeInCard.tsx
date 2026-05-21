@@ -43,7 +43,7 @@ export const TradeInCard = ({ tradeIn }: { tradeIn: TradeIn }) => {
 
   return (
     <Link href={`/trade-ins/${tradeIn.id}`}>
-      <div className="bg-background flex flex-col items-center justify-center pt-8">
+      <div className="bg-background mb-6 flex flex-col items-center justify-center pt-0">
         <div className="flex w-full flex-col gap-8 px-0">
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-4 rounded-[14px] border px-0 py-4">
@@ -78,7 +78,6 @@ export const TradeInCard = ({ tradeIn }: { tradeIn: TradeIn }) => {
                   ))}
                 </div>
               )}
-              {/* Desktop: always-visible Timeline */}
               <div className="hidden px-4 pb-2 xl:block">
                 <Timeline>
                   {steps.map((step, index) => (

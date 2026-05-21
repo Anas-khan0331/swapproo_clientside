@@ -38,12 +38,12 @@ export function TrackTradeInResults({ orderNumber }: TrackTradeInResultsProps) {
               <Image
                 src="https://picsum.photos/80/80"
                 alt="Product"
-                width={80}
-                height={80}
-                className="mr-2 size-16 shrink-0 object-contain lg:size-20"
+                width={136}
+                height={136}
+                className="mr-2 h-34 w-34 shrink-0 object-contain lg:size-20"
               />
               <div className="flex flex-col gap-2">
-                <h2 className="text-foreground text-2xl leading-6 lg:text-2xl lg:leading-8">
+                <h2 className="text-foreground text-xl leading-6 lg:text-2xl lg:leading-8">
                   <span className="font-semibold">Samsung Galaxy S25 Ultra</span>
                   <span className="text-xl font-normal"> | 256GB | Unlocked | Excellent</span>
                 </h2>
@@ -53,7 +53,7 @@ export function TrackTradeInResults({ orderNumber }: TrackTradeInResultsProps) {
               </div>
             </div>
 
-            <div className="mx-4 my-5 lg:px-4 lg:py-3">
+            <div className="mx-4 my-5 block md:hidden lg:px-4 lg:py-3">
               <Button
                 variant="outline"
                 className="h-10 w-full gap-2 bg-white! text-sm font-medium shadow-xs"
@@ -63,7 +63,7 @@ export function TrackTradeInResults({ orderNumber }: TrackTradeInResultsProps) {
               </Button>
             </div>
 
-            <Separator />
+            <Separator className="mt-0 md:mt-4" />
             <button
               onClick={() => setStepsExpanded((p) => !p)}
               className={`flex w-full items-center justify-between px-4 pt-3 ${stepsExpanded ? "pb-3" : "pb-0"} text-sm font-medium text-neutral-700 xl:hidden`}

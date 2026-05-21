@@ -24,15 +24,15 @@ export function TradeInProductCard({
       <div className="block px-0 xl:hidden">
         <p className="text-foreground text-2xl leading-8 font-semibold">Trade in #{tradeIn.id}</p>
       </div>
-      <div className="flex flex-col items-start justify-between gap-2 px-0 xl:flex-row xl:items-center">
-        <div className="flex flex-row items-center gap-4">
-          <div className="relative h-34 w-34 overflow-hidden">
+      <div className="flex flex-col items-start justify-between gap-5 px-0 xl:flex-row xl:items-center">
+        <div className="flex items-center gap-2">
+          <div className="h-34 w-34 shrink-0 overflow-hidden">
             <Image
               src={tradeIn.imageUrl}
               alt={tradeIn.deviceName}
               width={136}
               height={136}
-              className=""
+              className="object-cover"
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -62,7 +62,7 @@ export function TradeInProductCard({
           </Button>
         </div>
       </div>
-      <Separator />
+      {/* <Separator /> */}
       {/* Optional timeline */}
       {showTimeline && timelineSteps}
 

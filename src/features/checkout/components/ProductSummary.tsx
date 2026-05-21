@@ -15,9 +15,9 @@ const ProductSummary = ({ name, price, img }: ProductSummaryProps) => {
         <Image
           src={img}
           alt={name}
-          width={80}
-          height={80}
-          className="size-20 rounded-lg object-contain"
+          width={136}
+          height={136}
+          className="h-34 w-34 rounded-lg object-contain"
         />
       </div>
       <div className="flex flex-col gap-0.5">
