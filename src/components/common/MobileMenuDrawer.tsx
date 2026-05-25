@@ -54,6 +54,15 @@ export function MobileMenuDrawer({ isOpen, onClose }: MobileMenuDrawerProps) {
                 </button>
               </li>
             ))}
+            <li>
+              <Link
+                href="/blogs"
+                onClick={handleClose}
+                className="text-muted-foreground flex w-full items-center justify-between py-3 text-base font-medium"
+              >
+                <span>Blogs</span>
+              </Link>
+            </li>
           </ul>
 
           <div className="border-neutral-150 flex gap-3 border-t px-4 py-4 pb-8">

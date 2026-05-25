@@ -1,7 +1,7 @@
 import { HOME_BLOG_POSTS } from "@/features/home/constants";
 import { BlogGrid } from "./BlogGrid";
 
-const Blog = ({ blogPosts }: { blogPosts: typeof HOME_BLOG_POSTS }) => {
+const Blog = ({ blogPosts = HOME_BLOG_POSTS }: { blogPosts?: typeof HOME_BLOG_POSTS }) => {
   return (
     <section className="wrapper pt-12 pb-20 lg:py-24">
       <div className="">

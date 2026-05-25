@@ -8,7 +8,7 @@ export const COMPANY_LINKS = [
   { label: "About Swapproo", href: "#" },
   { label: "Contact us", href: "/contact" },
   { label: "Knowledge Base", href: "#" },
-  { label: "Blogs", href: "#" },
+  { label: "Blogs", href: "/blogs" },
 ];
 
 export const INFORMATION_LINKS = [

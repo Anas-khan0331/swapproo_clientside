@@ -29,6 +29,7 @@ const Property1Default = ({ className, showSearch = false }: HeaderProps) => {
   }
 
   const links = [
+    { label: "Blogs", href: "/blogs" },
     { label: "for Business", href: "/business" },
     { label: "Help", href: "/help" },
     { label: "Track", href: "/track-trade-in", icon: <Routing2 variant="Broken" size="24" /> },
