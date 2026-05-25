@@ -6,7 +6,7 @@ export const CONTACT = {
 
 export const COMPANY_LINKS = [
   { label: "About Swapproo", href: "#" },
-  { label: "Contact us", href: "#" },
+  { label: "Contact us", href: "/contact" },
   { label: "Knowledge Base", href: "#" },
   { label: "Blogs", href: "#" },
 ];

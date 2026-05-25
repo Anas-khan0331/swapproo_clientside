@@ -6,7 +6,9 @@ import { BusinessCTA } from "./components/cta";
 import { FAQSection } from "./components/faq";
 import { Blog } from "./components/blog";
 import WidgetSection from "./components/widget";
+import { HOME_BLOG_POSTS } from "./constants";
 
+export { Blog };
 export function HomePage() {
   return (
     <>
@@ -17,7 +19,7 @@ export function HomePage() {
       <ReviewSection />
       <BusinessCTA />
       <FAQSection />
-      <Blog />
+      <Blog blogPosts={HOME_BLOG_POSTS} />
     </>
   );
 }

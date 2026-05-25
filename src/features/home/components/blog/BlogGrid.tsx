@@ -3,12 +3,13 @@ import { BlogPost } from "@/features/home/types";
 import Image from "next/image";
 import Link from "next/link";
 import { DateSpan } from "./DateSpan";
+import { getBlogSlug } from "@/lib/utils";
 
 const BlogGrid = ({ posts }: { posts: BlogPost[] }) => {
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {posts?.map((post, index) => (
-        <Link href={post.blogLink} className="block h-full" key={index}>
+        <Link href={`/blogs/${getBlogSlug(post.title)}`} className="block h-full" key={index}>
           <Card className="group h-full overflow-hidden shadow-none transition-all duration-300">
             <CardContent className="space-y-3.5">
               <div className="mb-6 h-[238px] overflow-hidden rounded-lg">

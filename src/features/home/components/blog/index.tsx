@@ -1,7 +1,7 @@
 import { HOME_BLOG_POSTS } from "@/features/home/constants";
 import { BlogGrid } from "./BlogGrid";
 
-const Blog = () => {
+const Blog = ({ blogPosts }: { blogPosts: typeof HOME_BLOG_POSTS }) => {
   return (
     <section className="wrapper pt-12 pb-20 lg:py-24">
       <div className="">
@@ -14,7 +14,7 @@ const Blog = () => {
           </p>
         </div>
         <div className="mt-16">
-          <BlogGrid posts={HOME_BLOG_POSTS?.slice(0, 3)} />
+          <BlogGrid posts={blogPosts?.slice(0, 3)} />
         </div>
       </div>
     </section>

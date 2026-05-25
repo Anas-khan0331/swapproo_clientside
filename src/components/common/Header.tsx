@@ -63,10 +63,10 @@ const Property1Default = ({ className, showSearch = false }: HeaderProps) => {
                   width={201}
                   height={36}
                   priority
-                  className="sm:w-[200px] md:w-[300px]"
+                  className="w-[180px]! md:w-[300px]"
                 />
               </Link>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
                 {showSearch && (
                   <button onClick={() => setSearchOpen(true)} aria-label="Search">
                     <SearchNormal size={24} color="#fff" />
@@ -98,7 +98,7 @@ const Property1Default = ({ className, showSearch = false }: HeaderProps) => {
                 width={201}
                 height={36}
                 priority
-                className="sm:w-[199px]! lg:w-[201px]"
+                className="w-[180px] lg:w-[201px]"
               />
             </Link>
             {showSearch && (
