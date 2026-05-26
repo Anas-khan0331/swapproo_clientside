@@ -29,10 +29,14 @@ function ProductHeadingLabel({ label }: { label: string }) {
   const [name, ...specs] = label.split(" | ");
 
   return (
-    <span className="flex flex-col gap-0.5">
-      <span className="text-xl font-semibold lg:text-2xl">{name}</span>
-      {specs.length > 0 && <span className="text-lg font-normal">{specs.join(" | ")}</span>}
-    </span>
+    <div className="flex flex-col gap-0.5 lg:flex-row">
+      <span className="text-xl font-semibold lg:text-2xl">{name} </span>
+      {specs.length > 0 && (
+        <span className="ml-1 pt-0 text-xl font-normal lg:pt-[2px] lg:text-2xl">
+          | {specs.join(" | ")}
+        </span>
+      )}
+    </div>
   );
 }
 

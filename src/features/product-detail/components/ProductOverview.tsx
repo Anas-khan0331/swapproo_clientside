@@ -37,8 +37,8 @@ const ProductOverview = ({ productName, img }: ProductOverviewProps) => {
           price={selectedCondition.price}
         />
         <Separator />
-        <div className="grid w-full grid-cols-12 gap-6 pt-6 lg:gap-8 lg:pt-8">
-          <div className="col-span-12 lg:col-span-9 lg:border-r lg:pr-8">
+        <div className="grid w-full grid-cols-12 gap-6 pt-6 lg:gap-7 lg:pt-8">
+          <div className="col-span-12 lg:col-span-8 lg:border-r lg:pr-8">
             <ProductSelectors
               storage={storage}
               setStorage={setStorage}
@@ -61,7 +61,7 @@ const ProductOverview = ({ productName, img }: ProductOverviewProps) => {
               </Show>
             </div>
           </div>
-          <div className="col-span-12 lg:col-span-3">
+          <div className="col-span-12 lg:col-span-4">
             <ProductSummary
               selectedCondition={selectedCondition}
               productName={productName}

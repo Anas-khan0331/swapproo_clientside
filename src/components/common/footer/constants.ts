@@ -13,7 +13,7 @@ export const COMPANY_LINKS = [
 
 export const INFORMATION_LINKS = [
   { label: "Tracking", href: "#" },
-  { label: "Device Grading", href: "#" },
+  { label: "Device Grading", href: "/device-grading" },
   { label: "Sustainability", href: "#" },
   { label: "Insurance", href: "#" },
 ];

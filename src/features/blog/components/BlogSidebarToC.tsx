@@ -78,7 +78,7 @@ export function BlogSidebarToC({ tocItems }: BlogSidebarToCProps) {
   return (
     <aside className="hidden lg:col-span-4 lg:block">
       <div className="sticky top-36 max-h-[calc(100vh-120px)] overflow-y-auto py-0 pr-4">
-        <p className="text-foreground mb-4 text-sm font-bold tracking-wider uppercase">
+        <p className="text-foreground mb-4 text-base font-medium tracking-wider uppercase">
           On This Page
         </p>
         <nav className="relative">

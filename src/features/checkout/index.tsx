@@ -52,10 +52,10 @@ const Checkout = ({
           />
         </div>
         <div className="grid grid-cols-12 gap-6">
-          <div className="col-span-12 lg:col-span-9 lg:border-r lg:pr-6">
+          <div className="col-span-12 lg:col-span-8 lg:border-r lg:pr-6">
             <CheckoutFormSection onSubmit={handleSubmit} />
           </div>
-          <div className="col-span-12 lg:col-span-3">
+          <div className="col-span-12 lg:col-span-4">
             <CheckoutSummarySection name={headingLabel} price={product.price} img={product.img} />
           </div>
         </div>
