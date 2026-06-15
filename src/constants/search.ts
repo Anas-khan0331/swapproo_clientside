@@ -1,0 +1,15 @@
+export const SUGGESTIONS = [
+  { id: "iphone-15-pro-max", label: "iPhone 15 Pro Max" },
+  { id: "iphone-15-pro", label: "iPhone 15 Pro" },
+  { id: "iphone-15", label: "iPhone 15" },
+  { id: "iphone-14-pro-max", label: "iPhone 14 Pro Max" },
+  { id: "iphone-14-pro", label: "iPhone 14 Pro" },
+  { id: "iphone-14", label: "iPhone 14" },
+  { id: "iphone-13-pro-max", label: "iPhone 13 Pro Max" },
+  { id: "iphone-13-pro", label: "iPhone 13 Pro" },
+  { id: "iphone-13", label: "iPhone 13" },
+  { id: "samsung-galaxy-s24", label: "Samsung Galaxy S24" },
+  { id: "samsung-galaxy-s23", label: "Samsung Galaxy S23" },
+  { id: "macbook-pro", label: "MacBook Pro" },
+  { id: "ipad-pro", label: "iPad Pro" },
+];
