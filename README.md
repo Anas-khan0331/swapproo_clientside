@@ -10,8 +10,7 @@ A reverse marketplace where customers trade in devices and recyclers place bids.
 - **Language** — TypeScript
 - **Styling** — Tailwind CSS v4
 - **UI** — shadcn/ui
-- **State** — TanStack Query + Zustand
-- **i18n** — next-intl (EN, FR, AR)
+- **State** — RTK Query + Zod
 
 ---
 
